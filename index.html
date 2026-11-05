@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build" content="flow-v17"><title>Clayworks Client Journey</title>
+<meta name="build" content="flow-v20"><title>Clayworks Client Journey</title>
 <script>
 /* All step data lives here. Edit this object to polish steps. */
 const FLOW = {
@@ -9030,7 +9030,615 @@ const FLOW = {
 "7": "Stage 7 Say Goodbye bot"
 }
 },
-"build": "flow-v19"
+"build": "flow-v20",
+"runbook": {
+"title": "Onboarding runbook",
+"goal": "Contract signed / onboarding form submitted to first send. Make onboarding repeatable; measure time to first send before vs after.",
+"critical_path": "Inbox warm-up (at least 2 weeks) is the long pole. Start buying and warming inboxes on Day 0 at signing, in parallel with the form. Go-live is promised about 2 weeks after signing; warm-up minimum is 2 weeks before Joy presses Start (journey steps 18 and 32).",
+"milestones": [
+{
+"when": "Thu 5 Nov 2026",
+"what": "Joy shows Theo the polished onboarding automation workflow + repo docs (every step lined out, including Prosp webhook and calendar).",
+"owner": "Joy"
+},
+{
+"when": "Fri 6 Nov 2026",
+"what": "Theo walks Joy through the full system.",
+"owner": "Theo"
+},
+{
+"when": "Week of 9 Nov 2026",
+"what": "Target go-live for the runbook / onboarding automation.",
+"owner": "Joy + Theo"
+},
+{
+"when": "Ongoing",
+"what": "Onboarding form changes (Lovable / Hub form).",
+"owner": "Theo"
+}
+],
+"steps": [
+{
+"id": "rb01",
+"title": "Contract signed / onboarding form submitted",
+"journey": "13",
+"owner": "Client (Joy chases)",
+"who": "Person",
+"human_gate": true,
+"day_offset": "Day 0 / Week 1",
+"day_offset_source": "build.py setup steps: form Week 1; signing is the clock start",
+"notes": "Form is journey step 13 (8 sections + exclusion list). Clock for TTFS starts at contract signed or form submitted (see tracker definitions)."
+},
+{
+"id": "rb02",
+"title": "Create Hub tenant and CSM account",
+"journey": "12",
+"owner": "Joy / bot",
+"who": "Bot + Person",
+"human_gate": false,
+"day_offset": "Day 1 after signing",
+"day_offset_source": "build.py: Create the client's Hub space timing",
+"notes": "Stage = onboarding. Never delete the tenant."
+},
+{
+"id": "rb03",
+"title": "Setup items: Prosp webhook + calendar (and other easy-to-forget items)",
+"journey": "17",
+"owner": "Joy",
+"who": "Person",
+"human_gate": true,
+"day_offset": "Week 1",
+"day_offset_source": "build.py Easy to forget setup items; onboarding_checklist_proposal items 17 to 19",
+"notes": "Prosp webhook (Settings, Webhooks, LinkedIn Message Reply). Calendar + fixed meeting link per caller. Test reply reaches Hub; test booking works."
+},
+{
+"id": "rb04",
+"title": "Order inboxes and start warm-up (at least 2 weeks)",
+"journey": "18",
+"owner": "Theo, Joy",
+"who": "Person",
+"human_gate": true,
+"day_offset": "Start Day 0 / Week 1; warm at least 14 days",
+"day_offset_source": "build.py Order sending inboxes early + Joy launches gate 6",
+"notes": "CRITICAL PATH. Buy domains/inboxes on Joy's OK (gate 1). Warm at least 2 weeks before Start. Do not wait for the form to finish."
+},
+{
+"id": "rb05",
+"title": "Context file + Helper bot",
+"journey": "15",
+"owner": "Joy",
+"who": "Person",
+"human_gate": false,
+"day_offset": "Week 1",
+"day_offset_source": "build.py Record every call and make a context file",
+"notes": "Fireflies on, client folder, context file, Helper bot."
+},
+{
+"id": "rb06",
+"title": "Connect tools (Smartlead, Prosp, CloudTalk, CRM)",
+"journey": "16",
+"owner": "Joy, Theo; Client gives access",
+"who": "Person",
+"human_gate": true,
+"day_offset": "Week 1 to 2",
+"day_offset_source": "build.py Connect the tools",
+"notes": "LinkedIn / Prosp setup can be slow (one client took about 1.5 months)."
+},
+{
+"id": "rb07",
+"title": "Turn on signal tracking (optional)",
+"journey": "21",
+"owner": "Joy",
+"who": "Person",
+"human_gate": false,
+"day_offset": "Week 1 to 2",
+"day_offset_source": "build.py Turn on signal tracking",
+"notes": "Optional journey step 21. WhiteWhale key accounts."
+},
+{
+"id": "rb08",
+"title": "Client profile with deep research + campaign plan",
+"journey": "22",
+"owner": "Stage bot + Joy",
+"who": "Bot + Person",
+"human_gate": true,
+"day_offset": "Week 1",
+"day_offset_source": "build.py Client profile and campaign plan",
+"notes": "Deep research on the client (journey step 22). Human OK on plan buckets."
+},
+{
+"id": "rb09",
+"title": "Build lists (companies + people)",
+"journey": "23-25",
+"owner": "Stage bots + Joy",
+"who": "Bot + Person",
+"human_gate": false,
+"day_offset": "Week 1 to 2",
+"day_offset_source": "build.py Find companies/people timing",
+"notes": "Blitz then Pronto then LeadsForge. Hit-rate log per list."
+},
+{
+"id": "rb10",
+"title": "List QA + Claude blacklist check",
+"journey": "26",
+"owner": "Stage bot + Joy",
+"who": "Bot + Person",
+"human_gate": true,
+"day_offset": "Week 2",
+"day_offset_source": "build.py Check the list; onboarding_checklist_proposal blacklist gate",
+"notes": "Client Hub blacklist + Smartlead. Done when zero matches. Hard gate before lists leave."
+},
+{
+"id": "rb11",
+"title": "Write copy (Gemini then Claude)",
+"journey": "27",
+"owner": "Joy / Stage bot",
+"who": "Bot + Person",
+"human_gate": false,
+"day_offset": "Week 2",
+"day_offset_source": "build.py Write the messages tools: Gemini, Claude",
+"notes": "Emails and LinkedIn notes."
+},
+{
+"id": "rb12",
+"title": "QA the messages",
+"journey": "28",
+"owner": "Theo, Joy",
+"who": "Person",
+"human_gate": true,
+"day_offset": "Week 2",
+"day_offset_source": "build.py Check the messages gate (Theo; moving to Joy)",
+"notes": "Spam words, merge fields. Theo final OK today."
+},
+{
+"id": "rb13",
+"title": "Client approves the messages",
+"journey": "29",
+"owner": "Client",
+"who": "Person",
+"human_gate": true,
+"day_offset": "Week 2",
+"day_offset_source": "build.py Client approves the messages",
+"notes": "Journey step 29."
+},
+{
+"id": "rb14",
+"title": "Smartlead + Prosp draft (and phone list)",
+"journey": "30",
+"owner": "Joy / Stage bot",
+"who": "Bot + Person",
+"human_gate": true,
+"day_offset": "Week 2",
+"day_offset_source": "build.py Build the campaign as a draft + gate 5",
+"notes": "DRAFT only. Bots never press Start. Joy OK to create draft / add leads."
+},
+{
+"id": "rb15",
+"title": "Final pre-launch QA",
+"journey": "31",
+"owner": "Joy / Stage bot",
+"who": "Bot + Person",
+"human_gate": false,
+"day_offset": "End of week 2",
+"day_offset_source": "build.py Final check before launch",
+"notes": "Signatures, DNS, inbox health, small pilot send."
+},
+{
+"id": "rb16",
+"title": "Joy presses Start (first send)",
+"journey": "32",
+"owner": "Joy",
+"who": "Person",
+"human_gate": true,
+"day_offset": "About 2 weeks after signing (often later)",
+"day_offset_source": "build.py Joy launches timing + gate 6",
+"notes": "Only Joy presses Start. Mailboxes warmed at least 2 weeks. This is the TTFS end event for email."
+}
+]
+},
+"ttfs": {
+"as_of": "2026-11-05",
+"timezone_note": "Dates are calendar dates from API timestamps (UTC date portion of sent_time / ISO dates from Hub). Reported to Joy in Asia/Manila context; day counts are calendar-day differences.",
+"runbook_go_live": "2026-11-09",
+"runbook_go_live_note": "Week of 9 Nov 2026 target go-live from Clayworks ops card / 3 Nov sync. before = start_date < go-live.",
+"first_email_method": "Earliest Smartlead sent_time across that client's campaigns, from statistics endpoint sampled pages (not a full scan when total_stats > ~250). Closely matches prior page_meta for KMC/Prime; Variolytics/Odd Latent within 1 day of prior md notes.",
+"first_linkedin_method": "Not available read-only via Client Hub or box keys. Left blank (missing).",
+"baseline_before": {
+"n": 5,
+"clients": [
+"KMC",
+"Service First",
+"Odd Latent",
+"Prime Marketing",
+"Variolytics"
+],
+"days": [
+2,
+13,
+14,
+16,
+19
+],
+"median_days": 14,
+"range_days": [
+2,
+19
+]
+},
+"rows": [
+{
+"client": "KMC",
+"start_date": "2026-08-01",
+"start_definition": "Client Hub CSM contract_start",
+"start_source": "user-Client-Hub list_csm_accounts",
+"start_alt_notes": "Onboarding form submitted 2026-07-20 (clients/kmc.status.json evidence); not used as TTFS start",
+"first_email_sent": "2026-08-14",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 3789207,
+"campaign_name": "KMC - Bucket 1 - High Intent Signal List",
+"total_stats": 2074,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": 13,
+"before_after": "before",
+"csm_stage": "churned"
+},
+{
+"client": "Service First",
+"start_date": "2026-09-01",
+"start_definition": "Client Hub CSM contract_start",
+"start_source": "user-Client-Hub list_csm_accounts",
+"start_alt_notes": null,
+"first_email_sent": "2026-09-03",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 3889233,
+"campaign_name": "ServiceFirst - Bucket 1 - Sep 2026 - Competitor LinkedIn Followers",
+"total_stats": 5670,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": 2,
+"before_after": "before",
+"csm_stage": "live"
+},
+{
+"client": "Odd Latent",
+"start_date": "2026-09-09",
+"start_definition": "Client Hub CSM contract_start",
+"start_source": "user-Client-Hub list_csm_accounts",
+"start_alt_notes": "Agree.com signed 2026-08-26 (clients/odd-latent.status.json); TTFS from contract_start not signed",
+"first_email_sent": "2026-09-25",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 4006777,
+"campaign_name": "OddLatent - Bucket 2 - Sep 2026 - Top grossing, buying media, playable ready",
+"total_stats": 1887,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": 16,
+"before_after": "before",
+"csm_stage": "live"
+},
+{
+"client": "Prime Marketing",
+"start_date": "2026-04-22",
+"start_definition": "Agree.com contract signed date (CSM contract_start is null)",
+"start_source": "clients/prime-marketing.status.json + page_meta.json",
+"start_alt_notes": "CSM contract_start missing; form completed 2026-04-23 per same status file",
+"first_email_sent": "2026-05-06",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 3281295,
+"campaign_name": "Prime Marketing - Bucket 1.2 - Hiring - CEO/Founder ICP May 2026",
+"total_stats": 244,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": 14,
+"before_after": "before",
+"csm_stage": "churned"
+},
+{
+"client": "Sport Shield",
+"start_date": null,
+"start_definition": "missing",
+"start_source": "Client Hub CSM contract_start is null; no signed date in clients/; Fireflies search returned no Sport Shield kickoff",
+"start_alt_notes": "Should come from CSM contract_start or Agree.com / onboarding form submitted date",
+"first_email_sent": "2026-05-26",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 3397553,
+"campaign_name": "SportShield - Bucket 1 - Community Football Clubs - England",
+"total_stats": 2872,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": null,
+"before_after": "unknown",
+"csm_stage": "live"
+},
+{
+"client": "Variolytics",
+"start_date": "2026-02-25",
+"start_definition": "Client Hub CSM contract_start",
+"start_source": "user-Client-Hub list_csm_accounts",
+"start_alt_notes": null,
+"first_email_sent": "2026-03-16",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 3039770,
+"campaign_name": "Variolytics - Sweden - Bucket 1 - WWTP - ALL Ex OPPS",
+"total_stats": 2570,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": 19,
+"before_after": "before",
+"csm_stage": "live"
+},
+{
+"client": "Clayworks",
+"start_date": null,
+"start_definition": "missing (internal / own outbound - no client contract)",
+"start_source": "CSM contract_start null; Clayworks is the agency tenant",
+"start_alt_notes": "N/A for client TTFS; first Smartlead send is historical agency outbound",
+"first_email_sent": "2025-03-04",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 1615159,
+"campaign_name": "Clayworks - SDR Hiring / Founders & CEO's",
+"total_stats": 1876,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": null,
+"before_after": "unknown",
+"csm_stage": "onboarding"
+},
+{
+"client": "Silkhaus",
+"start_date": null,
+"start_definition": "missing",
+"start_source": "CSM contract_start null (stage churned)",
+"start_alt_notes": "Should come from CSM contract_start or contract/Agree.com",
+"first_email_sent": "2026-02-03",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 2880115,
+"campaign_name": "Silkhaus - Bucket 2 - UAE Relocation Hiring - UAE",
+"total_stats": 684,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": null,
+"before_after": "unknown",
+"csm_stage": "churned"
+},
+{
+"client": "Exchequer",
+"start_date": null,
+"start_definition": "missing",
+"start_source": "CSM contract_start null (stage renew); Smartlead campaigns named EXRM",
+"start_alt_notes": "Should come from CSM contract_start or contract",
+"first_email_sent": "2026-05-26",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 3362330,
+"campaign_name": "EXRM - Bucket 1.2 - Contract win - CFO's",
+"total_stats": 348,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": null,
+"before_after": "unknown",
+"csm_stage": "renew"
+},
+{
+"client": "Nestia",
+"start_date": null,
+"start_definition": "missing",
+"start_source": "CSM contract_start null (stage onboarding)",
+"start_alt_notes": "Should come from CSM contract_start or form submitted",
+"first_email_sent": "2026-01-26",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 2863444,
+"campaign_name": "Nestia - Bucket 1 - Facilities / Engineering",
+"total_stats": 307,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": null,
+"before_after": "unknown",
+"csm_stage": "onboarding"
+},
+{
+"client": "Mu Motion",
+"start_date": null,
+"start_definition": "missing",
+"start_source": "CSM contract_start null (stage onboarding)",
+"start_alt_notes": "Should come from CSM contract_start or form submitted",
+"first_email_sent": "2025-05-13",
+"first_email_source": {
+"method": "Smartlead API /campaigns/{id}/statistics min(sent_time) over sampled pages (offset 0, mid, last; up to 100 each)",
+"campaign_id": 1805881,
+"campaign_name": "Mu Motion / Actively Hiring / Video Editor",
+"total_stats": 344,
+"sample_n": 250,
+"note": "min of sampled statistics pages (first/mid/last up to 100); not full scan if total_stats huge",
+"api": "SMARTLEAD_API_KEY on box env"
+},
+"first_linkedin": null,
+"first_linkedin_note": "missing - Client Hub synced Prosp/LinkedIn campaigns have no first_sent_at/started_at; platform_created_at also absent. Hub created_at is sync time, not first LinkedIn message. Should come from Prosp campaign analytics or a Hub field once exposed.",
+"days_elapsed": null,
+"before_after": "unknown",
+"csm_stage": "onboarding"
+}
+],
+"missing_summary": [
+{
+"client": "KMC",
+"missing": [
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Service First",
+"missing": [
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Odd Latent",
+"missing": [
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Prime Marketing",
+"missing": [
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Sport Shield",
+"missing": [
+"start_date",
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Variolytics",
+"missing": [
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Clayworks",
+"missing": [
+"start_date",
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Silkhaus",
+"missing": [
+"start_date",
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Exchequer",
+"missing": [
+"start_date",
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Nestia",
+"missing": [
+"start_date",
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+},
+{
+"client": "Mu Motion",
+"missing": [
+"start_date",
+"first_linkedin"
+],
+"where_from": {
+"start_date": "Client Hub CSM contract_start or Agree.com / onboarding form submitted",
+"first_email": "Smartlead campaign statistics sent_time",
+"first_linkedin": "Prosp first message timestamp (not in Hub synced campaigns today)"
+}
+}
+]
+}
 };
 </script>
 <style>
@@ -9159,9 +9767,33 @@ table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}td,th{b
 .botsmap table{min-width:920px}
 .botsmap th{white-space:nowrap}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+
+.runbox{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fff}
+.runbox h3{margin:0 0 8px;font-size:16px}
+.crit{background:#fff7ed;border-left:4px solid #ea580c;padding:10px 12px;border-radius:8px;margin:10px 0;font-size:14px}
+.miles{display:grid;gap:8px;margin:10px 0}
+.mile{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#f8fafc;font-size:13px}
+.mile b{display:block;margin-bottom:2px}
+.rbtable{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.rbtable th,.rbtable td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.rbtable th{background:#f3f4f6;font-size:11px;color:var(--mut);text-transform:uppercase}
+.rbtable tr.critrow{background:#fff7ed}
+.gatepill{display:inline-block;font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;border-radius:999px;padding:1px 7px;margin-left:4px}
+.ownerpill{display:inline-block;font-size:11px;font-weight:600;border-radius:999px;padding:1px 7px;margin-right:4px}
+.ownerpill.bot{background:#eef2ff;color:#3730a3}
+.ownerpill.peo{background:#fef3c7;color:#92400e}
+.ttfs-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin:10px 0}
+.ttfs-tools label{display:flex;flex-direction:column;font-size:11px;color:var(--mut);gap:2px}
+.ttfs-tools input,.ttfs-tools select{padding:6px 8px;border:1px solid var(--line);border-radius:6px;font-size:13px;min-width:110px}
+.ttfs-tools button{padding:7px 12px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-weight:600;cursor:pointer}
+.flag-before{color:#166534;font-weight:700}
+.flag-after{color:#1d4ed8;font-weight:700}
+.flag-unknown{color:#6b7280}
+.missing{color:#b45309;font-style:italic}
+.basebox{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:14px}
 </style></head><body>
 <header><h1>Clayworks Client Journey</h1><p>Every step a client goes through with us, from the first call to goodbye, and how the bots build each campaign. Tap any step for the full explanation and how-to. A blue tag means a bot helps. A lock means someone must say yes first.</p><p style="margin-top:6px"><a href="clients/index.html">See each client's checklist &rarr;</a></p><p class="mark" style="margin-top:6px">Build <span id="bmark"></span></p></header>
-<div class="tabs" id="tabs"><button data-v="journey" class="on">Client journey</button><button data-v="who">Who and approvals</button><button data-v="bots">Bots map</button><button data-v="ideas">Campaign ideas bank</button></div>
+<div class="tabs" id="tabs"><button data-v="journey" class="on">Client journey</button><button data-v="who">Who and approvals</button><button data-v="bots">Bots map</button><button data-v="ideas">Campaign ideas bank</button><button data-v="runbook">Onboarding runbook</button></div>
 <nav id="jnav"><div class="navin" id="nav"></div><div class="bar"><div id="prog"></div></div></nav>
 <main id="v-journey">
 <div class="tools"><input id="q" placeholder="Search steps, tools or people"><label><input type="checkbox" id="onlyBot"> Bots only</label><label><input type="checkbox" id="onlyMod"> Modifications only</label><button id="exp">Open all</button><button id="col">Close all</button><button id="copyMod" type="button">Copy modifications</button><button id="expData" type="button">Export</button><button id="impData" type="button">Import</button><input type="file" id="impFile" accept="application/json,.json" hidden></div>
@@ -9180,6 +9812,32 @@ table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}td,th{b
 <div class="botsmap"><table><thead><tr><th>Stage</th><th>Bot</th><th>What it does</th><th>Steps</th><th>Tools</th><th>Folds in</th><th>Status</th></tr></thead><tbody id="bots-tbody"></tbody></table></div>
 </main>
 <main id="v-who" hidden><h2>The bot line, in order</h2><div class="flowline" id="order"></div><h2>Who runs it</h2><div id="who"></div><h2>Approval gates</h2><p>Joy decides each one, every time.</p><div id="gates"></div></main>
+
+<main id="v-runbook" hidden>
+<h2>Onboarding runbook</h2>
+<p id="rb-goal"></p>
+<div class="crit" id="rb-crit"></div>
+<div class="runbox"><h3>Milestones (Nov 2026)</h3><div class="miles" id="rb-miles"></div></div>
+<div class="runbox"><h3>Linear checklist: signed / form to first send</h3>
+<p class="src">Owners and human gates from the journey. Day offsets only when grounded in our files; otherwise "to confirm".</p>
+<div style="overflow:auto"><table class="rbtable"><thead><tr><th>#</th><th>Step</th><th>Journey</th><th>Owner</th><th>Human gate</th><th>Target day</th><th>Notes</th></tr></thead><tbody id="rb-tbody"></tbody></table></div>
+</div>
+
+<div class="runbox"><h3>Time to first send tracker</h3>
+<p>Per client: contract signed / form submitted date to first Smartlead email send (and LinkedIn if known). <b>Before</b> = onboarded before runbook go-live (week of 9 Nov 2026). Baseline below is from real Client Hub + Smartlead data only.</p>
+<div class="basebox" id="ttfs-base"></div>
+<div style="overflow:auto"><table class="rbtable"><thead><tr><th>Client</th><th>Start</th><th>Definition</th><th>First email</th><th>First LinkedIn</th><th>Days</th><th>Flag</th><th></th></tr></thead><tbody id="ttfs-tbody"></tbody></table></div>
+<div class="ttfs-tools">
+<label>Client<input id="ttfs-client" placeholder="Client name"></label>
+<label>Start date<input id="ttfs-start" type="date"></label>
+<label>First email<input id="ttfs-email" type="date"></label>
+<label>First LinkedIn<input id="ttfs-li" type="date"></label>
+<label>Flag<select id="ttfs-flag"><option value="before">before</option><option value="after">after</option><option value="unknown">unknown</option></select></label>
+<button type="button" id="ttfs-add">Add row</button>
+</div>
+<p class="src">Extra rows save in this browser (localStorage), same as review ticks. They are included in Export. Seed rows are the read-only baseline; blanks mean missing with a source note in <code>ttfs_baseline.md</code>.</p>
+</div>
+</main>
 <script>
 const BO=document.getElementById('onlyBot');const OM=document.getElementById('onlyMod');const L=document.getElementById('list'),N=document.getElementById('nav'),Q=document.getElementById('q');
 const done=JSON.parse(localStorage.getItem('cwflow')||'{}');
@@ -9188,7 +9846,7 @@ function getMod(k){const m=mods[k]||{};return {needed:!!m.needed,note:m.note||''
 function setMod(k,m){if(!m.needed && !(m.note||'').trim()) delete mods[k]; else mods[k]={needed:!!m.needed,note:m.note||''};localStorage.setItem('cwflow_mods',JSON.stringify(mods))}
 function hasMod(k){const m=getMod(k);return m.needed || !!(m.note||'').trim()}
 function stepClass(k){return 'step'+(done[k]?' reviewed':'')+(hasMod(k)?' needs-mod':'')}
-document.getElementById('bmark').textContent=FLOW.build||'flow-v19';
+document.getElementById('bmark').textContent=FLOW.build||'flow-v20';
 function esc(x){return String(x||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 
 const ROBOT_SVG='<svg class="botico" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="5" width="10" height="8" rx="2" fill="currentColor" opacity=".15" stroke="currentColor" stroke-width="1.2"/><rect x="6.2" y="1.5" width="3.6" height="3" rx="1" fill="currentColor"/><circle cx="6.2" cy="8.2" r="1.1" fill="currentColor"/><circle cx="9.8" cy="8.2" r="1.1" fill="currentColor"/><path d="M5.5 11.2h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>';
@@ -9350,7 +10008,7 @@ document.getElementById('copyMod').onclick=async()=>{
   const btn=document.getElementById('copyMod');btn.classList.add('copied');btn.textContent='Copied';setTimeout(()=>{btn.classList.remove('copied');btn.textContent='Copy modifications'},1200);
 };
 document.getElementById('expData').onclick=()=>{
-  const payload={reviewed:done,modifications:mods,exported_at:new Date().toISOString(),build:FLOW.build||'flow-v19'};
+  const payload={reviewed:done,modifications:mods,ttfs_extra:(window.ttfsExtra||[]),exported_at:new Date().toISOString(),build:FLOW.build||'flow-v20'};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='clayworks-flow-notes.json';a.click();URL.revokeObjectURL(a.href);
 };
@@ -9365,9 +10023,10 @@ document.getElementById('impFile').onchange=e=>{
       const md=data.modifications||data.mods||{};
       Object.keys(done).forEach(k=>delete done[k]);Object.assign(done,rev);
       Object.keys(mods).forEach(k=>delete mods[k]);Object.assign(mods,md);
+      if(Array.isArray(data.ttfs_extra)){const te=window.ttfsExtra||[];te.splice(0,te.length,...data.ttfs_extra);window.ttfsExtra=te;localStorage.setItem('cwflow_ttfs',JSON.stringify(te));}
       localStorage.setItem('cwflow',JSON.stringify(done));
       localStorage.setItem('cwflow_mods',JSON.stringify(mods));
-      render();watch();
+      render();watch();renderRunbook();
     }catch(err){alert('Could not import that file. Use a JSON export from this page.')}
     e.target.value='';
   };
@@ -9403,7 +10062,7 @@ document.getElementById('who').innerHTML=M.who.map(card).join('');document.getEl
   }
 })();
 
-document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));['journey','who','bots','ideas'].forEach(v=>document.getElementById('v-'+v).hidden=v!==b.dataset.v);document.getElementById('jnav').hidden=b.dataset.v!=='journey';scrollTo(0,0)});
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));['journey','who','bots','ideas','runbook'].forEach(v=>document.getElementById('v-'+v).hidden=v!==b.dataset.v);document.getElementById('jnav').hidden=b.dataset.v!=='journey';scrollTo(0,0)});
 const h=location.hash.slice(1);if(h){const b=document.querySelector(`#tabs button[data-v=${h.split('-')[0]}]`);if(b)b.click();const sm=h.match(/step(\d+)/);if(sm){const e=document.querySelectorAll('.step')[+sm[1]];e.classList.add('open')}if(h.includes('bots')){BO.checked=true;render();watch()}if(h.endsWith('-open'))document.querySelectorAll('.step').forEach(s=>s.classList.add('open'))}
 
 (function(){const I=FLOW.ideas||[];let f='All',who='All';const fl=document.getElementById('ifl'),fr=document.getElementById('ifor'),iq=document.getElementById('iq');
@@ -9416,4 +10075,79 @@ function draw(){const q=iq.value.toLowerCase();const v=I.filter(x=>{const matchS
 const c={};I.forEach(x=>c[x.status]=(c[x.status]||0)+1);document.getElementById('icount').textContent=I.length+' ideas: '+['Live','Tried','Idea'].map(k=>(c[k]||0)+' '+k).join(', ')+'. Showing '+v.length+'.';
 document.getElementById('ideas-list').innerHTML=v.map(x=>`<div class="card"><b>${esc(x.name)}</b> <span class="bb">${esc(x.status)}</span> ${x.owner?`<span class="bb">Owner: ${esc(x.owner)}</span>`:''} ${tagsFor(x)}<br>${esc(x.desc)}${x.fits_because?`<div class="fits">${esc(x.fits_because)}</div>`:''}${tagsCould(x)}<div class="grid"><div class="cell"><span>Signal or data</span>${esc(x.signal)}</div><div class="cell"><span>Channel</span>${esc(x.channel)}</div><div class="cell"><span>Result</span>${esc(x.result)}</div></div></div>`).join('')}
 iq.oninput=draw;draw();if(location.hash==='#ideas')document.querySelector('#tabs button[data-v=ideas]').click()})();
+
+(function(){
+  const ttfsExtra=JSON.parse(localStorage.getItem('cwflow_ttfs')||'[]');
+  window.ttfsExtra=ttfsExtra;
+  function daysBetween(a,b){if(!a||!b)return null;const d1=new Date(a+'T00:00:00'),d2=new Date(b+'T00:00:00');return Math.round((d2-d1)/86400000)}
+  function flagClass(f){return 'flag-'+(f||'unknown')}
+  function renderRunbook(){
+    const RB=FLOW.runbook||{};
+    document.getElementById('rb-goal').textContent=RB.goal||'';
+    document.getElementById('rb-crit').innerHTML='<b>Critical path.</b> '+esc(RB.critical_path||'');
+    document.getElementById('rb-miles').innerHTML=(RB.milestones||[]).map(m=>`<div class="mile"><b>${esc(m.when)} · ${esc(m.owner)}</b>${esc(m.what)}</div>`).join('');
+    const tb=document.getElementById('rb-tbody');
+    tb.innerHTML=(RB.steps||[]).map((s,i)=>{
+      const crit=s.id==='rb04';
+      const whoCls=(s.who||'').toLowerCase().includes('bot')&&!(s.who||'').toLowerCase().includes('person')?'bot':((s.who||'').toLowerCase().includes('bot')?'bot':'peo');
+      // mixed bot+person -> show both pills
+      let pills='';
+      const w=(s.who||'');
+      if(w.includes('Bot')) pills+=`<span class="ownerpill bot">Bot</span>`;
+      if(w.includes('Person')) pills+=`<span class="ownerpill peo">Person</span>`;
+      return `<tr class="${crit?'critrow':''}"><td>${i+1}</td><td><b>${esc(s.title)}</b>${s.human_gate?'<span class="gatepill">Human gate</span>':''}${crit?'<span class="gatepill">Critical path</span>':''}</td><td>${esc(s.journey||'')}</td><td>${pills} ${esc(s.owner||'')}</td><td>${s.human_gate?'Yes':'No'}</td><td>${esc(s.day_offset||'to confirm')}<br><small>${esc(s.day_offset_source||'')}</small></td><td>${esc(s.notes||'')}</td></tr>`;
+    }).join('');
+
+    const T=FLOW.ttfs||{};
+    const base=T.baseline_before||{};
+    document.getElementById('ttfs-base').innerHTML=`<b>BEFORE baseline</b> (n=${esc(base.n)}: ${esc((base.clients||[]).join(', '))}). Median <b>${esc(base.median_days)}</b> days. Range <b>${esc((base.range_days||[]).join('-'))}</b> days. Go-live cut: ${esc(T.runbook_go_live)}. First email = earliest Smartlead <code>sent_time</code> sampled per client. First LinkedIn = missing until Prosp exposes it.`;
+
+    const seed=(T.rows||[]).map(r=>({
+      client:r.client,
+      start:r.start_date||'',
+      definition:r.start_definition||'',
+      email:r.first_email_sent||'',
+      linkedin:r.first_linkedin||'',
+      days:r.days_elapsed,
+      flag:r.before_after||'unknown',
+      seed:true,
+      note:r.start_alt_notes||''
+    }));
+    const all=seed.concat(ttfsExtra.map(r=>({...r,seed:false})));
+    document.getElementById('ttfs-tbody').innerHTML=all.map((r,idx)=>{
+      const days=r.days!=null?r.days:(daysBetween(r.start,r.email));
+      const del=r.seed?'':`<button type="button" data-i="${idx-seed.length}" class="ttfs-del" style="padding:2px 8px;font-size:12px">Remove</button>`;
+      return `<tr>
+        <td>${esc(r.client)}${r.seed?'':' <small>(local)</small>'}</td>
+        <td>${r.start?esc(r.start):'<span class="missing">missing</span>'}</td>
+        <td>${esc(r.definition|| (r.seed?'':'manual / localStorage'))}</td>
+        <td>${r.email?esc(r.email):'<span class="missing">missing</span>'}</td>
+        <td>${r.linkedin?esc(r.linkedin):'<span class="missing">missing</span>'}</td>
+        <td>${days!=null?days:'-'}</td>
+        <td class="${flagClass(r.flag)}">${esc(r.flag)}</td>
+        <td>${del}</td>
+      </tr>`;
+    }).join('');
+    document.querySelectorAll('.ttfs-del').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.i;ttfsExtra.splice(i,1);localStorage.setItem('cwflow_ttfs',JSON.stringify(ttfsExtra));renderRunbook();
+    });
+  }
+  window.renderRunbook=renderRunbook;
+  document.getElementById('ttfs-add').onclick=()=>{
+    const client=document.getElementById('ttfs-client').value.trim();
+    if(!client){alert('Add a client name');return;}
+    const start=document.getElementById('ttfs-start').value;
+    const email=document.getElementById('ttfs-email').value;
+    const linkedin=document.getElementById('ttfs-li').value;
+    const flag=document.getElementById('ttfs-flag').value;
+    const days=daysBetween(start,email);
+    ttfsExtra.push({client,start,email,linkedin,days,flag,definition:'manual / localStorage'});
+    localStorage.setItem('cwflow_ttfs',JSON.stringify(ttfsExtra));
+    ['ttfs-client','ttfs-start','ttfs-email','ttfs-li'].forEach(id=>document.getElementById(id).value='');
+    renderRunbook();
+  };
+  renderRunbook();
+  if(location.hash==='#runbook' || location.hash.startsWith('#runbook')) document.querySelector('#tabs button[data-v=runbook]').click();
+})();
+
 </script></body></html>

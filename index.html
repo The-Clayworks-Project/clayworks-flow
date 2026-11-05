@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="build" content="flow-v20"><title>Clayworks Client Journey</title>
+<meta name="build" content="flow-v21"><title>Clayworks Client Journey</title>
 <script>
 /* All step data lives here. Edit this object to polish steps. */
 const FLOW = {
@@ -9030,7 +9030,8 @@ const FLOW = {
 "7": "Stage 7 Say Goodbye bot"
 }
 },
-"build": "flow-v20",
+"build": "flow-v21",
+"shared_sync_url": "",
 "runbook": {
 "title": "Onboarding runbook",
 "goal": "Contract signed / onboarding form submitted to first send. Make onboarding repeatable; measure time to first send before vs after.",
@@ -9791,14 +9792,32 @@ table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}td,th{b
 .flag-unknown{color:#6b7280}
 .missing{color:#b45309;font-style:italic}
 .basebox{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:14px}
+
+.who-when{display:block;font-size:12px;color:var(--mut);margin-top:4px;font-weight:500}
+.syncbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px;padding:10px 12px;background:#f5f8ff;border:1px solid #c7d7fb;border-radius:10px;font-size:14px}
+.syncbar label{display:flex;align-items:center;gap:6px;font-weight:600}
+.syncbar select,.syncbar input[type=text]{padding:6px 8px;border:1px solid var(--line);border-radius:6px;font:inherit}
+.syncbar .syncstat{color:var(--mut);font-size:13px}
+.syncbar .syncstat.ok{color:#166534}.syncbar .syncstat.err{color:#b45309}
+.syncmask{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:40;display:flex;align-items:center;justify-content:center;padding:16px}
+.syncmask .card{background:#fff;border-radius:12px;padding:18px 20px;max-width:420px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.syncmask h3{margin:0 0 8px;font-size:18px}.syncmask p{margin:0 0 12px;color:var(--mut)}
+.syncmask .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.syncmask button{padding:8px 12px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-weight:600;cursor:pointer}
+.syncmask button.sec{background:#fff;color:var(--ink)}
 </style></head><body>
 <header><h1>Clayworks Client Journey</h1><p>Every step a client goes through with us, from the first call to goodbye, and how the bots build each campaign. Tap any step for the full explanation and how-to. A blue tag means a bot helps. A lock means someone must say yes first.</p><p style="margin-top:6px"><a href="clients/index.html">See each client's checklist &rarr;</a></p><p class="mark" style="margin-top:6px">Build <span id="bmark"></span></p></header>
 <div class="tabs" id="tabs"><button data-v="journey" class="on">Client journey</button><button data-v="who">Who and approvals</button><button data-v="bots">Bots map</button><button data-v="ideas">Campaign ideas bank</button><button data-v="runbook">Onboarding runbook</button></div>
 <nav id="jnav"><div class="navin" id="nav"></div><div class="bar"><div id="prog"></div></div></nav>
 <main id="v-journey">
-<div class="tools"><input id="q" placeholder="Search steps, tools or people"><label><input type="checkbox" id="onlyBot"> Bots only</label><label><input type="checkbox" id="onlyMod"> Modifications only</label><button id="exp">Open all</button><button id="col">Close all</button><button id="copyMod" type="button">Copy modifications</button><button id="expData" type="button">Export</button><button id="impData" type="button">Import</button><input type="file" id="impFile" accept="application/json,.json" hidden></div>
+<div class="syncbar" id="syncbar">
+<label>Your name <select id="whoName"><option value="">Choose...</option><option>Joy</option><option>Theo</option><option>Callum</option><option value="__other">Other...</option></select></label>
+<input id="whoOther" type="text" placeholder="Type your name" hidden style="min-width:140px">
+<span class="syncstat" id="syncStat">Shared sync: checking...</span>
+</div>
+<div class="tools"><input id="q" placeholder="Search steps, tools or people"><label><input type="checkbox" id="onlyBot"> Bots only</label><label><input type="checkbox" id="onlyMod"> Modifications only</label><button id="exp">Open all</button><button id="col">Close all</button><button id="copyMod" type="button">Copy modifications</button><button id="expData" type="button">Export</button><button id="impData" type="button">Import</button><button id="syncNow" type="button">Sync now</button><input type="file" id="impFile" accept="application/json,.json" hidden></div>
 <div id="list"></div>
-<p class="src">Tick boxes save in this browser only.</p>
+<p class="src">Marks and notes sync to the shared sheet when connected. This browser keeps a local copy as backup.</p>
 </main>
 
 <main id="v-ideas" hidden><h2>Campaign ideas bank</h2><p>Campaign ideas tagged by who they are for. Some only fit Clayworks or one client because the offer is different. Results come only from a source. "Not known yet" means no source has a number.</p>
@@ -9835,19 +9854,199 @@ table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}td,th{b
 <label>Flag<select id="ttfs-flag"><option value="before">before</option><option value="after">after</option><option value="unknown">unknown</option></select></label>
 <button type="button" id="ttfs-add">Add row</button>
 </div>
-<p class="src">Extra rows save in this browser (localStorage), same as review ticks. They are included in Export. Seed rows are the read-only baseline; blanks mean missing with a source note in <code>ttfs_baseline.md</code>.</p>
+<p class="src">Extra rows sync to the shared sheet when connected (local backup kept). Seed rows are the read-only baseline; blanks mean missing with a source note in <code>ttfs_baseline.md</code>.</p>
 </div>
 </main>
 <script>
 const BO=document.getElementById('onlyBot');const OM=document.getElementById('onlyMod');const L=document.getElementById('list'),N=document.getElementById('nav'),Q=document.getElementById('q');
-const done=JSON.parse(localStorage.getItem('cwflow')||'{}');
-const mods=JSON.parse(localStorage.getItem('cwflow_mods')||'{}');
-function getMod(k){const m=mods[k]||{};return {needed:!!m.needed,note:m.note||''}}
-function setMod(k,m){if(!m.needed && !(m.note||'').trim()) delete mods[k]; else mods[k]={needed:!!m.needed,note:m.note||''};localStorage.setItem('cwflow_mods',JSON.stringify(mods))}
+const LS_DONE='cwflow', LS_MODS='cwflow_mods', LS_TTFS='cwflow_ttfs', LS_NAME='cwflow_name', LS_SYNC='cwflow_sync_url';
+const done=JSON.parse(localStorage.getItem(LS_DONE)||'{}');
+const mods=JSON.parse(localStorage.getItem(LS_MODS)||'{}');
+function syncUrl(){return (localStorage.getItem(LS_SYNC)||(FLOW.shared_sync_url||'')||'').trim()}
+function currentName(){return (localStorage.getItem(LS_NAME)||'').trim()}
+function setCurrentName(n){n=(n||'').trim(); if(n) localStorage.setItem(LS_NAME,n); else localStorage.removeItem(LS_NAME); return n}
+function persistLocal(){localStorage.setItem(LS_DONE,JSON.stringify(done));localStorage.setItem(LS_MODS,JSON.stringify(mods)); if(window.ttfsExtra) localStorage.setItem(LS_TTFS,JSON.stringify(window.ttfsExtra))}
+function isReviewed(k){const v=done[k]; return !!(v===true || (v && v.value))}
+function reviewMeta(k){const v=done[k]; if(v===true) return {value:true,by:'',at:''}; if(v&&v.value) return {value:true,by:v.by||'',at:v.at||''}; return {value:false,by:'',at:''}}
+function whoWhenHtml(by,at){if(!by && !at) return ''; const when=at? new Date(at).toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'}):''; return `<span class="who-when">${esc(by||'someone')}${when? ' · '+esc(when):''}</span>`}
+function getMod(k){const m=mods[k]||{};return {needed:!!m.needed,note:m.note||'',by:m.by||'',at:m.at||''}}
 function hasMod(k){const m=getMod(k);return m.needed || !!(m.note||'').trim()}
-function stepClass(k){return 'step'+(done[k]?' reviewed':'')+(hasMod(k)?' needs-mod':'')}
-document.getElementById('bmark').textContent=FLOW.build||'flow-v20';
+function stepClass(k){return 'step'+(isReviewed(k)?' reviewed':'')+(hasMod(k)?' needs-mod':'')}
+function setMod(k,m,opts){opts=opts||{}; const name=opts.by||currentName()||''; const at=opts.at||m.at||new Date().toISOString();
+  if(!m.needed && !(m.note||'').trim()){ delete mods[k]; }
+  else { mods[k]={needed:!!m.needed,note:m.note||'',by:name,at:at}; }
+  persistLocal();
+  if(!opts.silent) queuePush({mods:{[k]: mods[k]||null}});
+}
+function setReviewed(k,checked,opts){opts=opts||{}; const name=opts.by||currentName()||''; const at=opts.at||new Date().toISOString();
+  if(checked) done[k]={value:true,by:name,at:at}; else delete done[k];
+  persistLocal();
+  if(!opts.silent) queuePush({reviewed:{[k]: checked?done[k]:false}});
+}
+document.getElementById('bmark').textContent=FLOW.build||'flow-v21';
 function esc(x){return String(x||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* ---- shared sync (Google Apps Script web app) ---- */
+let _pushTimer=null, _syncBusy=false;
+function setSyncStat(msg,cls){const el=document.getElementById('syncStat'); if(!el) return; el.textContent=msg; el.className='syncstat'+(cls?(' '+cls):'')}
+function queuePush(partial){
+  const url=syncUrl(); if(!url) return;
+  clearTimeout(_pushTimer);
+  _pushTimer=setTimeout(()=>pushShared(partial), 400);
+}
+async function pushShared(partial){
+  const url=syncUrl(); if(!url) return null;
+  const name=currentName(); if(!name){ setSyncStat('Choose your name to sync','err'); return null; }
+  try{
+    _syncBusy=true; setSyncStat('Syncing...','');
+    const body=Object.assign({by:name}, partial||{});
+    const res=await fetch(url,{method:'POST',mode:'cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)});
+    const data=await res.json();
+    if(data && data.error) throw new Error(data.error);
+    applyRemote(data,{preferRemote:true});
+    setSyncStat('Synced · '+new Date().toLocaleTimeString(),'ok');
+    return data;
+  }catch(err){
+    setSyncStat('Sync failed (local copy kept): '+err.message,'err');
+    return null;
+  }finally{ _syncBusy=false; }
+}
+async function fetchShared(){
+  const url=syncUrl(); if(!url) return null;
+  const res=await fetch(url,{method:'GET',mode:'cors'});
+  const data=await res.json();
+  if(data && data.error) throw new Error(data.error);
+  return data;
+}
+function applyRemote(data,opts){
+  opts=opts||{};
+  if(!data) return;
+  const remR=data.reviewed||{};
+  const remM=data.mods||{};
+  const remT=data.ttfs||[];
+  Object.keys(remR).forEach(k=>{
+    const r=remR[k]; if(!r||!r.value) return;
+    const loc=reviewMeta(k);
+    if(!loc.value || opts.preferRemote || (r.at && (!loc.at || r.at>=loc.at))){
+      done[k]={value:true,by:r.by||'',at:r.at||''};
+    }
+  });
+  Object.keys(remM).forEach(k=>{
+    const r=remM[k]; if(!r) return;
+    if(!r.needed && !(r.note||'').trim()) return;
+    const loc=getMod(k);
+    if(!hasMod(k) || opts.preferRemote || (r.at && (!loc.at || r.at>=loc.at))){
+      mods[k]={needed:!!r.needed,note:r.note||'',by:r.by||'',at:r.at||''};
+    }
+  });
+  if(Array.isArray(remT) && remT.length){
+    const te=window.ttfsExtra||[];
+    const byId={}; te.forEach(r=>{ if(r.id) byId[r.id]=r; });
+    remT.forEach(r=>{
+      if(!r||!r.client) return;
+      const id=r.id||('ttfs_'+String(r.client).toLowerCase().replace(/\s+/g,'_')+'_'+(r.start||'')+'_'+(r.at||''));
+      r.id=id;
+      const loc=byId[id];
+      if(!loc || opts.preferRemote || (r.at && (!loc.at || r.at>=loc.at))) byId[id]=r;
+    });
+    const merged=Object.values(byId);
+    // also keep local rows that have no id yet
+    te.forEach(r=>{ if(!r.id) merged.push(r); });
+    te.splice(0,te.length,...merged);
+    window.ttfsExtra=te;
+  }
+  persistLocal();
+  try{render();watch();}catch(e){}
+  try{if(window.renderRunbook) renderRunbook();}catch(e){}
+}
+function localOnlyPayload(){
+  /* Upload whatever is in localStorage that we may not have pushed yet. Keep original timestamps if stored. */
+  const name=currentName()||'unknown';
+  const now=new Date().toISOString();
+  const reviewed={}; Object.keys(done).forEach(k=>{
+    if(!isReviewed(k)) return;
+    const m=reviewMeta(k);
+    reviewed[k]={value:true,by:m.by||name,at:m.at||now};
+  });
+  const outMods={}; Object.keys(mods).forEach(k=>{
+    const m=getMod(k); if(!hasMod(k)) return;
+    outMods[k]={needed:!!m.needed,note:m.note||'',by:m.by||name,at:m.at||now};
+  });
+  const ttfs=(window.ttfsExtra||[]).map(r=>{
+    const id=r.id||('ttfs_'+String(r.client||'').toLowerCase().replace(/\s+/g,'_')+'_'+(r.start||'')+'_'+(r.at||now));
+    return Object.assign({},r,{id,by:r.by||name,at:r.at||now,definition:r.definition||'manual / shared'});
+  });
+  return {reviewed:reviewed,mods:outMods,ttfs:ttfs};
+}
+function promptNameIfNeeded(){
+  return new Promise(resolve=>{
+    const existing=currentName();
+    if(existing){ wireNameUI(); resolve(existing); return; }
+    const mask=document.createElement('div'); mask.className='syncmask'; mask.id='nameMask';
+    mask.innerHTML=`<div class="card"><h3>Who is reviewing?</h3><p>Pick your name so shared marks show who changed what. Existing ticks in this browser will upload under this name.</p>
+      <div class="row">
+        <button type="button" data-n="Joy">Joy</button>
+        <button type="button" data-n="Theo">Theo</button>
+        <button type="button" data-n="Callum">Callum</button>
+      </div>
+      <div class="row"><input id="nameOtherIn" type="text" placeholder="Other name" style="flex:1;padding:8px 10px;border:1px solid var(--line);border-radius:8px"><button type="button" class="sec" id="nameOtherGo">Use this</button></div>
+    </div>`;
+    document.body.appendChild(mask);
+    const finish=n=>{ setCurrentName(n); wireNameUI(); mask.remove(); resolve(n); };
+    mask.querySelectorAll('button[data-n]').forEach(b=>b.onclick=()=>finish(b.dataset.n));
+    mask.querySelector('#nameOtherGo').onclick=()=>{
+      const v=(mask.querySelector('#nameOtherIn').value||'').trim();
+      if(!v){alert('Type a name');return;} finish(v);
+    };
+  });
+}
+function wireNameUI(){
+  const sel=document.getElementById('whoName');
+  const other=document.getElementById('whoOther');
+  if(!sel) return;
+  const n=currentName();
+  const known=['Joy','Theo','Callum'];
+  if(n && known.includes(n)){ sel.value=n; other.hidden=true; }
+  else if(n){ sel.value='__other'; other.hidden=false; other.value=n; }
+  else { sel.value=''; other.hidden=true; }
+  sel.onchange=()=>{
+    if(sel.value==='__other'){ other.hidden=false; other.focus(); }
+    else { other.hidden=true; setCurrentName(sel.value); if(syncUrl()&&sel.value) migrateAndSync(); }
+  };
+  other.onchange=()=>{ if(other.value.trim()){ setCurrentName(other.value.trim()); if(syncUrl()) migrateAndSync(); } };
+}
+async function migrateAndSync(){
+  const url=syncUrl(); if(!url){ setSyncStat('Shared sync not connected yet',''); return; }
+  await promptNameIfNeeded();
+  try{
+    setSyncStat('Loading shared marks...','');
+    const remote=await fetchShared();
+    applyRemote(remote,{preferRemote:true});
+    /* Upload any local marks / notes / tracker rows so earlier browser-only work reaches everyone */
+    const payload=localOnlyPayload();
+    const hasLocal=Object.keys(payload.reviewed).length||Object.keys(payload.mods).length||payload.ttfs.length;
+    if(hasLocal){
+      setSyncStat('Uploading this browser\'s marks...','');
+      await pushShared(payload);
+    } else {
+      setSyncStat('Synced · '+new Date().toLocaleTimeString(),'ok');
+    }
+  }catch(err){
+    setSyncStat('Could not reach shared store (using local): '+err.message,'err');
+  }
+}
+async function bootSync(){
+  wireNameUI();
+  const url=syncUrl();
+  if(!url){
+    setSyncStat('Shared sync waiting for Apps Script URL (local marks still work)','');
+    return;
+  }
+  /* Name first if unset, then migrate localStorage up */
+  await promptNameIfNeeded();
+  await migrateAndSync();
+}
+document.getElementById('syncNow').onclick=()=>migrateAndSync();
 
 const ROBOT_SVG='<svg class="botico" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="5" width="10" height="8" rx="2" fill="currentColor" opacity=".15" stroke="currentColor" stroke-width="1.2"/><rect x="6.2" y="1.5" width="3.6" height="3" rx="1" fill="currentColor"/><circle cx="6.2" cy="8.2" r="1.1" fill="currentColor"/><circle cx="9.8" cy="8.2" r="1.1" fill="currentColor"/><path d="M5.5 11.2h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>';
 const TOOL_SVG='<svg class="toolico" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5l3 3-1.2 1.2-3-3L10.5 2.5z" fill="currentColor"/><path d="M9.2 4.8L3.5 10.5 2 14l3.5-1.5 5.7-5.7-1.99-1.99z" fill="currentColor" opacity=".85"/><circle cx="12.5" cy="3.5" r="1.2" fill="currentColor"/></svg>';
@@ -9977,14 +10176,14 @@ function render(){
    ${s.check?`<div class="checkline"><b>Check:</b> ${esc(s.check)}</div>`:''}
    ${s.done?`<div class="donewhen"><b>Done when:</b> ${esc(s.done)}</div>`:''}
    ${s.gates.map(g=>`<div class="gate"><b>&#128274; Approval gate ${esc(g.name)}</b><br>Who says yes: ${esc(g.who)}. ${esc(g.rule)}${g.note?` <i>${esc(g.note)}</i>`:''}</div>`).join('')}${s.blocks.map(blk).join('')}${s.inferred?'<p class="note"><i>Inferred, please confirm.</i></p>':''}
-   <label class="chk chk-reviewed"><input type="checkbox" class="rev-cb" ${done[k]?'checked':''}> Mark as reviewed</label>
-   <label class="chk chk-mod"><input type="checkbox" class="mod-cb" ${m.needed?'checked':''}> Modifications needed</label>
+   <label class="chk chk-reviewed"><input type="checkbox" class="rev-cb" ${isReviewed(k)?'checked':''}> Mark as reviewed</label>${(()=>{const rm=reviewMeta(k); return isReviewed(k)?whoWhenHtml(rm.by,rm.at):'';})()}
+   <label class="chk chk-mod"><input type="checkbox" class="mod-cb" ${m.needed?'checked':''}> Modifications needed</label>${hasMod(k)?whoWhenHtml(m.by,m.at):''}
    <div class="modbox"><textarea class="mod-note" placeholder="Type the changes this step needs...">${esc(m.note)}</textarea></div>
    </div>`;
    d.querySelector('.head').onclick=()=>d.classList.toggle('open');
    const applyTone=()=>{d.className=stepClass(k)+(d.classList.contains('open')?' open':'')};
-   d.querySelector('.rev-cb').onchange=e=>{done[k]=e.target.checked;localStorage.setItem('cwflow',JSON.stringify(done));applyTone();prog()};
-   d.querySelector('.mod-cb').onchange=e=>{const cur=getMod(k);cur.needed=e.target.checked;setMod(k,cur);applyTone();if(OM.checked){render();watch()}};
+   d.querySelector('.rev-cb').onchange=e=>{setReviewed(k,e.target.checked);applyTone();prog(); render(); watch();};
+   d.querySelector('.mod-cb').onchange=e=>{const cur=getMod(k);cur.needed=e.target.checked;setMod(k,cur);applyTone();if(OM.checked){render();watch()} else {render();watch()}};
    d.querySelector('.mod-note').oninput=e=>{const cur=getMod(k);cur.note=e.target.value;setMod(k,cur);applyTone();};
    // stop head toggle when interacting with form controls
    d.querySelectorAll('.rev-cb,.mod-cb,.mod-note').forEach(el=>{el.onclick=e=>e.stopPropagation();el.onmousedown=e=>e.stopPropagation()});
@@ -9993,7 +10192,7 @@ function render(){
   if(vis.length)L.appendChild(sec);
  });prog();
 }
-function prog(){const t=FLOW.steps.length,c=Object.values(done).filter(Boolean).length;document.getElementById('prog').style.width=(100*c/t)+'%'}
+function prog(){const t=FLOW.steps.length,c=Object.keys(done).filter(isReviewed).length;document.getElementById('prog').style.width=(100*c/t)+'%'}
 FLOW.phases.forEach((p,i)=>{if(i){const a=document.createElement('span');a.className='navarr';a.setAttribute('aria-hidden','true');a.textContent='→';N.appendChild(a)}const b=document.createElement('button');b.textContent=p.name;b.onclick=()=>{document.getElementById('ph-'+p.id)?.scrollIntoView({behavior:'smooth'})};N.appendChild(b)});
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=FLOW.phases.findIndex(p=>'ph-'+p.id===e.target.id);[...N.querySelectorAll('button')].forEach((b,j)=>b.classList.toggle('on',i===j))}}),{rootMargin:'-40% 0px -55% 0px'});
 function watch(){document.querySelectorAll('section').forEach(s=>obs.observe(s))}
@@ -10008,7 +10207,7 @@ document.getElementById('copyMod').onclick=async()=>{
   const btn=document.getElementById('copyMod');btn.classList.add('copied');btn.textContent='Copied';setTimeout(()=>{btn.classList.remove('copied');btn.textContent='Copy modifications'},1200);
 };
 document.getElementById('expData').onclick=()=>{
-  const payload={reviewed:done,modifications:mods,ttfs_extra:(window.ttfsExtra||[]),exported_at:new Date().toISOString(),build:FLOW.build||'flow-v20'};
+  const payload={reviewed:done,modifications:mods,ttfs_extra:(window.ttfsExtra||[]),exported_at:new Date().toISOString(),build:FLOW.build||'flow-v21',by:currentName()||''};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='clayworks-flow-notes.json';a.click();URL.revokeObjectURL(a.href);
 };
@@ -10023,10 +10222,10 @@ document.getElementById('impFile').onchange=e=>{
       const md=data.modifications||data.mods||{};
       Object.keys(done).forEach(k=>delete done[k]);Object.assign(done,rev);
       Object.keys(mods).forEach(k=>delete mods[k]);Object.assign(mods,md);
-      if(Array.isArray(data.ttfs_extra)){const te=window.ttfsExtra||[];te.splice(0,te.length,...data.ttfs_extra);window.ttfsExtra=te;localStorage.setItem('cwflow_ttfs',JSON.stringify(te));}
-      localStorage.setItem('cwflow',JSON.stringify(done));
-      localStorage.setItem('cwflow_mods',JSON.stringify(mods));
+      if(Array.isArray(data.ttfs_extra)){const te=window.ttfsExtra||[];te.splice(0,te.length,...data.ttfs_extra);window.ttfsExtra=te;}
+      persistLocal();
       render();watch();renderRunbook();
+      if(syncUrl()&&currentName()) pushShared(localOnlyPayload());
     }catch(err){alert('Could not import that file. Use a JSON export from this page.')}
     e.target.value='';
   };
@@ -10118,7 +10317,7 @@ iq.oninput=draw;draw();if(location.hash==='#ideas')document.querySelector('#tabs
       const days=r.days!=null?r.days:(daysBetween(r.start,r.email));
       const del=r.seed?'':`<button type="button" data-i="${idx-seed.length}" class="ttfs-del" style="padding:2px 8px;font-size:12px">Remove</button>`;
       return `<tr>
-        <td>${esc(r.client)}${r.seed?'':' <small>(local)</small>'}</td>
+        <td>${esc(r.client)}${r.seed?'':(r.by?` <small>(${esc(r.by)})</small>`:' <small>(extra)</small>')}</td>
         <td>${r.start?esc(r.start):'<span class="missing">missing</span>'}</td>
         <td>${esc(r.definition|| (r.seed?'':'manual / localStorage'))}</td>
         <td>${r.email?esc(r.email):'<span class="missing">missing</span>'}</td>
@@ -10129,7 +10328,8 @@ iq.oninput=draw;draw();if(location.hash==='#ideas')document.querySelector('#tabs
       </tr>`;
     }).join('');
     document.querySelectorAll('.ttfs-del').forEach(b=>b.onclick=()=>{
-      const i=+b.dataset.i;ttfsExtra.splice(i,1);localStorage.setItem('cwflow_ttfs',JSON.stringify(ttfsExtra));renderRunbook();
+      const i=+b.dataset.i; const row=ttfsExtra[i]; const rid=row&&row.id; ttfsExtra.splice(i,1); persistLocal(); renderRunbook();
+      if(rid) queuePush({remove_ttfs:[rid]});
     });
   }
   window.renderRunbook=renderRunbook;
@@ -10141,13 +10341,19 @@ iq.oninput=draw;draw();if(location.hash==='#ideas')document.querySelector('#tabs
     const linkedin=document.getElementById('ttfs-li').value;
     const flag=document.getElementById('ttfs-flag').value;
     const days=daysBetween(start,email);
-    ttfsExtra.push({client,start,email,linkedin,days,flag,definition:'manual / localStorage'});
-    localStorage.setItem('cwflow_ttfs',JSON.stringify(ttfsExtra));
+    const at=new Date().toISOString(); const by=currentName()||'';
+    const id='ttfs_'+client.toLowerCase().replace(/\s+/g,'_')+'_'+(start||'')+'_'+at;
+    const row={id,client,start,email,linkedin,days,flag,definition:'manual / shared',by,at};
+    ttfsExtra.push(row);
+    persistLocal();
     ['ttfs-client','ttfs-start','ttfs-email','ttfs-li'].forEach(id=>document.getElementById(id).value='');
     renderRunbook();
+    queuePush({ttfs:[row]});
   };
   renderRunbook();
   if(location.hash==='#runbook' || location.hash.startsWith('#runbook')) document.querySelector('#tabs button[data-v=runbook]').click();
 })();
+
+bootSync();
 
 </script></body></html>

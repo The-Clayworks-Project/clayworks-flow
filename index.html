@@ -146,11 +146,11 @@ const FLOW = {
 "num": "1",
 "bots": [],
 "howto": [
-"Callum books or receives the meeting invite.",
-"Create or open the prospect record in Client Hub.",
-"Write a short brief: what they sell, size, geography, and why they reached out.",
-"Confirm Fireflies is set to record the call.",
-"Share the brief with whoever will join the intro call."
+"Book or accept the meeting invite on Google Calendar.",
+"Create/open the prospect record in Client Hub; fill company, contact, source campaign.",
+"Write a short brief in the Hub note: what they sell, headcount/geo if known, why they replied/booked.",
+"Confirm Fireflies is on the calendar event (recording enabled) before the call start.",
+"Share the Hub brief link with whoever joins the intro call."
 ],
 "done": "Meeting is on the calendar, Client Hub has a brief, and Fireflies is ready.",
 "technical": [
@@ -194,16 +194,17 @@ const FLOW = {
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum books/receives invite, writes brief, confirms Fireflies",
+"people_summary": "Callum books/receives invite, writes brief in Hub, confirms Fireflies",
 "people_label": "Callum does",
 "bot_does": [],
 "people_do": [
-"Callum books or receives the meeting invite.",
-"Create or open the prospect record in Client Hub.",
-"Write a short brief: what they sell, size, geography, and why they reached out.",
-"Confirm Fireflies is set to record the call.",
-"Share the brief with whoever will join the intro call."
+"Book or accept the meeting invite on Google Calendar.",
+"Create/open the prospect record in Client Hub; fill company, contact, source campaign.",
+"Write a short brief in the Hub note: what they sell, headcount/geo if known, why they replied/booked.",
+"Confirm Fireflies is on the calendar event (recording enabled) before the call start.",
+"Share the Hub brief link with whoever joins the intro call."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -238,12 +239,11 @@ const FLOW = {
 "num": "2",
 "bots": [],
 "howto": [
-"Join on Google Meet with Fireflies recording on.",
-"Ask how they sell today, deal size, close rate, and what a good month looks like.",
-"Explain Clayworks channels: email, LinkedIn and phone (BDRs).",
-"Explain the offer: qualified meetings or money back.",
-"Decide the next step: free sample, GTM strategy call, or ROI call.",
-"Save notes and the Fireflies link in Client Hub / the prospect file."
+"Join Google Meet with Fireflies recording on.",
+"Ask and note: how they sell today, deal size, close rate, what a good month looks like.",
+"Explain Clayworks channels (email, LinkedIn, phone/BDRs) and offer (qualified meetings or money back).",
+"Agree next step explicitly: free sample (10 accounts) OR GTM strategy call OR ROI call; write it in Hub.",
+"Save Fireflies link + notes on the prospect Hub record."
 ],
 "done": "Call notes and recording saved; next step agreed.",
 "technical": [
@@ -287,17 +287,17 @@ const FLOW = {
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum runs the intro; explains channels and offer; agrees next step",
+"people_summary": "Callum runs intro; explains channels and offer; agrees next step",
 "people_label": "Callum does",
 "bot_does": [],
 "people_do": [
-"Join on Google Meet with Fireflies recording on.",
-"Ask how they sell today, deal size, close rate, and what a good month looks like.",
-"Explain Clayworks channels: email, LinkedIn and phone (BDRs).",
-"Explain the offer: qualified meetings or money back.",
-"Decide the next step: free sample, GTM strategy call, or ROI call.",
-"Save notes and the Fireflies link in Client Hub / the prospect file."
+"Join Google Meet with Fireflies recording on.",
+"Ask and note: how they sell today, deal size, close rate, what a good month looks like.",
+"Explain Clayworks channels (email, LinkedIn, phone/BDRs) and offer (qualified meetings or money back).",
+"Agree next step explicitly: free sample (10 accounts) OR GTM strategy call OR ROI call; write it in Hub.",
+"Save Fireflies link + notes on the prospect Hub record."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -494,14 +494,14 @@ const FLOW = {
 "num": "3",
 "bots": [],
 "howto": [
-"Assemble the sample brief (ICP, signal type, CTA = Callum's Calendly).",
-"Pull / shortlist 10 good-fit companies with a clear buying signal (estimate credits before paid pulls).",
-"Draft page copy and package notes for Joy; point at the right existing Lovable project (read-only, never edit).",
-"Draft the Client Hub log entry for what will be shared.",
-"Decide with Callum whether a 10-account Lead Magnet or a Paid Visibility Gap Report fits.",
-"Joy builds the sample content in Claude (Lead Magnet / report).",
-"Callum sends the link and books the walkthrough (Calendly CTA).",
-"Joy or Callum logs what was shared in Client Hub."
+"Assemble sample brief: prospect ICP from Hub/Fireflies, signal type, CTA = Callum's Calendly URL from the standing sales pack.",
+"Shortlist 10 companies that match prospect ICP and each have a dated buying signal (WhiteWhale or public source with URL/date). Estimate credits before any paid WhiteWhale/enrichment pull; ask Joy OK first.",
+"Draft page copy + package notes for Joy. Point at the existing Lovable Lead Magnet / Paid Visibility Gap project name (read-only; never edit Lovable).",
+"Draft the Client Hub log line (what will be shared, link placeholder, date).",
+"Callum picks sample type with the prospect context: 10-account Lead Magnet vs Paid Visibility Gap Report.",
+"Joy builds the sample content in Claude and publishes/uses the Lovable page (Joy only; bot does not edit Lovable).",
+"Callum sends the link with Callum's Calendly CTA and books the walkthrough.",
+"Joy or Callum pastes the final link into the Hub log."
 ],
 "done": "Prospect has a live sample page with Callum's Calendly CTA and a follow-up booked.",
 "technical": [
@@ -544,21 +544,51 @@ const FLOW = {
 "check": "Prospect has a live sample page with Callum's Calendly CTA and a follow-up booked.",
 "manual_tag": "Manual: Joy in Claude",
 "stage_bot": null,
-"bot_summary": "Assemble brief, 10-account shortlist, signal notes and draft page copy for Joy",
-"people_summary": "Joy builds the sample in Claude; Callum sends and walks through with Calendly CTA",
+"bot_summary": "Assemble brief + 10-account shortlist with signals; draft page copy for Joy; never edit Lovable",
+"people_summary": "Joy builds sample in Claude; Callum sends with Calendly CTA",
 "people_label": "Joy and Callum do",
 "bot_does": [
-"Assemble the sample brief (ICP, signal type, CTA = Callum's Calendly).",
-"Pull / shortlist 10 good-fit companies with a clear buying signal (estimate credits before paid pulls).",
-"Draft page copy and package notes for Joy; point at the right existing Lovable project (read-only, never edit).",
-"Draft the Client Hub log entry for what will be shared."
+"Assemble sample brief: prospect ICP from Hub/Fireflies, signal type, CTA = Callum's Calendly URL from the standing sales pack.",
+"Shortlist 10 companies that match prospect ICP and each have a dated buying signal (WhiteWhale or public source with URL/date). Estimate credits before any paid WhiteWhale/enrichment pull; ask Joy OK first.",
+"Draft page copy + package notes for Joy. Point at the existing Lovable Lead Magnet / Paid Visibility Gap project name (read-only; never edit Lovable).",
+"Draft the Client Hub log line (what will be shared, link placeholder, date)."
 ],
 "people_do": [
-"Decide with Callum whether a 10-account Lead Magnet or a Paid Visibility Gap Report fits.",
-"Joy builds the sample content in Claude (Lead Magnet / report).",
-"Callum sends the link and books the walkthrough (Calendly CTA).",
-"Joy or Callum logs what was shared in Client Hub."
+"Callum picks sample type with the prospect context: 10-account Lead Magnet vs Paid Visibility Gap Report.",
+"Joy builds the sample content in Claude and publishes/uses the Lovable page (Joy only; bot does not edit Lovable).",
+"Callum sends the link with Callum's Calendly CTA and books the walkthrough.",
+"Joy or Callum pastes the final link into the Hub log."
 ],
+"bot_decides": {
+"criteria": [
+"Exactly 10 accounts (live rule 3 Nov).",
+"Each account has ICP fit + dated signal with source.",
+"CTA must be Callum's Calendly.",
+"Lovable is read-only for the bot."
+],
+"inputs": [
+"prospect Hub/Fireflies notes",
+"WhiteWhale/public signals",
+"existing Lovable project list"
+],
+"scoring": [
+"Account pass/fail on ICP + dated signal; keep first 10 passes ranked by signal freshness."
+],
+"thresholds": [
+{
+"rule": "10 accounts",
+"source": "_common.md lead magnet = 10",
+"to_confirm": false
+},
+{
+"rule": "Minimum signal age / freshness window",
+"source": "none written",
+"to_confirm": true
+}
+],
+"tie_break": "Prefer fresher dated signals; then closer industry match to prospect ICP.",
+"escalate": "Escalate to Joy before paid pulls; escalate to Callum when sample type is unclear."
+},
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -577,11 +607,10 @@ const FLOW = {
 "num": "4",
 "bots": [],
 "howto": [
-"Book a Google Meet and record with Fireflies.",
-"Map their ICP, deal size, and current channels.",
-"Suggest campaign buckets and which channels to use first.",
-"Capture strategy notes for the ROI call and proposal page.",
-"Agree whether to go straight to ROI / proposal or need more discovery."
+"Book Google Meet; turn Fireflies on.",
+"On the call, map and write in notes: ICP, deal size, current channels.",
+"Propose campaign buckets + first channels; write them in Hub/strategy notes.",
+"Agree next step: ROI call, proposal page, or more discovery; log it."
 ],
 "done": "Strategy notes saved and next commercial step agreed.",
 "technical": [
@@ -629,12 +658,12 @@ const FLOW = {
 "people_label": "Callum and Theo do",
 "bot_does": [],
 "people_do": [
-"Book a Google Meet and record with Fireflies.",
-"Map their ICP, deal size, and current channels.",
-"Suggest campaign buckets and which channels to use first.",
-"Capture strategy notes for the ROI call and proposal page.",
-"Agree whether to go straight to ROI / proposal or need more discovery."
+"Book Google Meet; turn Fireflies on.",
+"On the call, map and write in notes: ICP, deal size, current channels.",
+"Propose campaign buckets + first channels; write them in Hub/strategy notes.",
+"Agree next step: ROI call, proposal page, or more discovery; log it."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -676,11 +705,10 @@ const FLOW = {
 "num": "5",
 "bots": [],
 "howto": [
-"Open the Clayworks ROI Engine in Lovable.",
-"Enter deal size, close rate, and the proposed meeting volume.",
-"Review cost per meeting and projected return with the prospect.",
-"Export or send the PDF summary if useful.",
-"Carry the numbers into the proposal page."
+"Open Clayworks ROI Engine in Lovable.",
+"Enter deal size, close rate, proposed meeting volume from prior notes.",
+"Walk cost per meeting and projected return with the prospect on the call.",
+"Export/send PDF if useful; paste key numbers into the proposal draft notes."
 ],
 "done": "ROI numbers and optional PDF are ready for the proposal.",
 "technical": [
@@ -728,12 +756,12 @@ const FLOW = {
 "people_label": "Founders do",
 "bot_does": [],
 "people_do": [
-"Open the Clayworks ROI Engine in Lovable.",
-"Enter deal size, close rate, and the proposed meeting volume.",
-"Review cost per meeting and projected return with the prospect.",
-"Export or send the PDF summary if useful.",
-"Carry the numbers into the proposal page."
+"Open Clayworks ROI Engine in Lovable.",
+"Enter deal size, close rate, proposed meeting volume from prior notes.",
+"Walk cost per meeting and projected return with the prospect on the call.",
+"Export/send PDF if useful; paste key numbers into the proposal draft notes."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -752,10 +780,9 @@ const FLOW = {
 "num": "6",
 "bots": [],
 "howto": [
-"Create or remix a Growth Engine proposal page in Lovable.",
-"Add campaign ideas, price, meeting promise and ROI from the calculator.",
-"Share the link with the prospect.",
-"Offer a proposal deep dive call to walk through it."
+"Create/remix Growth Engine proposal page in Lovable with ideas, price, meeting promise, ROI numbers.",
+"Share the link with the prospect in email/Slack.",
+"Offer a proposal deep dive call; book if they accept."
 ],
 "done": "Prospect has their proposal link.",
 "technical": [
@@ -796,11 +823,11 @@ const FLOW = {
 "people_label": "Theo and Callum do",
 "bot_does": [],
 "people_do": [
-"Create or remix a Growth Engine proposal page in Lovable.",
-"Add campaign ideas, price, meeting promise and ROI from the calculator.",
-"Share the link with the prospect.",
-"Offer a proposal deep dive call to walk through it."
+"Create/remix Growth Engine proposal page in Lovable with ideas, price, meeting promise, ROI numbers.",
+"Share the link with the prospect in email/Slack.",
+"Offer a proposal deep dive call; book if they accept."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -819,11 +846,9 @@ const FLOW = {
 "num": "7",
 "bots": [],
 "howto": [
-"Join Google Meet with Fireflies on.",
-"Walk through the proposal page section by section.",
-"Answer price, timing, risk and guarantee questions.",
-"Capture agreed changes to price or meeting promise.",
-"Move to contract review when they are ready."
+"Join Meet with Fireflies on; walk the proposal page section by section.",
+"Capture agreed changes to price or meeting promise in writing on the page/Hub.",
+"When they are ready, move to contract review and note the date."
 ],
 "done": "Offer is agreed (or changes listed for a revised page).",
 "technical": [
@@ -871,12 +896,11 @@ const FLOW = {
 "people_label": "Callum does",
 "bot_does": [],
 "people_do": [
-"Join Google Meet with Fireflies on.",
-"Walk through the proposal page section by section.",
-"Answer price, timing, risk and guarantee questions.",
-"Capture agreed changes to price or meeting promise.",
-"Move to contract review when they are ready."
+"Join Meet with Fireflies on; walk the proposal page section by section.",
+"Capture agreed changes to price or meeting promise in writing on the page/Hub.",
+"When they are ready, move to contract review and note the date."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -918,11 +942,10 @@ const FLOW = {
 "num": "8",
 "bots": [],
 "howto": [
-"Confirm monthly price and meeting promise with founders.",
-"Write rollover and credit rules into the offer.",
-"State that a setup fee applies (no amounts on this page).",
-"State the guarantee: qualified meetings or money back.",
-"Lock numbers into the contract draft and ROI summary."
+"Founders set monthly price and meeting promise in writing.",
+"Write rollover/credit rules and that a setup fee applies (no amounts on the public flow page).",
+"State guarantee: qualified meetings or money back.",
+"Lock numbers into the contract draft + ROI summary."
 ],
 "done": "Price, setup fee, and qualified-meetings-or-money-back guarantee are written into the offer.",
 "technical": [
@@ -963,12 +986,12 @@ const FLOW = {
 "people_label": "Founders do",
 "bot_does": [],
 "people_do": [
-"Confirm monthly price and meeting promise with founders.",
-"Write rollover and credit rules into the offer.",
-"State that a setup fee applies (no amounts on this page).",
-"State the guarantee: qualified meetings or money back.",
-"Lock numbers into the contract draft and ROI summary."
+"Founders set monthly price and meeting promise in writing.",
+"Write rollover/credit rules and that a setup fee applies (no amounts on the public flow page).",
+"State guarantee: qualified meetings or money back.",
+"Lock numbers into the contract draft + ROI summary."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -1003,9 +1026,8 @@ const FLOW = {
 "num": "9",
 "bots": [],
 "howto": [
-"Ask the client what must be true for a meeting to count.",
-"Write exactly three rules in their words.",
-"Put the rules in the contract draft.",
+"Ask the client what must be true for a meeting to count; write exactly three rules in their words.",
+"Put the three rules in the contract draft.",
 "Plan to copy them into the onboarding form after signing."
 ],
 "done": "Three qualified rules are written and shared.",
@@ -1047,11 +1069,11 @@ const FLOW = {
 "people_label": "Callum does",
 "bot_does": [],
 "people_do": [
-"Ask the client what must be true for a meeting to count.",
-"Write exactly three rules in their words.",
-"Put the rules in the contract draft.",
+"Ask the client what must be true for a meeting to count; write exactly three rules in their words.",
+"Put the three rules in the contract draft.",
 "Plan to copy them into the onboarding form after signing."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -1086,11 +1108,9 @@ const FLOW = {
 "num": "10",
 "bots": [],
 "howto": [
-"Decide with founders whether this deal needs a consulting / discovery phase.",
-"Write Phase 1 scope: setup, message testing, no meeting guarantee.",
-"Write Phase 2 scope: guaranteed meetings after discovery.",
-"Put both phases and pricing on the proposal page.",
-"Confirm the client understands when the guarantee starts."
+"Founders decide if a consulting/discovery phase is needed.",
+"Write Phase 1 scope (setup, message testing, no meeting guarantee) and Phase 2 (guaranteed meetings).",
+"Put both phases + pricing on the proposal page; confirm the client knows when the guarantee starts."
 ],
 "done": "Phase plan is on the proposal and agreed.",
 "technical": [
@@ -1138,12 +1158,11 @@ const FLOW = {
 "people_label": "Founders do",
 "bot_does": [],
 "people_do": [
-"Decide with founders whether this deal needs a consulting / discovery phase.",
-"Write Phase 1 scope: setup, message testing, no meeting guarantee.",
-"Write Phase 2 scope: guaranteed meetings after discovery.",
-"Put both phases and pricing on the proposal page.",
-"Confirm the client understands when the guarantee starts."
+"Founders decide if a consulting/discovery phase is needed.",
+"Write Phase 1 scope (setup, message testing, no meeting guarantee) and Phase 2 (guaranteed meetings).",
+"Put both phases + pricing on the proposal page; confirm the client knows when the guarantee starts."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -1185,11 +1204,9 @@ const FLOW = {
 "num": "11",
 "bots": [],
 "howto": [
-"Send the contract with price, meeting promise, qualified rules and term.",
-"Review terms on a call if needed (Fireflies: Contract Review).",
-"Confirm start date and onboarding capacity (max two new clients a month).",
-"Collect the signature and store the signed file.",
-"Trigger setup: create the Client Hub tenant next."
+"Send contract with price, meeting promise, qualified rules, term (3-month pilot then month-to-month).",
+"Review on a call if needed; confirm start date and capacity (max 2 new clients/month).",
+"Collect signature; store signed file in Drive; trigger Hub tenant creation next."
 ],
 "done": "Signed contract filed; setup can start.",
 "technical": [
@@ -1237,12 +1254,11 @@ const FLOW = {
 "people_label": "Callum does",
 "bot_does": [],
 "people_do": [
-"Send the contract with price, meeting promise, qualified rules and term.",
-"Review terms on a call if needed (Fireflies: Contract Review).",
-"Confirm start date and onboarding capacity (max two new clients a month).",
-"Collect the signature and store the signed file.",
-"Trigger setup: create the Client Hub tenant next."
+"Send contract with price, meeting promise, qualified rules, term (3-month pilot then month-to-month).",
+"Review on a call if needed; confirm start date and capacity (max 2 new clients/month).",
+"Collect signature; store signed file in Drive; trigger Hub tenant creation next."
 ],
+"bot_decides": null,
 "bot_name": "Stage 1 Win the Client bot"
 },
 {
@@ -1288,11 +1304,10 @@ const FLOW = {
 "num": "12",
 "bots": [],
 "howto": [
-"Create the Client Hub tenant for the new client.",
-"Create the CSM account and set stage to onboarding.",
-"Add owners (Joy, Theo, Callum as needed) via tenant owners.",
-"Write the tenant id into the draft client context file.",
-"Joy confirms the tenant id and owners look right.",
+"Create Client Hub tenant named for the client; create CSM account with stage=onboarding.",
+"Add owners Joy, Theo, Callum (as needed) via tenant owners API/UI.",
+"Write tenant id into the draft client context file path for this client.",
+"Joy opens the tenant in Client Hub and confirms tenant id, stage=onboarding, and owners list match.",
 "Never delete tenants later; mark inactive or churned instead."
 ],
 "done": "Tenant id exists and CSM stage is onboarding.",
@@ -1326,19 +1341,35 @@ const FLOW = {
 "name": "Stage 2 Get Set Up bot",
 "label": "Stage 2 Get Set Up bot"
 },
-"bot_summary": "Create tenant + CSM account; add owners; save tenant id to context",
-"people_summary": "Joy confirms tenant and owners look right",
+"bot_summary": "Create tenant + CSM onboarding; add owners; write tenant id to context draft",
+"people_summary": "Joy confirms tenant id and owners in Hub UI",
 "people_label": "Joy does",
 "bot_does": [
-"Create the Client Hub tenant for the new client.",
-"Create the CSM account and set stage to onboarding.",
-"Add owners (Joy, Theo, Callum as needed) via tenant owners.",
-"Write the tenant id into the draft client context file."
+"Create Client Hub tenant named for the client; create CSM account with stage=onboarding.",
+"Add owners Joy, Theo, Callum (as needed) via tenant owners API/UI.",
+"Write tenant id into the draft client context file path for this client."
 ],
 "people_do": [
-"Joy confirms the tenant id and owners look right.",
+"Joy opens the tenant in Client Hub and confirms tenant id, stage=onboarding, and owners list match.",
 "Never delete tenants later; mark inactive or churned instead."
 ],
+"bot_decides": {
+"criteria": [
+"One tenant per client.",
+"Stage must be onboarding at create.",
+"Owners must include Joy."
+],
+"inputs": [
+"signed contract client name",
+"Client Hub list_tenants"
+],
+"scoring": [
+"Pass if tenant id returned and written to context draft."
+],
+"thresholds": [],
+"tie_break": "If a tenant with the same name exists, stop and escalate (do not create a duplicate).",
+"escalate": "Escalate to Joy if a same-name tenant already exists or owner invites fail."
+},
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -1381,11 +1412,9 @@ const FLOW = {
 "bots": [],
 "howto": [
 "Send the Lovable Onboarding Engine link to the client.",
-"Ask them to complete all eight sections plus the three qualified rules.",
-"Ask for an exclusion list upload (customers, hot pipeline, competitors, do-not-contact).",
-"Chase every blank field in a single follow-up message.",
-"Export or sync answers into Client Hub / the client profile.",
-"If they edit later, keep the edit history rather than starting a new form."
+"Ask them to complete all eight sections plus the three qualified rules and upload exclusions (customers, hot pipeline, competitors, other DNC).",
+"Chase every blank field in one follow-up listing the blank field names.",
+"Export/sync answers into Client Hub / client profile; keep edit history if they revise."
 ],
 "done": "Onboarding answers and exclusion list are complete enough to build.",
 "technical": [
@@ -1436,17 +1465,16 @@ const FLOW = {
 "manual_tag": "Client does this",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Joy/Callum send the link and chase blanks; client fills the form",
+"people_summary": "Joy/Callum send Lovable Onboarding Engine link; client fills; chase blanks",
 "people_label": "Joy and Callum do",
 "bot_does": [],
 "people_do": [
 "Send the Lovable Onboarding Engine link to the client.",
-"Ask them to complete all eight sections plus the three qualified rules.",
-"Ask for an exclusion list upload (customers, hot pipeline, competitors, do-not-contact).",
-"Chase every blank field in a single follow-up message.",
-"Export or sync answers into Client Hub / the client profile.",
-"If they edit later, keep the edit history rather than starting a new form."
+"Ask them to complete all eight sections plus the three qualified rules and upload exclusions (customers, hot pipeline, competitors, other DNC).",
+"Chase every blank field in one follow-up listing the blank field names.",
+"Export/sync answers into Client Hub / client profile; keep edit history if they revise."
 ],
+"bot_decides": null,
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -1488,12 +1516,10 @@ const FLOW = {
 "num": "14",
 "bots": [],
 "howto": [
-"Draft the invite list and folder structure checklist.",
-"List which signed files belong in Drive (contract, onboarding export, kickoff agenda).",
-"Joy creates a WhatsApp or Slack group with the client contacts.",
-"Joy creates a private Google Drive folder for this client.",
-"Invite the client and the Clayworks owners.",
-"Drop the signed contract, onboarding export and kickoff agenda into the folder."
+"Draft invite list from contract + onboarding contacts (names, emails, phones).",
+"Draft Drive folder checklist: signed contract, onboarding export, kickoff agenda.",
+"Joy creates WhatsApp or Slack group with those contacts and Clayworks owners.",
+"Joy creates private Google Drive folder; invites client + owners; drops the three files."
 ],
 "done": "Chat and Drive folder are live with the right people.",
 "technical": [
@@ -1533,19 +1559,33 @@ const FLOW = {
 "name": "Stage 2 Get Set Up bot",
 "label": "Stage 2 Get Set Up bot"
 },
-"bot_summary": "Draft channel/folder checklist and invite list",
-"people_summary": "Joy creates WhatsApp/Slack group and Drive folder; invites people",
+"bot_summary": "Draft invite list + folder checklist from contract/onboarding contacts",
+"people_summary": "Joy creates WhatsApp/Slack group and Drive folder; drops signed files",
 "people_label": "Joy does",
 "bot_does": [
-"Draft the invite list and folder structure checklist.",
-"List which signed files belong in Drive (contract, onboarding export, kickoff agenda)."
+"Draft invite list from contract + onboarding contacts (names, emails, phones).",
+"Draft Drive folder checklist: signed contract, onboarding export, kickoff agenda."
 ],
 "people_do": [
-"Joy creates a WhatsApp or Slack group with the client contacts.",
-"Joy creates a private Google Drive folder for this client.",
-"Invite the client and the Clayworks owners.",
-"Drop the signed contract, onboarding export and kickoff agenda into the folder."
+"Joy creates WhatsApp or Slack group with those contacts and Clayworks owners.",
+"Joy creates private Google Drive folder; invites client + owners; drops the three files."
 ],
+"bot_decides": {
+"criteria": [
+"Invite list must include at least one client contact from the contract.",
+"Checklist always includes contract, onboarding export, kickoff agenda."
+],
+"inputs": [
+"signed contract",
+"onboarding contacts"
+],
+"scoring": [
+"Pass/fail on contact present + checklist complete."
+],
+"thresholds": [],
+"tie_break": "If multiple contacts, include all decision-makers named on the contract.",
+"escalate": "Escalate to Joy if no client contact email/phone is on file."
+},
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -1594,12 +1634,11 @@ const FLOW = {
 "num": "15",
 "bots": [],
 "howto": [
-"Draft the client context file skeleton from onboarding + contract notes.",
-"Propose Helper bot setup notes (tools, tenant id, folder paths) for Joy.",
+"Draft client context file skeleton from onboarding + contract (ICP, qualified rules, exclusions, tenants id).",
+"Propose Helper bot setup notes: tools, tenant id, folder paths (Joy creates the bot).",
 "Turn on Fireflies for this client's meetings.",
-"Create the client folder and context file on the box.",
-"Stand up a Helper bot for this client (ask first, log after).",
-"Point the Helper at the context file and Client Hub tenant."
+"Create the client folder + context file on the box from the draft.",
+"Stand up Helper bot (ask first); point it at context file + Hub tenant."
 ],
 "done": "Context file and Helper bot exist; Fireflies will record calls.",
 "technical": [
@@ -1632,19 +1671,34 @@ const FLOW = {
 "name": "Stage 2 Get Set Up bot",
 "label": "Stage 2 Get Set Up bot"
 },
-"bot_summary": "Draft context file skeleton; propose Helper bot setup notes",
-"people_summary": "Joy turns on Fireflies, creates folder/context, stands up Helper bot",
+"bot_summary": "Draft context skeleton from onboarding/contract; propose Helper setup notes",
+"people_summary": "Joy enables Fireflies, creates folder/context, stands up Helper bot",
 "people_label": "Joy does",
 "bot_does": [
-"Draft the client context file skeleton from onboarding + contract notes.",
-"Propose Helper bot setup notes (tools, tenant id, folder paths) for Joy."
+"Draft client context file skeleton from onboarding + contract (ICP, qualified rules, exclusions, tenants id).",
+"Propose Helper bot setup notes: tools, tenant id, folder paths (Joy creates the bot)."
 ],
 "people_do": [
 "Turn on Fireflies for this client's meetings.",
-"Create the client folder and context file on the box.",
-"Stand up a Helper bot for this client (ask first, log after).",
-"Point the Helper at the context file and Client Hub tenant."
+"Create the client folder + context file on the box from the draft.",
+"Stand up Helper bot (ask first); point it at context file + Hub tenant."
 ],
+"bot_decides": {
+"criteria": [
+"Context draft must include ICP, 3 qualified rules, exclusions, tenant id when known."
+],
+"inputs": [
+"onboarding export",
+"contract",
+"Hub tenant id"
+],
+"scoring": [
+"Pass if all four sections present or explicitly marked missing."
+],
+"thresholds": [],
+"tie_break": "Missing qualified rules -> mark MISSING and escalate; do not invent rules.",
+"escalate": "Escalate to Joy when qualified rules or tenant id are missing."
+},
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -1693,13 +1747,11 @@ const FLOW = {
 "num": "16",
 "bots": [],
 "howto": [
-"Build a connection checklist for Smartlead, Prosp, CloudTalk, CRM and Fireflies.",
-"Report which connections are already live vs still needed.",
-"Connect Smartlead and attach warming inboxes.",
-"Connect Prosp sender accounts; every campaign needs LinkedIn alongside email.",
-"Connect CloudTalk for calling and the CRM if the client uses one.",
+"Build a checklist with pass/fail for: Smartlead account + warming inboxes tagged to client; Prosp senders; CloudTalk; CRM (if client uses one); Fireflies on client calendar.",
+"Report which items are already live vs missing with evidence ( Hub notes / tool screens ).",
+"Connect any missing Smartlead/Prosp/CloudTalk/CRM items.",
 "Confirm Fireflies on client calls.",
-"Client gives LinkedIn / CRM access as needed (can be slow)."
+"Client grants LinkedIn/CRM access as needed (track until done; LinkedIn can take weeks)."
 ],
 "done": "Smartlead, Prosp, CloudTalk and CRM connections are working or clearly blocked with an owner.",
 "technical": [
@@ -1760,20 +1812,38 @@ const FLOW = {
 "name": "Stage 2 Get Set Up bot",
 "label": "Stage 2 Get Set Up bot"
 },
-"bot_summary": "Checklist and status of Smartlead, Prosp, CloudTalk, CRM, Fireflies connections",
-"people_summary": "Joy and Theo complete the live connections and client LinkedIn access",
+"bot_summary": "Build connection checklist; report live vs missing for Smartlead/Prosp/CloudTalk/CRM/Fireflies",
+"people_summary": "Joy and Theo complete live connections; client gives LinkedIn/CRM access",
 "people_label": "Joy and Theo do",
 "bot_does": [
-"Build a connection checklist for Smartlead, Prosp, CloudTalk, CRM and Fireflies.",
-"Report which connections are already live vs still needed."
+"Build a checklist with pass/fail for: Smartlead account + warming inboxes tagged to client; Prosp senders; CloudTalk; CRM (if client uses one); Fireflies on client calendar.",
+"Report which items are already live vs missing with evidence ( Hub notes / tool screens )."
 ],
 "people_do": [
-"Connect Smartlead and attach warming inboxes.",
-"Connect Prosp sender accounts; every campaign needs LinkedIn alongside email.",
-"Connect CloudTalk for calling and the CRM if the client uses one.",
+"Connect any missing Smartlead/Prosp/CloudTalk/CRM items.",
 "Confirm Fireflies on client calls.",
-"Client gives LinkedIn / CRM access as needed (can be slow)."
+"Client grants LinkedIn/CRM access as needed (track until done; LinkedIn can take weeks)."
 ],
+"bot_decides": {
+"criteria": [
+"Prosp required (every campaign needs LinkedIn alongside email).",
+"Smartlead inboxes must be warming.",
+"Item is 'live' only if the tool shows the client-tagged connection."
+],
+"inputs": [
+"Smartlead",
+"Prosp",
+"CloudTalk",
+"CRM",
+"Fireflies"
+],
+"scoring": [
+"Checklist pass/fail per tool."
+],
+"thresholds": [],
+"tie_break": "If CRM type unknown, mark CRM as 'ask client' rather than guessing.",
+"escalate": "Escalate to Joy/Theo when client LinkedIn access is blocked > threshold to confirm weeks."
+},
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -1792,12 +1862,12 @@ const FLOW = {
 "num": "17",
 "bots": [],
 "howto": [
-"Check Prosp Settings > Webhooks for the LinkedIn Message Reply webhook URL.",
-"Check InboxKit forwarding address for each domain.",
-"List missing calendar access and missing fixed meeting links per BDR.",
-"Tick completed items on the setup list in Client Hub / the context file.",
-"Joy and Theo fix any gaps (webhook, forwarding, calendar, meeting links).",
-"Get calendar access from the client when missing."
+"Check Prosp Settings > Webhooks for LinkedIn Message Reply webhook URL; pass if URL matches the documented house URL.",
+"Check InboxKit forwarding address for each client domain; pass if set.",
+"List missing Google calendar access and missing fixed meeting links per BDR assigned to the client.",
+"Tick completed items on the setup list in Client Hub / context file; leave gaps unchecked with owner Joy/Theo.",
+"Fix any failed webhook/forwarding items.",
+"Get calendar access from the client when missing; create missing BDR meeting links."
 ],
 "done": "Webhook, forwarding, calendar and meeting links are checked.",
 "technical": [
@@ -1844,19 +1914,38 @@ const FLOW = {
 "name": "Stage 2 Get Set Up bot",
 "label": "Stage 2 Get Set Up bot"
 },
-"bot_summary": "Audit Prosp webhook, InboxKit forwarding, calendar access, BDR meeting links; tick list",
-"people_summary": "Joy and Theo fix any gaps the audit finds",
+"bot_summary": "Audit Prosp webhook, InboxKit forwarding, calendar access, BDR meeting links; tick Hub list",
+"people_summary": "Joy and Theo fix gaps the audit finds",
 "people_label": "Joy and Theo do",
 "bot_does": [
-"Check Prosp Settings > Webhooks for the LinkedIn Message Reply webhook URL.",
-"Check InboxKit forwarding address for each domain.",
-"List missing calendar access and missing fixed meeting links per BDR.",
-"Tick completed items on the setup list in Client Hub / the context file."
+"Check Prosp Settings > Webhooks for LinkedIn Message Reply webhook URL; pass if URL matches the documented house URL.",
+"Check InboxKit forwarding address for each client domain; pass if set.",
+"List missing Google calendar access and missing fixed meeting links per BDR assigned to the client.",
+"Tick completed items on the setup list in Client Hub / context file; leave gaps unchecked with owner Joy/Theo."
 ],
 "people_do": [
-"Joy and Theo fix any gaps (webhook, forwarding, calendar, meeting links).",
-"Get calendar access from the client when missing."
+"Fix any failed webhook/forwarding items.",
+"Get calendar access from the client when missing; create missing BDR meeting links."
 ],
+"bot_decides": {
+"criteria": [
+"Webhook URL exact match to house doc.",
+"Each domain has forwarding.",
+"Each assigned BDR has a fixed meeting link."
+],
+"inputs": [
+"Prosp settings",
+"InboxKit domains",
+"BDR roster",
+"calendar sharing"
+],
+"scoring": [
+"Pass/fail per item."
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate to Joy when client calendar access is refused."
+},
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -2133,14 +2222,13 @@ const FLOW = {
 "Stage 3 Inboxes"
 ],
 "howto": [
-"Read planned volume from the campaign plan.",
-"Count warm senders already available; exclude rested or flagged ones.",
-"Size domains and mailboxes (about 12 domains / 24 inboxes + 2 to 3 spares).",
-"Price domains and mailboxes in InboxKit; draft the buy plan for Joy.",
-"After Joy OK: create mailboxes, set SPF / DKIM / DMARC, connect to Smartlead, tag by client, turn on warm-up (daily limit 25).",
-"Log cost, purchase date and renewal date in the client file.",
-"Joy gives written OK on InboxKit spend before purchase.",
-"Theo/Joy confirm purchase and warm-up started."
+"Read planned monthly volume from the campaign plan; count warm senders already available (exclude rested/flagged).",
+"Size to house default about 12 domains / 24 inboxes + 2 to 3 spares unless the plan states other numbers (house-rules/stage-3).",
+"Price domains+mailboxes in InboxKit; draft buy plan (counts, cost, client tag) for Joy.",
+"After Joy written OK: create mailboxes, set SPF/DKIM/DMARC, connect to Smartlead, tag by client, turn on warm-up, daily limit 25/mailbox.",
+"Log cost, purchase date, renewal date, warm-start date in the client file.",
+"Joy replies OK/cut on the InboxKit cost estimate before purchase.",
+"Theo/Joy confirm purchase completed and warm-up started; save receipts."
 ],
 "done": "Warming inboxes are connected, tagged and warming.",
 "technical": [
@@ -2181,21 +2269,55 @@ const FLOW = {
 "name": "Stage 2 Get Set Up bot",
 "label": "Stage 2 Get Set Up bot"
 },
-"bot_summary": "Size domains/mailboxes; price in InboxKit; draft buy plan; start warm-up after Joy OK",
-"people_summary": "Joy OKs spend; Theo/Joy buy domains and mailboxes",
+"bot_summary": "Size domains/mailboxes from plan volume; price InboxKit; draft buy plan; warm after Joy OK",
+"people_summary": "Joy OKs spend; Theo/Joy buy and confirm warm-up started",
 "people_label": "Theo and Joy do",
 "bot_does": [
-"Read planned volume from the campaign plan.",
-"Count warm senders already available; exclude rested or flagged ones.",
-"Size domains and mailboxes (about 12 domains / 24 inboxes + 2 to 3 spares).",
-"Price domains and mailboxes in InboxKit; draft the buy plan for Joy.",
-"After Joy OK: create mailboxes, set SPF / DKIM / DMARC, connect to Smartlead, tag by client, turn on warm-up (daily limit 25).",
-"Log cost, purchase date and renewal date in the client file."
+"Read planned monthly volume from the campaign plan; count warm senders already available (exclude rested/flagged).",
+"Size to house default about 12 domains / 24 inboxes + 2 to 3 spares unless the plan states other numbers (house-rules/stage-3).",
+"Price domains+mailboxes in InboxKit; draft buy plan (counts, cost, client tag) for Joy.",
+"After Joy written OK: create mailboxes, set SPF/DKIM/DMARC, connect to Smartlead, tag by client, turn on warm-up, daily limit 25/mailbox.",
+"Log cost, purchase date, renewal date, warm-start date in the client file."
 ],
 "people_do": [
-"Joy gives written OK on InboxKit spend before purchase.",
-"Theo/Joy confirm purchase and warm-up started."
+"Joy replies OK/cut on the InboxKit cost estimate before purchase.",
+"Theo/Joy confirm purchase completed and warm-up started; save receipts."
 ],
+"bot_decides": {
+"criteria": [
+"Default size 12 domains / 24 mailboxes unless plan overrides.",
+"Daily limit 25/mailbox.",
+"No purchase without Joy written OK.",
+"Warm-up clock starts at warm-start date."
+],
+"inputs": [
+"campaign plan volume",
+"InboxKit pricing",
+"existing mailbox inventory"
+],
+"scoring": [
+"Pass sizing math: volume fits under 25/mailbox/day capacity with spares."
+],
+"thresholds": [
+{
+"rule": "12 domains / 24 mailboxes default",
+"source": "house-rules/stage-3",
+"to_confirm": false
+},
+{
+"rule": "25 sends/day per mailbox",
+"source": "house-rules/stage-3",
+"to_confirm": false
+},
+{
+"rule": "Spare count 2 to 3",
+"source": "stage-3 / practice",
+"to_confirm": false
+}
+],
+"tie_break": "If volume needs more than default, show the math and ask Joy before upsizing.",
+"escalate": "Escalate to Joy on cost OK; never buy without it."
+},
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -2249,10 +2371,9 @@ const FLOW = {
 "bots": [],
 "howto": [
 "Send agenda before the call.",
-"Walk ICP, qualified rules, planned buckets and inbox warm-up status.",
-"Request exclusion lists and any client-held data (job lists, KPIs, events).",
-"Confirm weekly catch-up cadence for the first three months.",
-"Save the transcript and action list in Drive / Client Hub."
+"Walk ICP, qualified rules, planned buckets, inbox warm-up status (days warmed / 2-week minimum).",
+"Request exclusion lists and client-held data; write asks in Hub.",
+"Confirm weekly catch-up cadence for first 3 months; save transcript + action list."
 ],
 "done": "Kickoff transcript and action list are saved.",
 "technical": [
@@ -2296,16 +2417,16 @@ const FLOW = {
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum runs kickoff; requests data; confirms weekly cadence",
+"people_summary": "Callum runs kickoff with agenda, ICP, rules, warm-up status, data asks",
 "people_label": "Callum does",
 "bot_does": [],
 "people_do": [
 "Send agenda before the call.",
-"Walk ICP, qualified rules, planned buckets and inbox warm-up status.",
-"Request exclusion lists and any client-held data (job lists, KPIs, events).",
-"Confirm weekly catch-up cadence for the first three months.",
-"Save the transcript and action list in Drive / Client Hub."
+"Walk ICP, qualified rules, planned buckets, inbox warm-up status (days warmed / 2-week minimum).",
+"Request exclusion lists and client-held data; write asks in Hub.",
+"Confirm weekly catch-up cadence for first 3 months; save transcript + action list."
 ],
+"bot_decides": null,
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -2340,10 +2461,8 @@ const FLOW = {
 "num": "20",
 "bots": [],
 "howto": [
-"Propose a weekly time that works for the client and Callum.",
-"Send a recurring calendar invite for the first three months.",
-"Attach the Drive folder and Client Hub links to the invite.",
-"Confirm Fireflies will record each catch-up."
+"Propose a weekly time; send recurring Google Calendar invite for 3 months.",
+"Attach Drive folder + Client Hub links; confirm Fireflies will record."
 ],
 "done": "Recurring weekly invite is accepted.",
 "technical": [
@@ -2380,15 +2499,14 @@ const FLOW = {
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum books the recurring weekly invite",
+"people_summary": "Callum sends recurring weekly invite for first 3 months",
 "people_label": "Callum does",
 "bot_does": [],
 "people_do": [
-"Propose a weekly time that works for the client and Callum.",
-"Send a recurring calendar invite for the first three months.",
-"Attach the Drive folder and Client Hub links to the invite.",
-"Confirm Fireflies will record each catch-up."
+"Propose a weekly time; send recurring Google Calendar invite for 3 months.",
+"Attach Drive folder + Client Hub links; confirm Fireflies will record."
 ],
+"bot_decides": null,
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -2513,9 +2631,9 @@ const FLOW = {
 "num": "21",
 "bots": [],
 "howto": [
-"Agree the starting account list with Callum / the client.",
+"Agree starting account list with Callum/client (names/domains written in Hub).",
 "Joy adds accounts to WhiteWhale / Client Hub Signals in Claude.",
-"Confirm signals are returning for a sample of accounts.",
+"Confirm signals returning for a sample of accounts (open WhiteWhale/Hub and see recent events).",
 "Note the list in the client context file."
 ],
 "done": "Key accounts are watched for signals.",
@@ -2553,15 +2671,16 @@ const FLOW = {
 "manual_tag": "Manual: Joy in Claude",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Joy sets up WhiteWhale / signals in Claude; agrees starting list with Callum",
+"people_summary": "Joy sets WhiteWhale/signals in Claude; agrees starting list with Callum",
 "people_label": "Joy does",
 "bot_does": [],
 "people_do": [
-"Agree the starting account list with Callum / the client.",
+"Agree starting account list with Callum/client (names/domains written in Hub).",
 "Joy adds accounts to WhiteWhale / Client Hub Signals in Claude.",
-"Confirm signals are returning for a sample of accounts.",
+"Confirm signals returning for a sample of accounts (open WhiteWhale/Hub and see recent events).",
 "Note the list in the client context file."
 ],
+"bot_decides": null,
 "bot_name": "Stage 2 Get Set Up bot"
 },
 {
@@ -2754,13 +2873,11 @@ const FLOW = {
 "Stage 2 Data Intake"
 ],
 "howto": [
-"Read house rules, client file, Client Hub, Fireflies sales/client calls, and the onboarding form.",
-"Write qualified rules, geography, exclusions, ICP, claims, banned words and sender identity into the profile draft.",
-"Split work into buckets (one signal or audience each) with an offer and volume per bucket.",
-"Ask Joy every open question in one message.",
-"Propose the Client Hub plan entry text (bots never write plans).",
-"Joy answers the open questions.",
-"Joy or Theo creates the Client Hub plan from the bot draft."
+"Draft client profile from onboarding + Fireflies: ICP, offer, proof, exclusions, 3 qualified rules, channels.",
+"Draft campaign plan with proposed buckets; score each bucket on signal freshness, list size via Waterfall, ICP fit, effort/credits.",
+"Draft Client Hub ops/plan entries for shortlisted buckets (Joy creates in Hub).",
+"Joy edits and locks the client profile in the client folder / Hub.",
+"Theo picks which buckets run first with Joy; Joy creates the Hub ops cards."
 ],
 "done": "Profile and campaign plan exist; Client Hub plan entry created by Joy or Theo.",
 "technical": [
@@ -2801,20 +2918,44 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "Read sources; draft profile (ICP, rules, bans, buckets); propose Hub plan text",
-"people_summary": "Joy answers open questions; Joy or Theo creates the Hub plan",
-"people_label": "Joy does",
+"bot_summary": "Draft profile + plan from onboarding/Fireflies; score buckets; write Hub ops drafts",
+"people_summary": "Joy edits profile; Theo picks first buckets with Joy",
+"people_label": "Joy and Theo do",
 "bot_does": [
-"Read house rules, client file, Client Hub, Fireflies sales/client calls, and the onboarding form.",
-"Write qualified rules, geography, exclusions, ICP, claims, banned words and sender identity into the profile draft.",
-"Split work into buckets (one signal or audience each) with an offer and volume per bucket.",
-"Ask Joy every open question in one message.",
-"Propose the Client Hub plan entry text (bots never write plans)."
+"Draft client profile from onboarding + Fireflies: ICP, offer, proof, exclusions, 3 qualified rules, channels.",
+"Draft campaign plan with proposed buckets; score each bucket on signal freshness, list size via Waterfall, ICP fit, effort/credits.",
+"Draft Client Hub ops/plan entries for shortlisted buckets (Joy creates in Hub)."
 ],
 "people_do": [
-"Joy answers the open questions.",
-"Joy or Theo creates the Client Hub plan from the bot draft."
+"Joy edits and locks the client profile in the client folder / Hub.",
+"Theo picks which buckets run first with Joy; Joy creates the Hub ops cards."
 ],
+"bot_decides": {
+"criteria": [
+"Bucket has scrapable/fresh signal",
+"List reachable via Waterfall for client geo",
+"Fits locked ICP + qualified rules",
+"Not overlapping live campaigns or exclusions"
+],
+"inputs": [
+"onboarding",
+"Fireflies",
+"Hub live campaigns",
+"exclusions list"
+],
+"scoring": [
+"0/3/5 per criterion; present ranked shortlist"
+],
+"thresholds": [
+{
+"rule": "Minimum bucket score to shortlist",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Prefer fresher signal, then lower paid-credit need.",
+"escalate": "Escalate to Theo when fewer than 1 clear first bucket, or client geo is Asia-only (sourcing still open research)."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -2978,16 +3119,14 @@ const FLOW = {
 "Stage 4 Company TAM"
 ],
 "howto": [
-"Read ICP and capacity from the profile and infra plan.",
-"Search and build with Blitz first. Do not use Clay.",
-"Fill gaps with Pronto, then LeadsForge after credit estimate.",
-"Apply hard gates, size, country and exclusions; split buyers from partners.",
-"Confirm a dated signal per account; tier A / B / C.",
-"Dedupe against Client Hub contacts, lists and blacklist, and across buckets.",
-"Cap to sending capacity; hand list to Joy for QA before people step.",
-"Log email and mobile hit rate per tool per region into the hit-rate log.",
-"Joy OKs paid Pronto / LeadsForge pulls.",
-"Joy QAs the company list before people enrichment starts."
+"Read company ICP from ops card: industries, headcount, geo, exclusions. If blank, escalate.",
+"Build company TAM with Blitz first. If Blitz coverage under ~65% of the target company count, fall through Pronto then LeadsForge on misses.",
+"Before paid Pronto/LeadsForge: estimate credits (miss count x live unit cost) and send to Joy; wait for written OK.",
+"Blacklist/dedupe company domains against Hub blacklist, existing contacts' companies, and exclusions file. Match key: company domain.",
+"Load company list to Client Hub; write list id on ops card; log hit rates.",
+"Confirm industries/headcount/geo/exclusions on the ops card match the locked profile; edit blanks before bot continues.",
+"Joy OKs paid credit estimate before Pronto/LeadsForge.",
+"Spot-check about 10 company domains for ICP fit; if 3+ fail (threshold to confirm), send back."
 ],
 "done": "Company list passed Joy's QA and is ready for people enrichment.",
 "technical": [
@@ -3054,23 +3193,52 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "Build company TAM via Waterfall; tier; dedupe; log hit rates; send list for QA",
-"people_summary": "Joy OKs paid pulls and QAs the company list before people",
-"people_label": "Joy does",
+"bot_summary": "Confirm ICP from ops card; Blitz TAM then Waterfall fall-through; blacklist domains; load Hub",
+"people_summary": "Joy/Theo pass ICP on ops card; Joy OKs paid credits; spot-check domains",
+"people_label": "Joy and Theo do",
 "bot_does": [
-"Read ICP and capacity from the profile and infra plan.",
-"Search and build with Blitz first. Do not use Clay.",
-"Fill gaps with Pronto, then LeadsForge after credit estimate.",
-"Apply hard gates, size, country and exclusions; split buyers from partners.",
-"Confirm a dated signal per account; tier A / B / C.",
-"Dedupe against Client Hub contacts, lists and blacklist, and across buckets.",
-"Cap to sending capacity; hand list to Joy for QA before people step.",
-"Log email and mobile hit rate per tool per region into the hit-rate log."
+"Read company ICP from ops card: industries, headcount, geo, exclusions. If blank, escalate.",
+"Build company TAM with Blitz first. If Blitz coverage under ~65% of the target company count, fall through Pronto then LeadsForge on misses.",
+"Before paid Pronto/LeadsForge: estimate credits (miss count x live unit cost) and send to Joy; wait for written OK.",
+"Blacklist/dedupe company domains against Hub blacklist, existing contacts' companies, and exclusions file. Match key: company domain.",
+"Load company list to Client Hub; write list id on ops card; log hit rates."
 ],
 "people_do": [
-"Joy OKs paid Pronto / LeadsForge pulls.",
-"Joy QAs the company list before people enrichment starts."
+"Confirm industries/headcount/geo/exclusions on the ops card match the locked profile; edit blanks before bot continues.",
+"Joy OKs paid credit estimate before Pronto/LeadsForge.",
+"Spot-check about 10 company domains for ICP fit; if 3+ fail (threshold to confirm), send back."
 ],
+"bot_decides": {
+"criteria": [
+"ICP fields complete",
+"Blitz first; Pronto when coverage < ~65%",
+"Paid only after Joy OK",
+"Domain not on blacklist/exclusions"
+],
+"inputs": [
+"ops card",
+"Blitz/Pronto/LeadsForge",
+"Hub blacklist",
+"exclusions file"
+],
+"scoring": [
+"Coverage % = Blitz hits / target count"
+],
+"thresholds": [
+{
+"rule": "Blitz ~65% of a list / ~70% hit rate US/EU before Pronto (house-rules/stage-5)",
+"source": "house-rules/stage-5",
+"to_confirm": false
+},
+{
+"rule": "Spot-check fail count of ~10 that sends list back",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "On path ambiguity, company TAM (this step) unless ops card names a follower page.",
+"escalate": "Escalate when ICP blank, credits exceed pre-approval, or post-Waterfall coverage unusable (usable % to confirm)."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -3259,16 +3427,15 @@ const FLOW = {
 "Stage 5 People TAM"
 ],
 "howto": [
-"Take only companies Joy passed from the company step.",
-"Set titles and seniority from the client profile.",
-"Search people in Blitz first; report found vs missing before paid steps.",
-"Fill gaps with Pronto, then LeadsForge after credit estimate.",
-"Verify emails in Smartlead: keep deliverable and catch-all; drop undeliverable.",
-"Put phones in the mobile field.",
-"Write the lead list and hand to list QA.",
-"Log email and mobile hit rate per tool per region into the hit-rate log.",
-"Joy OKs paid Pronto / LeadsForge pulls.",
-"Joy reviews coverage (email/mobile) before copy."
+"Read target titles/seniority and exclusions from ops card; escalate if blank.",
+"For companies from prior step (or follower scrape if angle requires): Waterfall people+email Blitz -> Pronto -> LeadsForge. Apply ~65% Blitz fall-through.",
+"Estimate paid credits on misses; get Joy OK before Pronto/LeadsForge.",
+"Pronto mobile top-up into Hub (auto CloudTalk).",
+"Blacklist/dedupe people on email (lowercase), LinkedIn URL (normalized), company domain vs Hub blacklist + contacts + live lists; Claude blacklist double-check.",
+"Verify emails in Smartlead: Keep deliverable + catch-all. Load Hub; log hit rates.",
+"Pass titles/seniority on the ops card against the locked profile.",
+"Joy OKs paid credit estimate.",
+"Spot-check ~10 rows: title in target list, company in ICP, email deliverable or catch-all, LinkedIn URL present. Fail threshold to confirm (until set: 3+ of 10) -> send back."
 ],
 "done": "Lead list with emails and phones is ready for QA.",
 "technical": [
@@ -3342,23 +3509,58 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "People + email/phone enrich via Waterfall; Smartlead verify; hand to list QA",
-"people_summary": "Joy OKs paid pulls; reviews coverage",
-"people_label": "Joy does",
+"bot_summary": "Confirm titles; Waterfall people+email; mobile top-up; blacklist people; load Hub",
+"people_summary": "Joy/Theo pass titles; Joy OKs credits; spot-check ~10 people rows",
+"people_label": "Joy and Theo do",
 "bot_does": [
-"Take only companies Joy passed from the company step.",
-"Set titles and seniority from the client profile.",
-"Search people in Blitz first; report found vs missing before paid steps.",
-"Fill gaps with Pronto, then LeadsForge after credit estimate.",
-"Verify emails in Smartlead: keep deliverable and catch-all; drop undeliverable.",
-"Put phones in the mobile field.",
-"Write the lead list and hand to list QA.",
-"Log email and mobile hit rate per tool per region into the hit-rate log."
+"Read target titles/seniority and exclusions from ops card; escalate if blank.",
+"For companies from prior step (or follower scrape if angle requires): Waterfall people+email Blitz -> Pronto -> LeadsForge. Apply ~65% Blitz fall-through.",
+"Estimate paid credits on misses; get Joy OK before Pronto/LeadsForge.",
+"Pronto mobile top-up into Hub (auto CloudTalk).",
+"Blacklist/dedupe people on email (lowercase), LinkedIn URL (normalized), company domain vs Hub blacklist + contacts + live lists; Claude blacklist double-check.",
+"Verify emails in Smartlead: Keep deliverable + catch-all. Load Hub; log hit rates."
 ],
 "people_do": [
-"Joy OKs paid Pronto / LeadsForge pulls.",
-"Joy reviews coverage (email/mobile) before copy."
+"Pass titles/seniority on the ops card against the locked profile.",
+"Joy OKs paid credit estimate.",
+"Spot-check ~10 rows: title in target list, company in ICP, email deliverable or catch-all, LinkedIn URL present. Fail threshold to confirm (until set: 3+ of 10) -> send back."
 ],
+"bot_decides": {
+"criteria": [
+"Title in target list",
+"Email deliverable or catch-all OR LinkedIn for Prosp",
+"Not blacklisted on email/LinkedIn/domain",
+"Blitz fall-through at ~65%"
+],
+"inputs": [
+"ops card titles",
+"Waterfall tools",
+"Smartlead verify",
+"Hub blacklist"
+],
+"scoring": [
+"Pass/fail per row; coverage % for Blitz"
+],
+"thresholds": [
+{
+"rule": "Blitz ~65% of a list / ~70% hit rate US/EU before Pronto (house-rules/stage-5)",
+"source": "house-rules/stage-5",
+"to_confirm": false
+},
+{
+"rule": "Keep deliverable + catch-all",
+"source": "_common.md",
+"to_confirm": false
+},
+{
+"rule": "People spot-check fail count",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Prefer rows with both email+LinkedIn over email-only.",
+"escalate": "Escalate on blank titles, credit overage, or unusable coverage after Waterfall."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -3447,12 +3649,12 @@ const FLOW = {
 "num": "25",
 "bots": [],
 "howto": [
-"Pull the signal account and evidence from Client Hub Signals.",
-"Optional: check Lovable org charts read-only (never edit Lovable).",
-"Draft a contact/role checklist for Theo; do not write contacts until Joy OK.",
-"Theo runs Org Chart Mapping in Claude (roles, missing buying roles, why-now notes).",
-"After Joy's OK, write contacts into Client Hub.",
-"Feed roles into copy and calling."
+"Pull recent WhiteWhale / Hub Signals for the agreed account list; keep signals with a date and source URL.",
+"For each account, find people matching target titles; Waterfall enrich Blitz->Pronto->LeadsForge with ~65% Blitz rule and Joy OK on paid credits.",
+"Blacklist/dedupe on email/LinkedIn/domain; load Hub signal-outreach list; log.",
+"Confirm the starting account list and titles on the ops card.",
+"Joy OKs paid credit estimate for enrichment misses.",
+"Spot-check ~10 mapped people for title + company + signal still valid."
 ],
 "done": "Contacts have roles and signal notes in Client Hub.",
 "technical": [
@@ -3481,19 +3683,50 @@ const FLOW = {
 "check": "WhiteWhale signal list in Hub with people and roles attached.",
 "manual_tag": "Manual: Theo",
 "stage_bot": null,
-"bot_summary": "Pull signal evidence from Hub; optional Lovable org-chart check (read-only)",
-"people_summary": "Theo runs Org Chart Mapping in Claude; Joy OKs writes into Hub",
-"people_label": "Theo and Joy do",
+"bot_summary": "Pull WhiteWhale signals; map decision-makers; Waterfall enrich; load Hub",
+"people_summary": "Joy/Theo pass account list + titles; Joy OKs credits",
+"people_label": "Joy and Theo do",
 "bot_does": [
-"Pull the signal account and evidence from Client Hub Signals.",
-"Optional: check Lovable org charts read-only (never edit Lovable).",
-"Draft a contact/role checklist for Theo; do not write contacts until Joy OK."
+"Pull recent WhiteWhale / Hub Signals for the agreed account list; keep signals with a date and source URL.",
+"For each account, find people matching target titles; Waterfall enrich Blitz->Pronto->LeadsForge with ~65% Blitz rule and Joy OK on paid credits.",
+"Blacklist/dedupe on email/LinkedIn/domain; load Hub signal-outreach list; log."
 ],
 "people_do": [
-"Theo runs Org Chart Mapping in Claude (roles, missing buying roles, why-now notes).",
-"After Joy's OK, write contacts into Client Hub.",
-"Feed roles into copy and calling."
+"Confirm the starting account list and titles on the ops card.",
+"Joy OKs paid credit estimate for enrichment misses.",
+"Spot-check ~10 mapped people for title + company + signal still valid."
 ],
+"bot_decides": {
+"criteria": [
+"Signal has date+source",
+"Person title matches",
+"Not blacklisted",
+"Blitz fall-through ~65%"
+],
+"inputs": [
+"WhiteWhale/Hub Signals",
+"ops card",
+"Waterfall",
+"blacklist"
+],
+"scoring": [
+"Pass/fail; prefer fresher signals"
+],
+"thresholds": [
+{
+"rule": "Blitz ~65% of a list / ~70% hit rate US/EU before Pronto (house-rules/stage-5)",
+"source": "house-rules/stage-5",
+"to_confirm": false
+},
+{
+"rule": "Max signal age for this client",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Fresher signal wins when two people at same company.",
+"escalate": "Escalate when account list empty or signals returning zero for sample."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -3544,14 +3777,10 @@ const FLOW = {
 "Stage 8 QA"
 ],
 "howto": [
-"Run email verification on the lead list in Smartlead.",
-"Keep deliverable and catch-all emails; drop undeliverable.",
-"Dedupe against Client Hub contacts and other live buckets.",
-"Run the Client Hub blacklist check and remove matches.",
-"Run the Claude blacklist double-check (mandatory).",
-"Log how many were removed and why.",
-"Send fails back to people step; pass the clean list to copy / build.",
-"Joy reviews removal reasons and any fails to rework."
+"Sample ~10 rows and score each: title in list, company ICP, email deliverable/catch-all, LinkedIn URL present.",
+"Re-run Hub + Claude blacklist on full list; log removals.",
+"Write QA note: sample pass count, blacklist removal counts, remaining row count.",
+"Read QA note. Pass when sample meets fail threshold (to confirm; until set: fewer than 3 fails of 10) and blacklist ran. Else send back with fail reasons."
 ],
 "done": "Passed list with blacklist and dedupe counts logged.",
 "technical": [
@@ -3591,21 +3820,45 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "Verify emails; dedupe; Hub + Claude blacklist; log removals; pass clean list",
-"people_summary": "Joy reviews fail reasons and sends fails back if needed",
-"people_label": "Joy does",
+"bot_summary": "Run QA sample + full blacklist; write QA note with fail rates",
+"people_summary": "Joy/Theo read QA note; pass or send list back",
+"people_label": "Joy and Theo do",
 "bot_does": [
-"Run email verification on the lead list in Smartlead.",
-"Keep deliverable and catch-all emails; drop undeliverable.",
-"Dedupe against Client Hub contacts and other live buckets.",
-"Run the Client Hub blacklist check and remove matches.",
-"Run the Claude blacklist double-check (mandatory).",
-"Log how many were removed and why.",
-"Send fails back to people step; pass the clean list to copy / build."
+"Sample ~10 rows and score each: title in list, company ICP, email deliverable/catch-all, LinkedIn URL present.",
+"Re-run Hub + Claude blacklist on full list; log removals.",
+"Write QA note: sample pass count, blacklist removal counts, remaining row count."
 ],
 "people_do": [
-"Joy reviews removal reasons and any fails to rework."
+"Read QA note. Pass when sample meets fail threshold (to confirm; until set: fewer than 3 fails of 10) and blacklist ran. Else send back with fail reasons."
 ],
+"bot_decides": {
+"criteria": [
+"Sample row pass rules as above",
+"Blacklist must have run this turn"
+],
+"inputs": [
+"Hub list",
+"Smartlead verify",
+"blacklist tools"
+],
+"scoring": [
+"Fail rate = fails / sample size"
+],
+"thresholds": [
+{
+"rule": "Sample ~10",
+"source": "v2 stage-0/3",
+"to_confirm": false
+},
+{
+"rule": "Fail count that blocks pass",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Any undeliverable-heavy sample blocks pass even if titles look fine.",
+"escalate": "Escalate to Joy when list shrinks below usable size after blacklist (usable size to confirm)."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -3742,15 +3995,13 @@ const FLOW = {
 "Stage 6 Copywriting"
 ],
 "howto": [
-"Read profile claims, banned words and the offer per bucket.",
-"Coordinate with Gemini on the brief, standards and versions; Gemini main draft for email and LinkedIn.",
-"Claude second pass on the draft.",
-"Offer in every email; vary angle per touch; merge fields explicit; no em dashes.",
-"Draft the Prosp LinkedIn sequence for the same list (required).",
-"Run spam QA; hand drafts for Joy edit and Theo OK.",
-"Joy edit pass.",
-"Theo final OK on copy (moving to Joy).",
-"Callum OKs any client names or scarcity lines."
+"Assemble brief from client profile + ops card + sample leads (ICP, offer, proof, signal, sender).",
+"Gemini first draft; Claude second pass; Prosp LinkedIn DMs required.",
+"Spam-word + stage-8 checks; no em dashes; save under profiles/<client>/.",
+"Flag any claim without a source in the brief.",
+"Joy edits against house + client copy rules.",
+"Theo writes final OK on ops card (current rule: Theo OK before client).",
+"Do not load to Smartlead until Theo OK."
 ],
 "done": "Draft copy is ready for Theo / Joy QA.",
 "technical": [
@@ -3815,22 +4066,48 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "Brief Gemini; Claude second pass; Prosp DMs; spam QA; hand drafts for approval",
-"people_summary": "Joy edits; Theo final OK; Callum OKs client names if needed",
+"bot_summary": "Brief Gemini then Claude; Prosp DMs; spam QA; save under client profiles",
+"people_summary": "Joy edits; Theo final OK (for now); then client review next step",
 "people_label": "Joy and Theo do",
 "bot_does": [
-"Read profile claims, banned words and the offer per bucket.",
-"Coordinate with Gemini on the brief, standards and versions; Gemini main draft for email and LinkedIn.",
-"Claude second pass on the draft.",
-"Offer in every email; vary angle per touch; merge fields explicit; no em dashes.",
-"Draft the Prosp LinkedIn sequence for the same list (required).",
-"Run spam QA; hand drafts for Joy edit and Theo OK."
+"Assemble brief from client profile + ops card + sample leads (ICP, offer, proof, signal, sender).",
+"Gemini first draft; Claude second pass; Prosp LinkedIn DMs required.",
+"Spam-word + stage-8 checks; no em dashes; save under profiles/<client>/.",
+"Flag any claim without a source in the brief."
 ],
 "people_do": [
-"Joy edit pass.",
-"Theo final OK on copy (moving to Joy).",
-"Callum OKs any client names or scarcity lines."
+"Joy edits against house + client copy rules.",
+"Theo writes final OK on ops card (current rule: Theo OK before client).",
+"Do not load to Smartlead until Theo OK."
 ],
+"bot_decides": {
+"criteria": [
+"Offer every touch",
+"Unique angle per touch",
+"Merge fields explicit",
+"No em/en dashes",
+"Spam words clear",
+"Prosp DMs present"
+],
+"inputs": [
+"client profile",
+"ops card",
+"stage-6/8",
+"spam-word-checker"
+],
+"scoring": [
+"Pass/fail per touch"
+],
+"thresholds": [
+{
+"rule": "Min touches for client sequences",
+"source": "none single",
+"to_confirm": true
+}
+],
+"tie_break": "Prefer version that keeps offer and clears spam words.",
+"escalate": "Escalate to Joy when required claim lacks proof."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -3888,12 +4165,11 @@ const FLOW = {
 "Stage 8 QA"
 ],
 "howto": [
-"Run the spam / phrase checker on every touch.",
-"Check merge fields and sender identity.",
-"Draft the QA / approval note for Client Hub ops.",
-"Joy approves; Theo gives final OK.",
-"If a client name or scarcity line appears, get Callum's OK.",
-"Log approval in Client Hub ops / the context file."
+"Re-run spam-word and stage-8 checks on all touches + DMs; list fails.",
+"Preview merge fields on 3 sample leads.",
+"Write QA note on ops card.",
+"Theo final OK on copy.",
+"Joy prepares the client-facing review pack (next step)."
 ],
 "done": "Approved copy ready to share with the client.",
 "technical": [
@@ -3943,19 +4219,41 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "Spam/phrase and merge-field checks; draft QA note",
-"people_summary": "Joy approves; Theo final OK; Callum OK if client name appears",
+"bot_summary": "Spam/phrase + merge preview QA; draft QA note",
+"people_summary": "Theo final OK; Joy prepares client-facing version",
 "people_label": "Theo and Joy do",
 "bot_does": [
-"Run the spam / phrase checker on every touch.",
-"Check merge fields and sender identity.",
-"Draft the QA / approval note for Client Hub ops."
+"Re-run spam-word and stage-8 checks on all touches + DMs; list fails.",
+"Preview merge fields on 3 sample leads.",
+"Write QA note on ops card."
 ],
 "people_do": [
-"Joy approves; Theo gives final OK.",
-"If a client name or scarcity line appears, get Callum's OK.",
-"Log approval in Client Hub ops / the context file."
+"Theo final OK on copy.",
+"Joy prepares the client-facing review pack (next step)."
 ],
+"bot_decides": {
+"criteria": [
+"Zero spam-word fails",
+"Merge fields render",
+"Theo OK required before client pack"
+],
+"inputs": [
+"DRAFT copy",
+"sample leads"
+],
+"scoring": [
+"Pass/fail"
+],
+"thresholds": [
+{
+"rule": "3-sample merge preview",
+"source": "practice",
+"to_confirm": true
+}
+],
+"tie_break": "Copy fail blocks client pack.",
+"escalate": "Escalate to Theo for OK."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -3990,10 +4288,10 @@ const FLOW = {
 "num": "29",
 "bots": [],
 "howto": [
-"Share copy in the group chat or a short call.",
-"Collect edits and update the drafts.",
-"If the campaign is unusual, book a script review or walkthrough with BDRs.",
-"Get an explicit client OK before building the Smartlead draft."
+"Joy sends the review pack (emails + LinkedIn DMs) to the client.",
+"Client comments or writes approved.",
+"Joy applies edits in profiles/<client>/; if material, Theo re-OKs.",
+"Log approval date + comment link on the ops card."
 ],
 "done": "Client OK is recorded.",
 "technical": [
@@ -4009,7 +4307,7 @@ const FLOW = {
 "place": "Client Slack / email / Hub",
 "tool": "Human",
 "io": "In: draft link. Out: client comments or OK.",
-"who": "Callum"
+"who": "Joy"
 },
 {
 "action": "Apply client edits",
@@ -4030,15 +4328,16 @@ const FLOW = {
 "manual_tag": "Client does this",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Share copy, take edits; client gives explicit OK",
-"people_label": "Callum and Joy do",
+"people_summary": "Joy sends pack; client comments; Joy applies; Theo re-locks if needed",
+"people_label": "Joy and client do",
 "bot_does": [],
 "people_do": [
-"Share copy in the group chat or a short call.",
-"Collect edits and update the drafts.",
-"If the campaign is unusual, book a script review or walkthrough with BDRs.",
-"Get an explicit client OK before building the Smartlead draft."
+"Joy sends the review pack (emails + LinkedIn DMs) to the client.",
+"Client comments or writes approved.",
+"Joy applies edits in profiles/<client>/; if material, Theo re-OKs.",
+"Log approval date + comment link on the ops card."
 ],
+"bot_decides": null,
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -4207,14 +4506,12 @@ const FLOW = {
 "Stage 7 Outreach draft"
 ],
 "howto": [
-"Create the Smartlead campaign as DRAFT only.",
-"Load leads, attach approved copy, set plain text and stop-on-reply.",
-"Attach client-tagged inboxes; keep daily limits at 25.",
-"Prepare the phone / CloudTalk list inputs.",
-"Write a launch pack for Joy; do not press Start.",
-"Create the Prosp LinkedIn campaign as DRAFT: attach senders, upload contacts with LinkedIn URLs, paste approved DMs.",
-"Joy reviews the DRAFT campaigns and launch pack.",
-"Never press Start here."
+"Final Hub + Claude blacklist; log removals.",
+"Create Smartlead DRAFT: map merges, attach client-tagged healthy inboxes, stop-on-reply on, daily 25 sends/day per mailbox. Never Start.",
+"Create Prosp DRAFT with LinkedIn contacts + approved DMs.",
+"Write campaign ids + Hub list id on ops card.",
+"Joy opens Smartlead DRAFT: status DRAFT, merges OK on sample, stop-on-reply on, 25/day, client inboxes.",
+"Joy opens Prosp DRAFT: LinkedIn URLs + senders attached."
 ],
 "done": "Smartlead DRAFT and Prosp LinkedIn DRAFT ready for final check.",
 "technical": [
@@ -4277,21 +4574,50 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "Create Smartlead + Prosp DRAFTs; load leads/copy; write launch pack; never Start",
-"people_summary": "Joy reviews draft and launch pack",
+"bot_summary": "Blacklist; Smartlead+Prosp DRAFT; map fields; attach inboxes; never Start",
+"people_summary": "Joy opens DRAFTs and checks fields/inboxes",
 "people_label": "Joy does",
 "bot_does": [
-"Create the Smartlead campaign as DRAFT only.",
-"Load leads, attach approved copy, set plain text and stop-on-reply.",
-"Attach client-tagged inboxes; keep daily limits at 25.",
-"Prepare the phone / CloudTalk list inputs.",
-"Write a launch pack for Joy; do not press Start.",
-"Create the Prosp LinkedIn campaign as DRAFT: attach senders, upload contacts with LinkedIn URLs, paste approved DMs."
+"Final Hub + Claude blacklist; log removals.",
+"Create Smartlead DRAFT: map merges, attach client-tagged healthy inboxes, stop-on-reply on, daily 25 sends/day per mailbox. Never Start.",
+"Create Prosp DRAFT with LinkedIn contacts + approved DMs.",
+"Write campaign ids + Hub list id on ops card."
 ],
 "people_do": [
-"Joy reviews the DRAFT campaigns and launch pack.",
-"Never press Start here."
+"Joy opens Smartlead DRAFT: status DRAFT, merges OK on sample, stop-on-reply on, 25/day, client inboxes.",
+"Joy opens Prosp DRAFT: LinkedIn URLs + senders attached."
 ],
+"bot_decides": {
+"criteria": [
+"Status DRAFT only",
+"Healthy client-tagged inboxes",
+"Leads passed verify+blacklist",
+"Prosp required"
+],
+"inputs": [
+"Hub list",
+"approved copy",
+"inbox health",
+"Prosp senders"
+],
+"scoring": [
+"Checklist pass/fail"
+],
+"thresholds": [
+{
+"rule": "25 sends/day per mailbox",
+"source": "stage-3",
+"to_confirm": false
+},
+{
+"rule": "Healthy inbox cut",
+"source": "stage-8 examples",
+"to_confirm": true
+}
+],
+"tie_break": "Leave borderline inboxes out; list on QA note.",
+"escalate": "Escalate if inbox capacity < planned volume at 25/day."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -4395,12 +4721,11 @@ const FLOW = {
 "Stage 8 QA"
 ],
 "howto": [
-"Check signatures on every sending account.",
-"Re-run DNS checks (SPF, DKIM, DMARC).",
-"Review inbox warm-up health; flag weak ones to rest or swap.",
-"Send a small pilot if the playbook calls for it.",
-"Write the QA report; route fails back to the right stage.",
-"Joy reviews the QA report and decides go / no-go for launch."
+"Compute warm-up age per mailbox; fail any under 2 weeks (Warm-up >= 2 weeks before Start).",
+"Pull bounce/spam; flag at Bounce alert 2% / spam concerns.",
+"Confirm Theo OK + client approval dates on ops card; Prosp DRAFT ready.",
+"Write go/no-go note listing blockers.",
+"Joy reads go/no-go. If no-go, fix or wait (especially warm-up). If go, proceed to Joy launches."
 ],
 "done": "QA report is green, or fails are routed with owners.",
 "technical": [
@@ -4455,19 +4780,49 @@ const FLOW = {
 "name": "Stage 3 Build the First Campaign bot",
 "label": "Stage 3 Build the First Campaign bot"
 },
-"bot_summary": "Signatures, DNS, warm-up health, optional pilot; write QA report",
-"people_summary": "Joy reviews QA report and routes fails",
+"bot_summary": "Warm-up age, bounce/spam flags, copy+client OK, Prosp ready; write go/no-go note",
+"people_summary": "Joy reads go/no-go; fixes blockers or waits",
 "people_label": "Joy does",
 "bot_does": [
-"Check signatures on every sending account.",
-"Re-run DNS checks (SPF, DKIM, DMARC).",
-"Review inbox warm-up health; flag weak ones to rest or swap.",
-"Send a small pilot if the playbook calls for it.",
-"Write the QA report; route fails back to the right stage."
+"Compute warm-up age per mailbox; fail any under 2 weeks (Warm-up >= 2 weeks before Start).",
+"Pull bounce/spam; flag at Bounce alert 2% / spam concerns.",
+"Confirm Theo OK + client approval dates on ops card; Prosp DRAFT ready.",
+"Write go/no-go note listing blockers."
 ],
 "people_do": [
-"Joy reviews the QA report and decides go / no-go for launch."
+"Joy reads go/no-go. If no-go, fix or wait (especially warm-up). If go, proceed to Joy launches."
 ],
+"bot_decides": {
+"criteria": [
+"All attached mailboxes warmed >= 2 weeks",
+"No open bounce >= 2% flags",
+"Theo OK + client approval present",
+"Prosp ready"
+],
+"inputs": [
+"mailbox warm-start dates",
+"Smartlead health",
+"ops card approvals",
+"Prosp"
+],
+"scoring": [
+"Any fail -> no-go"
+],
+"thresholds": [
+{
+"rule": "Warm-up >= 2 weeks before Start",
+"source": "_common/stage-3",
+"to_confirm": false
+},
+{
+"rule": "Bounce alert 2%",
+"source": "stage-8",
+"to_confirm": false
+}
+],
+"tie_break": "Warm-up fail beats schedule pressure.",
+"escalate": "Escalate to Joy when warm-up wait would miss a client-promised start date."
+},
 "bot_name": "Stage 3 Build the First Campaign bot"
 },
 {
@@ -4586,12 +4941,11 @@ const FLOW = {
 "num": "32",
 "bots": [],
 "howto": [
-"Confirm QA passed and Theo's OK is logged.",
-"Confirm mailboxes warmed at least 2 weeks.",
-"Confirm client was told the go-live date.",
-"Joy presses Start in Smartlead herself (and Prosp).",
-"Watch the first hours for bounce spikes.",
-"Tell the team in Slack that the campaign is live."
+"Confirm go note is green on ops card.",
+"Joy presses Start in Smartlead, then Prosp.",
+"Announce in client Slack/WhatsApp with campaign names.",
+"Watch bounce first hours; pause if bounce crosses 2% and call Theo.",
+"Mark ops card live with start timestamp (Asia/Manila)."
 ],
 "done": "Campaign is live; team notified.",
 "technical": [
@@ -4636,17 +4990,17 @@ const FLOW = {
 "manual_tag": null,
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Joy confirms checks and presses Start; tells the team",
+"people_summary": "Joy presses Start; announces; watches bounce",
 "people_label": "Joy does",
 "bot_does": [],
 "people_do": [
-"Confirm QA passed and Theo's OK is logged.",
-"Confirm mailboxes warmed at least 2 weeks.",
-"Confirm client was told the go-live date.",
-"Joy presses Start in Smartlead herself (and Prosp).",
-"Watch the first hours for bounce spikes.",
-"Tell the team in Slack that the campaign is live."
+"Confirm go note is green on ops card.",
+"Joy presses Start in Smartlead, then Prosp.",
+"Announce in client Slack/WhatsApp with campaign names.",
+"Watch bounce first hours; pause if bounce crosses 2% and call Theo.",
+"Mark ops card live with start timestamp (Asia/Manila)."
 ],
+"bot_decides": null,
 "bot_name": "Stage 4 Go Live bot"
 },
 {
@@ -4689,11 +5043,9 @@ const FLOW = {
 "Launch prep"
 ],
 "howto": [
-"Open the campaign plan in Client Hub.",
-"Set stage to live.",
-"Set actual_launch_date to today.",
-"Add a short launch note (channels, volume, owners).",
-"Joy or Theo confirms the live plan entry looks right."
+"Update Client Hub plan/ops status from draft/ready to live.",
+"Stamp campaign start date (Asia/Manila) and Smartlead/Prosp campaign ids on the card.",
+"Joy opens Hub and confirms status=live and ids match Smartlead/Prosp."
 ],
 "done": "Plan stage is live with a launch date.",
 "technical": [
@@ -4733,18 +5085,33 @@ const FLOW = {
 "name": "Stage 4 Go Live bot",
 "label": "Stage 4 Go Live bot"
 },
-"bot_summary": "Set Client Hub plan stage to live; set actual_launch_date; add launch note",
-"people_summary": "Joy or Theo confirms the live plan looks right",
-"people_label": "Joy or Theo do",
+"bot_summary": "Flip Hub plan/ops status to live; stamp start date",
+"people_summary": "Joy confirms Hub shows live",
+"people_label": "Joy does",
 "bot_does": [
-"Open the campaign plan in Client Hub.",
-"Set stage to live.",
-"Set actual_launch_date to today.",
-"Add a short launch note (channels, volume, owners)."
+"Update Client Hub plan/ops status from draft/ready to live.",
+"Stamp campaign start date (Asia/Manila) and Smartlead/Prosp campaign ids on the card."
 ],
 "people_do": [
-"Joy or Theo confirms the live plan entry looks right."
+"Joy opens Hub and confirms status=live and ids match Smartlead/Prosp."
 ],
+"bot_decides": {
+"criteria": [
+"Only flip after Joy has pressed Start",
+"Ids must match live campaigns"
+],
+"inputs": [
+"ops card",
+"Smartlead",
+"Prosp"
+],
+"scoring": [
+"Pass if status+ids written"
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate if Start was not pressed but someone asks to mark live."
+},
 "bot_name": "Stage 4 Go Live bot"
 },
 {
@@ -4860,14 +5227,11 @@ const FLOW = {
 "Phone list"
 ],
 "howto": [
-"Pull top contacts for the live campaign.",
-"Find phones with Blitz first, then Pronto, then LeadsForge; put numbers in the mobile field.",
-"Check UK do-not-call lists where relevant.",
-"Format as the Client Hub contact-list CSV.",
-"Upload to the client's Client Hub contact list.",
-"Draft the Slack note that the list is ready.",
-"Joy confirms the list and tells BDRs where to find it (or posts the bot draft).",
-"Joy OKs any paid Pronto / LeadsForge phone pulls."
+"Filter Hub campaign contacts where mobile is present and not blacklisted.",
+"Push/sync that set into CloudTalk list tagged by client+campaign (phones already flow Hub->CloudTalk; verify count).",
+"Draft BDR brief update: list size, ICP reminder, offer, fixed meeting link, top objections.",
+"Joy opens CloudTalk and confirms the list count matches Hub mobile count.",
+"Joy posts the brief update in the BDR Slack channel."
 ],
 "done": "Call list is in Client Hub and BDRs are notified.",
 "technical": [
@@ -4900,21 +5264,43 @@ const FLOW = {
 "name": "Stage 4 Go Live bot",
 "label": "Stage 4 Go Live bot"
 },
-"bot_summary": "Enrich phones via Waterfall; DNC check; format CSV; upload to Hub; notify",
-"people_summary": "Joy confirms list ready for BDRs",
+"bot_summary": "Filter Hub contacts with mobile; push CloudTalk list; draft BDR brief updates",
+"people_summary": "Joy confirms list in CloudTalk; BDRs see it",
 "people_label": "Joy does",
 "bot_does": [
-"Pull top contacts for the live campaign.",
-"Find phones with Blitz first, then Pronto, then LeadsForge; put numbers in the mobile field.",
-"Check UK do-not-call lists where relevant.",
-"Format as the Client Hub contact-list CSV.",
-"Upload to the client's Client Hub contact list.",
-"Draft the Slack note that the list is ready."
+"Filter Hub campaign contacts where mobile is present and not blacklisted.",
+"Push/sync that set into CloudTalk list tagged by client+campaign (phones already flow Hub->CloudTalk; verify count).",
+"Draft BDR brief update: list size, ICP reminder, offer, fixed meeting link, top objections."
 ],
 "people_do": [
-"Joy confirms the list and tells BDRs where to find it (or posts the bot draft).",
-"Joy OKs any paid Pronto / LeadsForge phone pulls."
+"Joy opens CloudTalk and confirms the list count matches Hub mobile count.",
+"Joy posts the brief update in the BDR Slack channel."
 ],
+"bot_decides": {
+"criteria": [
+"Mobile present",
+"Not blacklisted",
+"Campaign-tagged",
+"Meeting link present on brief"
+],
+"inputs": [
+"Hub contacts",
+"CloudTalk",
+"ops card meeting link"
+],
+"scoring": [
+"Pass/fail per contact"
+],
+"thresholds": [
+{
+"rule": "Minimum mobile coverage % to bother calling",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Prefer contacts with both mobile + recent positive/neutral reply.",
+"escalate": "Escalate to Joy when mobile coverage is near zero after Pronto top-up."
+},
 "bot_name": "Stage 4 Go Live bot"
 },
 {
@@ -4933,11 +5319,11 @@ const FLOW = {
 "num": "35",
 "bots": [],
 "howto": [
-"Create or confirm each BDR's browser profile and tool logins.",
-"Share Drive folder, cheat sheet and Client Hub access.",
-"Confirm CloudTalk is ready and the fixed meeting link works.",
-"Run a short role play on the script and offer.",
-"Client shares product info and a meeting link if needed."
+"Post/refresh the one-pager in BDR Slack with CloudTalk list link.",
+"Run a short role play on offer + objections.",
+"Confirm each BDR's fixed meeting link is in the brief.",
+"BDRs reply they are ready; Joy ticks ops card.",
+"Start calling from CloudTalk the same day lists are live."
 ],
 "done": "BDRs are ready to call with a fixed meeting link.",
 "technical": [
@@ -4946,7 +5332,7 @@ const FLOW = {
 "place": "Slack + Google Doc",
 "tool": "Callum for client campaigns; Joy for Clayworks",
 "io": "In: angle, ICP, offer, objections, qualifying questions, meeting rules. Out: posted brief.",
-"who": "Callumes"
+"who": "Joyes"
 },
 {
 "action": "Role play",
@@ -4967,16 +5353,17 @@ const FLOW = {
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum readies BDRs: profiles, cheat sheet, CloudTalk, role play",
-"people_label": "Callum does",
+"people_summary": "Joy briefs BDRs; role play; confirm meeting links",
+"people_label": "Joy does",
 "bot_does": [],
 "people_do": [
-"Create or confirm each BDR's browser profile and tool logins.",
-"Share Drive folder, cheat sheet and Client Hub access.",
-"Confirm CloudTalk is ready and the fixed meeting link works.",
-"Run a short role play on the script and offer.",
-"Client shares product info and a meeting link if needed."
+"Post/refresh the one-pager in BDR Slack with CloudTalk list link.",
+"Run a short role play on offer + objections.",
+"Confirm each BDR's fixed meeting link is in the brief.",
+"BDRs reply they are ready; Joy ticks ops card.",
+"Start calling from CloudTalk the same day lists are live."
 ],
+"bot_decides": null,
 "bot_name": "Stage 4 Go Live bot"
 },
 {
@@ -4995,10 +5382,11 @@ const FLOW = {
 "num": "36",
 "bots": [],
 "howto": [
-"Confirm or create Slack channels for this client's replies and meetings.",
-"Connect Smartlead / Prosp / Client Hub alerts to those channels.",
-"Document the emoji or status convention for handled replies (green tick).",
-"Joy tells BDRs and Callum which channel to watch."
+"Check Smartlead reply webhook, Prosp LinkedIn reply webhook, and Hub meeting webhook point at the client Slack channel.",
+"Send a test ping (or verify last event) for each; record pass/fail.",
+"Document channel names + webhook status in the client context file.",
+"Joy confirms the test alerts appear in the correct Slack/WhatsApp channel.",
+"Fix channel invites if the client side is missing."
 ],
 "done": "Alert channels are live and the team knows where to look.",
 "technical": [
@@ -5038,17 +5426,36 @@ const FLOW = {
 "name": "Stage 4 Go Live bot",
 "label": "Stage 4 Go Live bot"
 },
-"bot_summary": "Confirm/create Slack channels; wire Smartlead/Prosp/Hub alerts; document emoji convention",
-"people_summary": "Joy tells BDRs and Callum which channel to watch",
+"bot_summary": "Confirm Smartlead/Prosp/Hub webhooks into client Slack; test ping; document channels",
+"people_summary": "Joy confirms test alerts arrive in the right channel",
 "people_label": "Joy does",
 "bot_does": [
-"Confirm or create Slack channels for this client's replies and meetings.",
-"Connect Smartlead / Prosp / Client Hub alerts to those channels.",
-"Document the emoji or status convention for handled replies (green tick)."
+"Check Smartlead reply webhook, Prosp LinkedIn reply webhook, and Hub meeting webhook point at the client Slack channel.",
+"Send a test ping (or verify last event) for each; record pass/fail.",
+"Document channel names + webhook status in the client context file."
 ],
 "people_do": [
-"Joy tells BDRs and Callum which channel to watch."
+"Joy confirms the test alerts appear in the correct Slack/WhatsApp channel.",
+"Fix channel invites if the client side is missing."
 ],
+"bot_decides": {
+"criteria": [
+"Each webhook URL matches house docs",
+"Test event visible in target channel"
+],
+"inputs": [
+"Smartlead",
+"Prosp",
+"Hub",
+"Slack"
+],
+"scoring": [
+"Pass/fail per webhook"
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate to Joy when Slack channel missing or webhook rejected."
+},
 "bot_name": "Stage 4 Go Live bot"
 },
 {
@@ -5180,13 +5587,13 @@ const FLOW = {
 "Stage 9 Replies"
 ],
 "howto": [
-"Pull new replies from Smartlead / Client Hub.",
-"Tag positive, neutral, objection, OOO, unsubscribe.",
-"Remove unsubscribes from sending lists and blacklist when required.",
-"Draft answers for Joy or Callum to send (bots never send).",
-"Push hot leads to BDRs with context and phone numbers.",
-"Joy or Callum sends the drafted replies.",
-"BDRs act on hot leads the same day."
+"Pull new Smartlead + Prosp replies since last run.",
+"Tag: positive / neutral / objection / OOO / unsubscribe (stop language -> unsubscribe + blacklist).",
+"Draft reply text for positive/objection; never send.",
+"Push hot leads (positive + phone or LinkedIn) to BDRs with Hub link + snippet.",
+"Log counts by tag on the ops card / daily note.",
+"Joy or Callum sends bot-drafted replies from Smartlead/Prosp.",
+"BDRs call hot leads via CloudTalk the same day when possible."
 ],
 "done": "Hot list and draft replies are ready; unsubscribes handled.",
 "technical": [
@@ -5234,20 +5641,44 @@ const FLOW = {
 "name": "Stage 5 Run and Grow bot",
 "label": "Stage 5 Run and Grow bot"
 },
-"bot_summary": "Pull replies; tag; remove unsubscribes; draft answers; push hot leads to BDRs",
-"people_summary": "Joy or Callum sends drafted replies; BDRs take hot leads",
-"people_label": "Joy and Callum do",
+"bot_summary": "Daily triage Smartlead+Prosp; tag; draft replies; push hot leads; never send",
+"people_summary": "Joy/Callum send replies; BDRs call hot leads",
+"people_label": "Joy, Callum and BDRs do",
 "bot_does": [
-"Pull new replies from Smartlead / Client Hub.",
-"Tag positive, neutral, objection, OOO, unsubscribe.",
-"Remove unsubscribes from sending lists and blacklist when required.",
-"Draft answers for Joy or Callum to send (bots never send).",
-"Push hot leads to BDRs with context and phone numbers."
+"Pull new Smartlead + Prosp replies since last run.",
+"Tag: positive / neutral / objection / OOO / unsubscribe (stop language -> unsubscribe + blacklist).",
+"Draft reply text for positive/objection; never send.",
+"Push hot leads (positive + phone or LinkedIn) to BDRs with Hub link + snippet.",
+"Log counts by tag on the ops card / daily note."
 ],
 "people_do": [
-"Joy or Callum sends the drafted replies.",
-"BDRs act on hot leads the same day."
+"Joy or Callum sends bot-drafted replies from Smartlead/Prosp.",
+"BDRs call hot leads via CloudTalk the same day when possible."
 ],
+"bot_decides": {
+"criteria": [
+"Unsubscribe keywords -> unsubscribe",
+"Positive = clear interest/meeting ask",
+"Hot = positive + reachable channel"
+],
+"inputs": [
+"Smartlead",
+"Prosp",
+"Hub phones"
+],
+"scoring": [
+"Tag taxonomy; escalate ambiguous"
+],
+"thresholds": [
+{
+"rule": "Ambiguous-reply rulebook",
+"source": "none written",
+"to_confirm": true
+}
+],
+"tie_break": "When unsure positive vs neutral, tag neutral and escalate snippet.",
+"escalate": "Escalate VIP/ambiguous to Callum/Joy; never send as bot."
+},
 "bot_name": "Stage 5 Run and Grow bot"
 },
 {
@@ -5284,13 +5715,12 @@ const FLOW = {
 "Stage 9 Replies"
 ],
 "howto": [
-"Prep daily hot-lead and phone-list context for BDRs from Hub.",
-"Log meetings in Client Hub when BDRs report them.",
-"Track no-show rebook timers and status updates in Hub.",
-"Call hot leads and phone-list contacts via CloudTalk.",
-"Qualify against the three rules; book with the fixed meeting link.",
-"On a no-show: tell the team within five minutes and attempt rebook within 24 hours.",
-"Update meeting status when the outcome is known."
+"When a BDR reports a booked meeting, create Hub meeting record same day: prospect, time, owner, source campaign.",
+"After the meeting (Fireflies/notes), score against the client's 3 qualified rules; mark qualified / not / pending evidence.",
+"Update meetings-vs-promise scoreboard fields on the Hub plan.",
+"BDRs book with the fixed meeting link and report in Slack/Hub.",
+"Joy or Callum confirms qualified vs not using the 3 rules and Fireflies/notes.",
+"If not qualified, note the reason for credit/rollover later."
 ],
 "done": "Meetings are logged; no-shows are reported and rebooked or closed.",
 "technical": [
@@ -5337,20 +5767,44 @@ const FLOW = {
 "name": "Stage 5 Run and Grow bot",
 "label": "Stage 5 Run and Grow bot"
 },
-"bot_summary": "Prep call list context; log meetings/no-shows in Hub from BDR updates",
-"people_summary": "BDRs call via CloudTalk, qualify, book, and rebook no-shows",
-"people_label": "BDRs do",
+"bot_summary": "Log meetings BDRs report; check against 3 qualified rules; update Hub scoreboard",
+"people_summary": "BDRs book; Joy/Callum confirm qualified vs not",
+"people_label": "BDRs, Joy and Callum do",
 "bot_does": [
-"Prep daily hot-lead and phone-list context for BDRs from Hub.",
-"Log meetings in Client Hub when BDRs report them.",
-"Track no-show rebook timers and status updates in Hub."
+"When a BDR reports a booked meeting, create Hub meeting record same day: prospect, time, owner, source campaign.",
+"After the meeting (Fireflies/notes), score against the client's 3 qualified rules; mark qualified / not / pending evidence.",
+"Update meetings-vs-promise scoreboard fields on the Hub plan."
 ],
 "people_do": [
-"Call hot leads and phone-list contacts via CloudTalk.",
-"Qualify against the three rules; book with the fixed meeting link.",
-"On a no-show: tell the team within five minutes and attempt rebook within 24 hours.",
-"Update meeting status when the outcome is known."
+"BDRs book with the fixed meeting link and report in Slack/Hub.",
+"Joy or Callum confirms qualified vs not using the 3 rules and Fireflies/notes.",
+"If not qualified, note the reason for credit/rollover later."
 ],
+"bot_decides": {
+"criteria": [
+"Meeting logged same day",
+"Qualified only if all 3 client rules pass",
+"Pending if evidence missing"
+],
+"inputs": [
+"BDR reports",
+"Fireflies",
+"client qualified rules",
+"Hub plan"
+],
+"scoring": [
+"Pass/fail on each of 3 rules"
+],
+"thresholds": [
+{
+"rule": "Same-day logging",
+"source": "house practice",
+"to_confirm": false
+}
+],
+"tie_break": "If one rule is unclear, mark pending and escalate rather than auto-qualify.",
+"escalate": "Escalate disputed qualifications to Callum/Joy."
+},
 "bot_name": "Stage 5 Run and Grow bot"
 },
 {
@@ -5502,13 +5956,12 @@ const FLOW = {
 "Mailbox Health"
 ],
 "howto": [
-"Check Smartlead bounce and spam rates by mailbox and campaign.",
-"Flag mailboxes that look unhealthy for rest or swap.",
-"Track spare count per client (target 2 to 3).",
-"Draft replacement buy ask with cost estimate for Joy.",
-"Publish a weekly health note draft for owners.",
-"Theo/Joy decide rest or swap.",
-"Joy OKs replacement mailbox spend before purchase."
+"Pull bounce, spam rejection, and reputation signals per mailbox. Flag bounce >= 2% (Bounce alert 2%) or spam concerns vs Spam rate under 1%.",
+"Propose rest list (mailboxes to pause) and spare capacity check at 25/day.",
+"If spares insufficient, draft InboxKit replacement buy plan with cost for Joy OK.",
+"After Joy OK and purchase: warm new boxes; do not attach until >= 2 weeks warm.",
+"Joy/Theo decide rest vs replace on flagged boxes.",
+"Joy OKs any replacement spend before buy."
 ],
 "done": "Weekly health report published; weak inboxes rested or replaced.",
 "technical": [
@@ -5542,20 +5995,53 @@ const FLOW = {
 "name": "Stage 5 Run and Grow bot",
 "label": "Stage 5 Run and Grow bot"
 },
-"bot_summary": "Monitor bounce/spam; flag rest/swap; draft weekly health note; size spare asks",
-"people_summary": "Theo/Joy decide rests and Joy OKs replacement buys",
-"people_label": "Theo and Joy do",
+"bot_summary": "Watch bounce/spam/reputation; flag rests; draft replacement buy plan",
+"people_summary": "Joy/Theo rest or replace; Joy OKs spend",
+"people_label": "Joy and Theo do",
 "bot_does": [
-"Check Smartlead bounce and spam rates by mailbox and campaign.",
-"Flag mailboxes that look unhealthy for rest or swap.",
-"Track spare count per client (target 2 to 3).",
-"Draft replacement buy ask with cost estimate for Joy.",
-"Publish a weekly health note draft for owners."
+"Pull bounce, spam rejection, and reputation signals per mailbox. Flag bounce >= 2% (Bounce alert 2%) or spam concerns vs Spam rate under 1%.",
+"Propose rest list (mailboxes to pause) and spare capacity check at 25/day.",
+"If spares insufficient, draft InboxKit replacement buy plan with cost for Joy OK.",
+"After Joy OK and purchase: warm new boxes; do not attach until >= 2 weeks warm."
 ],
 "people_do": [
-"Theo/Joy decide rest or swap.",
-"Joy OKs replacement mailbox spend before purchase."
+"Joy/Theo decide rest vs replace on flagged boxes.",
+"Joy OKs any replacement spend before buy."
 ],
+"bot_decides": {
+"criteria": [
+"Flag bounce >= 2%",
+"Rest before replace when spares exist",
+"No new box on campaigns until warmed >= 2 weeks"
+],
+"inputs": [
+"Smartlead/InboxKit health",
+"inventory",
+"stage-8"
+],
+"scoring": [
+"Flag list ranked by bounce desc"
+],
+"thresholds": [
+{
+"rule": "Bounce alert 2%",
+"source": "stage-8",
+"to_confirm": false
+},
+{
+"rule": "Spam rate under 1%",
+"source": "stage-8",
+"to_confirm": false
+},
+{
+"rule": "Exact reputation score cut for rest",
+"source": "examples only",
+"to_confirm": true
+}
+],
+"tie_break": "Higher bounce first.",
+"escalate": "Escalate to Joy on spend; to Theo when many boxes fail at once."
+},
 "bot_name": "Stage 5 Run and Grow bot"
 },
 {
@@ -5607,13 +6093,12 @@ const FLOW = {
 "Stage 9 Replies"
 ],
 "howto": [
-"Pull metrics from Client Hub (sends, replies, meetings).",
-"Draft meetings vs promise and open blockers pack for Callum.",
-"Draft suggested next campaign ideas or fixes.",
-"After the call, draft CSM task updates from the notes Callum shares.",
-"Callum runs the weekly catch-up with the client (Fireflies on).",
-"Agree next campaign ideas or fixes live.",
-"Save notes and actions in Drive / Client Hub."
+"Draft weekly scoreboard from Smartlead/Prosp/Hub: sends, opens if shown, replies by tag, meetings booked, qualified count vs promise, bounce rate, inbox flags.",
+"List open actions from last week with owners.",
+"Propose next-week focus bullets for Callum to edit.",
+"Callum runs the weekly Meet with Fireflies on; walks the scoreboard.",
+"Agree actions; Joy/Callum write them in Hub with owners + dates.",
+"Share recording/notes in the client group."
 ],
 "done": "Notes and actions are saved.",
 "technical": [
@@ -5660,20 +6145,37 @@ const FLOW = {
 "name": "Stage 5 Run and Grow bot",
 "label": "Stage 5 Run and Grow bot"
 },
-"bot_summary": "Pull metrics pack (sends, replies, meetings vs promise, blockers) for the call",
-"people_summary": "Callum runs the call with the client; agrees next actions",
+"bot_summary": "Draft scoreboard: sends, replies, meetings, qualified, bounce, inbox flags",
+"people_summary": "Callum runs the call; Joy may join; actions logged",
 "people_label": "Callum does",
 "bot_does": [
-"Pull metrics from Client Hub (sends, replies, meetings).",
-"Draft meetings vs promise and open blockers pack for Callum.",
-"Draft suggested next campaign ideas or fixes.",
-"After the call, draft CSM task updates from the notes Callum shares."
+"Draft weekly scoreboard from Smartlead/Prosp/Hub: sends, opens if shown, replies by tag, meetings booked, qualified count vs promise, bounce rate, inbox flags.",
+"List open actions from last week with owners.",
+"Propose next-week focus bullets for Callum to edit."
 ],
 "people_do": [
-"Callum runs the weekly catch-up with the client (Fireflies on).",
-"Agree next campaign ideas or fixes live.",
-"Save notes and actions in Drive / Client Hub."
+"Callum runs the weekly Meet with Fireflies on; walks the scoreboard.",
+"Agree actions; Joy/Callum write them in Hub with owners + dates.",
+"Share recording/notes in the client group."
 ],
+"bot_decides": {
+"criteria": [
+"Scoreboard must include meetings vs promise and bounce",
+"Open actions carried forward"
+],
+"inputs": [
+"Smartlead",
+"Prosp",
+"Hub meetings",
+"inbox flags"
+],
+"scoring": [
+"Completeness checklist"
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate to Callum when data pulls fail before the meeting."
+},
 "bot_name": "Stage 5 Run and Grow bot"
 },
 {
@@ -5724,11 +6226,11 @@ const FLOW = {
 "Stage 2 Data Intake"
 ],
 "howto": [
-"Review reply lessons and client requests.",
-"Draft new bucket ideas (signal, audience, offer).",
-"Propose a new Client Hub campaign plan in planning (bots never write plans).",
-"Joy picks which ideas become real plans.",
-"Joy or Theo creates the Hub plan; then the build line (companies -> launch) runs."
+"Mine positive replies, Fireflies notes, and WhiteWhale signals for new angles.",
+"Score each idea on signal freshness, list size via Waterfall, ICP fit, overlap with live campaigns, credit effort.",
+"Shortlist top ideas with scores; draft Hub ops entry text.",
+"Theo/Joy pick which ideas become new buckets.",
+"Joy creates ops cards from drafts."
 ],
 "done": "New campaign plan exists in Client Hub.",
 "technical": [
@@ -5768,18 +6270,42 @@ const FLOW = {
 "name": "Stage 5 Run and Grow bot",
 "label": "Stage 5 Run and Grow bot"
 },
-"bot_summary": "Draft new buckets from reply lessons; propose Hub plan in planning",
-"people_summary": "Joy picks which ideas become plans and run the build line",
-"people_label": "Joy does",
+"bot_summary": "Mine replies/Fireflies/signals for new angles; score like 0.1; shortlist for Theo/Joy",
+"people_summary": "Theo/Joy pick next buckets; Joy opens ops cards",
+"people_label": "Theo and Joy do",
 "bot_does": [
-"Review reply lessons and client requests.",
-"Draft new bucket ideas (signal, audience, offer).",
-"Propose a new Client Hub campaign plan in planning (bots never write plans)."
+"Mine positive replies, Fireflies notes, and WhiteWhale signals for new angles.",
+"Score each idea on signal freshness, list size via Waterfall, ICP fit, overlap with live campaigns, credit effort.",
+"Shortlist top ideas with scores; draft Hub ops entry text."
 ],
 "people_do": [
-"Joy picks which ideas become real plans.",
-"Joy or Theo creates the Hub plan; then the build line (companies -> launch) runs."
+"Theo/Joy pick which ideas become new buckets.",
+"Joy creates ops cards from drafts."
 ],
+"bot_decides": {
+"criteria": [
+"Same keep criteria as Clayworks 0.1 adapted to client ICP",
+"Drop overlaps with live campaigns"
+],
+"inputs": [
+"replies",
+"Fireflies",
+"signals",
+"live campaigns"
+],
+"scoring": [
+"0/3/5 scoring; top shortlist"
+],
+"thresholds": [
+{
+"rule": "Min score to shortlist",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Fresher signal, then lower credit need.",
+"escalate": "Escalate when no viable new idea and meetings lag promise."
+},
 "bot_name": "Stage 5 Run and Grow bot"
 },
 {
@@ -5798,11 +6324,10 @@ const FLOW = {
 "num": "42",
 "bots": [],
 "howto": [
-"Confirm Smartlead / Prosp sending is done or paused on purpose.",
-"Set the Client Hub plan stage to finished.",
-"Write outcome / retro notes (what worked, what to reuse).",
-"Close related ops cards.",
-"Joy confirms the campaign is finished and the retro is accurate."
+"Pause or complete Smartlead and Prosp campaigns for the finished bucket.",
+"Archive/mark Hub list complete; keep data (do not delete contacts).",
+"Write results note: sends, replies, meetings, qualified, bounce, learnings.",
+"Joy confirms tools show paused/complete and results note is on the ops card."
 ],
 "done": "Finished plan with notes.",
 "technical": [
@@ -5842,18 +6367,34 @@ const FLOW = {
 "name": "Stage 5 Run and Grow bot",
 "label": "Stage 5 Run and Grow bot"
 },
-"bot_summary": "Confirm sending done; set Hub plan finished; write retro notes; close ops cards",
-"people_summary": "Joy confirms finished and retro is accurate",
+"bot_summary": "Pause/complete Smartlead+Prosp; archive Hub list; write results note",
+"people_summary": "Joy confirms paused/archived and results note",
 "people_label": "Joy does",
 "bot_does": [
-"Confirm Smartlead / Prosp sending is done or paused on purpose.",
-"Set the Client Hub plan stage to finished.",
-"Write outcome / retro notes (what worked, what to reuse).",
-"Close related ops cards."
+"Pause or complete Smartlead and Prosp campaigns for the finished bucket.",
+"Archive/mark Hub list complete; keep data (do not delete contacts).",
+"Write results note: sends, replies, meetings, qualified, bounce, learnings."
 ],
 "people_do": [
-"Joy confirms the campaign is finished and the retro is accurate."
+"Joy confirms tools show paused/complete and results note is on the ops card."
 ],
+"bot_decides": {
+"criteria": [
+"Never delete contacts",
+"Results note required before marking done"
+],
+"inputs": [
+"Smartlead",
+"Prosp",
+"Hub"
+],
+"scoring": [
+"Pass/fail checklist"
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate if a campaign still has unreplied positives."
+},
 "bot_name": "Stage 5 Run and Grow bot"
 },
 {
@@ -5872,10 +6413,10 @@ const FLOW = {
 "num": "43",
 "bots": [],
 "howto": [
-"Pull monthly meetings, replies and pipeline from Client Hub.",
-"Hold the monthly review call; record in Fireflies.",
-"Generate the invoice from Client Hub line items.",
-"Send the invoice and confirm payment tracking."
+"Pull month scoreboard: meetings vs promise, qualified, bounce, campaigns live.",
+"Prepare invoice from contract price; note credits/rollovers if any.",
+"Send review + invoice to the client; log payment status.",
+"Schedule next month's focus if continuing."
 ],
 "done": "Monthly review done and invoice sent.",
 "technical": [
@@ -5912,15 +6453,16 @@ const FLOW = {
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum and Theo run monthly review; invoice from Hub; track payment",
-"people_label": "Callum and Theo do",
+"people_summary": "Callum/Joy prepare review; invoice from contract; send",
+"people_label": "Callum and Joy do",
 "bot_does": [],
 "people_do": [
-"Pull monthly meetings, replies and pipeline from Client Hub.",
-"Hold the monthly review call; record in Fireflies.",
-"Generate the invoice from Client Hub line items.",
-"Send the invoice and confirm payment tracking."
+"Pull month scoreboard: meetings vs promise, qualified, bounce, campaigns live.",
+"Prepare invoice from contract price; note credits/rollovers if any.",
+"Send review + invoice to the client; log payment status.",
+"Schedule next month's focus if continuing."
 ],
+"bot_decides": null,
 "bot_name": "Stage 5 Run and Grow bot"
 },
 {
@@ -5980,11 +6522,10 @@ const FLOW = {
 "num": "44",
 "bots": [],
 "howto": [
-"Open Client Hub CSM accounts for this client.",
-"Read health band and at-risk flag per product / account.",
-"If red or at risk, draft a save briefing for Callum.",
-"Keep the health view current after weekly catch-ups.",
-"Theo and Callum open a save conversation when the account is red or at risk."
+"Compute health inputs: qualified meetings vs monthly promise %, bounce vs 2%, reply trend week-over-week, invoice payment status.",
+"Flag at-risk when meetings lag or bounce high or payment late (exact composite cut to confirm).",
+"Write flag + drivers on Hub plan; notify Callum/Joy via Chief of Staff.",
+"Callum/Joy open the flag, decide save plan / client call / extend, and log the decision."
 ],
 "done": "Health band is reviewed; at-risk clients have an owner.",
 "technical": [
@@ -6024,18 +6565,48 @@ const FLOW = {
 "name": "Stage 6 Renew or Save bot",
 "label": "Stage 6 Renew or Save bot"
 },
-"bot_summary": "Read Client Hub health/at-risk; flag red accounts; keep view current",
-"people_summary": "Theo and Callum open a save conversation when red",
-"people_label": "Theo and Callum do",
+"bot_summary": "Compute health from meetings vs promise, bounce, reply trend, payment; flag at-risk",
+"people_summary": "Callum/Joy act on at-risk flags",
+"people_label": "Callum and Joy do",
 "bot_does": [
-"Open Client Hub CSM accounts for this client.",
-"Read health band and at-risk flag per product / account.",
-"If red or at risk, draft a save briefing for Callum.",
-"Keep the health view current after weekly catch-ups."
+"Compute health inputs: qualified meetings vs monthly promise %, bounce vs 2%, reply trend week-over-week, invoice payment status.",
+"Flag at-risk when meetings lag or bounce high or payment late (exact composite cut to confirm).",
+"Write flag + drivers on Hub plan; notify Callum/Joy via Chief of Staff."
 ],
 "people_do": [
-"Theo and Callum open a save conversation when the account is red or at risk."
+"Callum/Joy open the flag, decide save plan / client call / extend, and log the decision."
 ],
+"bot_decides": {
+"criteria": [
+"Meetings vs promise",
+"Bounce >= 2% worsens score",
+"Late payment worsens score",
+"Reply drop worsens score"
+],
+"inputs": [
+"Hub meetings",
+"Smartlead bounce",
+"invoices",
+"reply tags"
+],
+"scoring": [
+"Composite health; exact weights to confirm"
+],
+"thresholds": [
+{
+"rule": "At-risk composite cut / weights",
+"source": "none written",
+"to_confirm": true
+},
+{
+"rule": "Bounce alert 2%",
+"source": "stage-8",
+"to_confirm": false
+}
+],
+"tie_break": "Payment-late + meetings-miss beats minor reply dips.",
+"escalate": "Escalate at-risk immediately to Callum and Joy."
+},
 "bot_name": "Stage 6 Renew or Save bot"
 },
 {
@@ -6084,11 +6655,11 @@ const FLOW = {
 "num": "45",
 "bots": [],
 "howto": [
-"Count qualified meetings this month in Client Hub.",
-"Compare to the monthly promise.",
-"Draft rollover or credits note per contract for Callum.",
-"Callum shows the tracker on the weekly or monthly call.",
-"Apply rollover or credits with the client as agreed."
+"Count Hub meetings marked qualified this month.",
+"Compare to contract monthly promise; compute % and simple pace projection.",
+"Alert Callum/Joy when pace projects a miss (exact % lag cut to confirm).",
+"If lagging, Callum/Joy pick: more volume, new angle, or extend discussion.",
+"Log the intervention on the Hub plan."
 ],
 "done": "Tracker is up to date.",
 "technical": [
@@ -6128,18 +6699,40 @@ const FLOW = {
 "name": "Stage 6 Renew or Save bot",
 "label": "Stage 6 Renew or Save bot"
 },
-"bot_summary": "Count qualified meetings; compare to promise; draft rollover/credit note",
-"people_summary": "Callum shows the tracker on weekly/monthly calls",
-"people_label": "Callum does",
+"bot_summary": "Tally qualified meetings MTD vs promise; project month-end; alert if lagging",
+"people_summary": "Callum/Joy decide interventions when lagging",
+"people_label": "Callum and Joy do",
 "bot_does": [
-"Count qualified meetings this month in Client Hub.",
-"Compare to the monthly promise.",
-"Draft rollover or credits note per contract for Callum."
+"Count Hub meetings marked qualified this month.",
+"Compare to contract monthly promise; compute % and simple pace projection.",
+"Alert Callum/Joy when pace projects a miss (exact % lag cut to confirm)."
 ],
 "people_do": [
-"Callum shows the tracker on the weekly or monthly call.",
-"Apply rollover or credits with the client as agreed."
+"If lagging, Callum/Joy pick: more volume, new angle, or extend discussion.",
+"Log the intervention on the Hub plan."
 ],
+"bot_decides": {
+"criteria": [
+"Only qualified meetings count",
+"Alert when projected miss"
+],
+"inputs": [
+"Hub meetings",
+"contract promise"
+],
+"scoring": [
+"% = qualified / promise"
+],
+"thresholds": [
+{
+"rule": "Pace-lag % that triggers alert",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Prefer alerting early in second half of month.",
+"escalate": "Escalate projected miss to Callum same day."
+},
 "bot_name": "Stage 6 Renew or Save bot"
 },
 {
@@ -6181,10 +6774,10 @@ const FLOW = {
 "num": "46",
 "bots": [],
 "howto": [
-"Confirm why the account is at risk (meetings, quality, deliverability, relationship).",
-"Propose a concrete save offer (new bucket, channel, credits or terms).",
-"Run a save call with the client.",
-"Log the plan and owners in Client Hub."
+"Write save plan: diagnosis (why lagging), changes (list/copy/channels), owners, dates.",
+"Share with client on a call; get agreement.",
+"Execute changes via the campaign steps; track weekly.",
+"Close save plan when pace recovers or move to extend/churn talk."
 ],
 "done": "Save plan agreed or decline recorded.",
 "technical": [
@@ -6221,15 +6814,16 @@ const FLOW = {
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum and Joy design and run the save offer with the client",
+"people_summary": "Callum/Joy write and run a save plan with the client",
 "people_label": "Callum and Joy do",
 "bot_does": [],
 "people_do": [
-"Confirm why the account is at risk (meetings, quality, deliverability, relationship).",
-"Propose a concrete save offer (new bucket, channel, credits or terms).",
-"Run a save call with the client.",
-"Log the plan and owners in Client Hub."
+"Write save plan: diagnosis (why lagging), changes (list/copy/channels), owners, dates.",
+"Share with client on a call; get agreement.",
+"Execute changes via the campaign steps; track weekly.",
+"Close save plan when pace recovers or move to extend/churn talk."
 ],
+"bot_decides": null,
 "bot_name": "Stage 6 Renew or Save bot"
 },
 {
@@ -6248,10 +6842,10 @@ const FLOW = {
 "num": "47",
 "bots": [],
 "howto": [
-"Confirm shortfall and owed meetings.",
-"Propose a one-month extension with credits carried forward.",
-"Get client agreement in writing.",
-"Update contract / Client Hub renewal dates."
+"Founders read contract rollover/credit rules and month results.",
+"Decide extension length or credit amount in writing.",
+"Callum informs the client; update Hub plan end date / credits.",
+"Do not silently continue past term without a written decision."
 ],
 "done": "Extension and credits are recorded.",
 "technical": [
@@ -6260,43 +6854,44 @@ const FLOW = {
 "place": "Contract",
 "tool": "Contract",
 "io": "In: prior handoff. Out: toward 'Extension'.",
-"who": "Callumes"
+"who": "Callum"
 },
 {
 "action": "Propose a one-month extension with credits carried forward.",
 "place": "Contract",
 "tool": "Contract",
 "io": "In: prior handoff. Out: toward 'Extension'.",
-"who": "Callumes"
+"who": "Callum"
 },
 {
 "action": "Get client agreement in writing.",
 "place": "Contract",
 "tool": "Contract",
 "io": "In: prior handoff. Out: toward 'Extension'.",
-"who": "Callumes"
+"who": "Callum"
 },
 {
 "action": "Update contract / Client Hub renewal dates.",
 "place": "Contract",
 "tool": "Contract",
 "io": "In: prior handoff. Out: toward 'Extension'.",
-"who": "Callumes"
+"who": "Callum"
 }
 ],
 "check": "Extension and credits are recorded.",
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Callum proposes one-month extension with credits; gets written agreement",
-"people_label": "Callum does",
+"people_summary": "Founders decide extension/credit per contract; Callum tells client",
+"people_label": "Callum and founders do",
 "bot_does": [],
 "people_do": [
-"Confirm shortfall and owed meetings.",
-"Propose a one-month extension with credits carried forward.",
-"Get client agreement in writing.",
-"Update contract / Client Hub renewal dates."
+"Founders read contract rollover/credit rules and month results.",
+"Decide extension length or credit amount in writing.",
+"Callum informs the client; update Hub plan end date / credits.",
+"Do not silently continue past term without a written decision."
 ],
+"bot_decides": null,
 "bot_name": "Stage 6 Renew or Save bot"
 },
 {
@@ -6331,10 +6926,10 @@ const FLOW = {
 "num": "48",
 "bots": [],
 "howto": [
-"At D-30, assemble meetings vs promise and health into a renewal pack.",
-"After the call, update Client Hub CSM stage (renew) and dates from their decision.",
-"Callum and Theo open the renewal conversation.",
-"Confirm renew (month to month) or notice period with the client."
+"Flag clients whose contract end date is within the renewal window (window length to confirm).",
+"Draft renewal brief: meetings delivered vs promise, bounce health, price, recommended renew/adjust/churn.",
+"Callum reviews the brief and runs the renewal conversation.",
+"Log renew / adjust / churn decision + new dates on Hub."
 ],
 "done": "Renew or notice is decided and logged.",
 "technical": [
@@ -6374,17 +6969,40 @@ const FLOW = {
 "name": "Stage 6 Renew or Save bot",
 "label": "Stage 6 Renew or Save bot"
 },
-"bot_summary": "At D-30 draft renewal pack (meetings vs promise, health); update Hub stage after decision",
-"people_summary": "Callum and Theo run the renewal conversation",
-"people_label": "Callum and Theo do",
+"bot_summary": "Flag contracts nearing end; draft renewal brief (results, price, recommendation)",
+"people_summary": "Callum runs renewal conversation",
+"people_label": "Callum does",
 "bot_does": [
-"At D-30, assemble meetings vs promise and health into a renewal pack.",
-"After the call, update Client Hub CSM stage (renew) and dates from their decision."
+"Flag clients whose contract end date is within the renewal window (window length to confirm).",
+"Draft renewal brief: meetings delivered vs promise, bounce health, price, recommended renew/adjust/churn."
 ],
 "people_do": [
-"Callum and Theo open the renewal conversation.",
-"Confirm renew (month to month) or notice period with the client."
+"Callum reviews the brief and runs the renewal conversation.",
+"Log renew / adjust / churn decision + new dates on Hub."
 ],
+"bot_decides": {
+"criteria": [
+"End date within renewal window",
+"Brief includes meetings vs promise + price"
+],
+"inputs": [
+"contract dates",
+"Hub meetings",
+"price"
+],
+"scoring": [
+"Flag list sorted by end date asc"
+],
+"thresholds": [
+{
+"rule": "Days before end to start renewal check",
+"source": "none",
+"to_confirm": true
+}
+],
+"tie_break": "Earlier end dates first.",
+"escalate": "Escalate to Callum when end date < 14 days and no conversation logged."
+},
 "bot_name": "Stage 6 Renew or Save bot"
 },
 {
@@ -6460,10 +7078,10 @@ const FLOW = {
 "num": "49",
 "bots": [],
 "howto": [
-"Record notice date and last day of service.",
-"Name one offboarding owner.",
-"Stop new campaign builds for this client.",
-"Open an offboarding checklist (formal checklist still being drafted)."
+"Log churn notice date and reason in Hub.",
+"Assign churn owner (usually Joy for ops, Callum for client).",
+"Confirm last allowed send date from contract/notice terms.",
+"Tell the client the wind-down steps and dates."
 ],
 "done": "Offboarding owner named; new builds stopped.",
 "technical": [
@@ -6472,43 +7090,44 @@ const FLOW = {
 "place": "Client Hub",
 "tool": "Client Hub",
 "io": "In: prior handoff. Out: toward 'Offboarding owner'.",
-"who": "Joy"
+"who": "Callum"
 },
 {
 "action": "Name one offboarding owner.",
 "place": "Client Hub",
 "tool": "Client Hub",
 "io": "In: prior handoff. Out: toward 'Offboarding owner'.",
-"who": "Joy"
+"who": "Callum"
 },
 {
 "action": "Stop new campaign builds for this client.",
 "place": "Client Hub",
 "tool": "Client Hub",
 "io": "In: prior handoff. Out: toward 'Offboarding owner'.",
-"who": "Joy"
+"who": "Callum"
 },
 {
 "action": "Open an offboarding checklist (formal checklist still To confirm / draft in ops).",
 "place": "Client Hub",
 "tool": "Client Hub",
 "io": "In: prior handoff. Out: toward 'Offboarding owner'.",
-"who": "Joy"
+"who": "Callum"
 }
 ],
 "check": "Offboarding owner named; new builds stopped.",
 "manual_tag": "Human only",
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Joy and Theo record notice, name offboarding owner, stop new builds",
-"people_label": "Joy and Theo do",
+"people_summary": "Log notice; assign churn owner; confirm last send date",
+"people_label": "Callum and Joy do",
 "bot_does": [],
 "people_do": [
-"Record notice date and last day of service.",
-"Name one offboarding owner.",
-"Stop new campaign builds for this client.",
-"Open an offboarding checklist (formal checklist still being drafted)."
+"Log churn notice date and reason in Hub.",
+"Assign churn owner (usually Joy for ops, Callum for client).",
+"Confirm last allowed send date from contract/notice terms.",
+"Tell the client the wind-down steps and dates."
 ],
+"bot_decides": null,
 "bot_name": "Stage 7 Say Goodbye bot"
 },
 {
@@ -6557,11 +7176,11 @@ const FLOW = {
 "num": "50",
 "bots": [],
 "howto": [
-"Export contacts, replies and meetings from Smartlead / Client Hub.",
-"Package domain and LinkedIn options if they want to take them.",
-"Store the handover package in Drive.",
-"Joy asks the client what they want handed over.",
-"Joy confirms receipt with the client."
+"Export Hub contacts, meetings, and campaign results for the tenant.",
+"Stage CSV/PDF package in the client Drive folder.",
+"Write a hand-over checklist (what is included / excluded).",
+"Joy opens the package and confirms files open and match counts.",
+"Callum sends the package link to the client and confirms receipt."
 ],
 "done": "Handover package delivered or declined in writing.",
 "technical": [
@@ -6601,18 +7220,35 @@ const FLOW = {
 "name": "Stage 7 Say Goodbye bot",
 "label": "Stage 7 Say Goodbye bot"
 },
-"bot_summary": "Export contacts/replies/meetings; package domain/LinkedIn options; store in Drive",
-"people_summary": "Joy asks client what they want and confirms receipt",
-"people_label": "Joy does",
+"bot_summary": "Export Hub contacts/meetings/campaign results; stage files in Drive; share checklist",
+"people_summary": "Joy confirms package; Callum sends to client",
+"people_label": "Joy and Callum do",
 "bot_does": [
-"Export contacts, replies and meetings from Smartlead / Client Hub.",
-"Package domain and LinkedIn options if they want to take them.",
-"Store the handover package in Drive."
+"Export Hub contacts, meetings, and campaign results for the tenant.",
+"Stage CSV/PDF package in the client Drive folder.",
+"Write a hand-over checklist (what is included / excluded)."
 ],
 "people_do": [
-"Joy asks the client what they want handed over.",
-"Joy confirms receipt with the client."
+"Joy opens the package and confirms files open and match counts.",
+"Callum sends the package link to the client and confirms receipt."
 ],
+"bot_decides": {
+"criteria": [
+"Exports non-empty",
+"Checklist lists inclusions",
+"No deletion of Hub data yet"
+],
+"inputs": [
+"Hub tenant",
+"Drive folder"
+],
+"scoring": [
+"Pass/fail file presence"
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate if export tools fail or counts mismatch Hub UI."
+},
 "bot_name": "Stage 7 Say Goodbye bot"
 },
 {
@@ -6653,11 +7289,10 @@ const FLOW = {
 "num": "51",
 "bots": [],
 "howto": [
-"List every Smartlead and Prosp campaign for the client.",
-"Allow in-flight sends to finish where needed.",
-"Pause all campaigns by D-1.",
-"Confirm zero sends after D-1.",
-"Joy confirms pause timing and that sending has stopped."
+"Pause or complete every Smartlead and Prosp campaign tagged to this client.",
+"Verify no scheduled sends remain; screenshot/log status.",
+"Stamp stop date on Hub plan.",
+"Joy opens Smartlead/Prosp and confirms no live/scheduled sends for the client."
 ],
 "done": "No sends after D-1.",
 "technical": [
@@ -6697,18 +7332,34 @@ const FLOW = {
 "name": "Stage 7 Say Goodbye bot",
 "label": "Stage 7 Say Goodbye bot"
 },
-"bot_summary": "List campaigns; pause all by D-1; confirm zero sends after D-1",
-"people_summary": "Joy confirms pause timing",
+"bot_summary": "Pause/complete all client Smartlead+Prosp campaigns; confirm zero scheduled sends",
+"people_summary": "Joy confirms no live sends remain",
 "people_label": "Joy does",
 "bot_does": [
-"List every Smartlead and Prosp campaign for the client.",
-"Allow in-flight sends to finish where needed.",
-"Pause all campaigns by D-1.",
-"Confirm zero sends after D-1."
+"Pause or complete every Smartlead and Prosp campaign tagged to this client.",
+"Verify no scheduled sends remain; screenshot/log status.",
+"Stamp stop date on Hub plan."
 ],
 "people_do": [
-"Joy confirms pause timing and that sending has stopped."
+"Joy opens Smartlead/Prosp and confirms no live/scheduled sends for the client."
 ],
+"bot_decides": {
+"criteria": [
+"All client campaigns paused/complete",
+"Zero scheduled sends"
+],
+"inputs": [
+"Smartlead",
+"Prosp",
+"Hub tags"
+],
+"scoring": [
+"Pass/fail"
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate if a campaign cannot be paused via API/UI."
+},
 "bot_name": "Stage 7 Say Goodbye bot"
 },
 {
@@ -6775,12 +7426,11 @@ const FLOW = {
 "num": "52",
 "bots": [],
 "howto": [
-"Draft the cancel order: mailboxes first, then domains, then Prosp seats, then CloudTalk seats.",
-"Log each planned cancellation with date for Theo.",
-"Theo cancels mailboxes in InboxKit / Smartlead first.",
-"After mailboxes are gone, delete domains.",
-"Cancel Prosp LinkedIn seats and CloudTalk seats.",
-"Keep each cancellation receipt / ticket."
+"List all InboxKit mailboxes and domains tagged to this client with renewal dates.",
+"Draft cancel order: mailboxes first, then domains after mailboxes are down (house order).",
+"After Joy written OK: execute cancels; log confirmation ids and effective dates.",
+"Joy reviews cancel order vs any shared/spare boxes that must stay.",
+"Joy writes OK; after bot runs, Joy confirms cancellations in InboxKit UI."
 ],
 "done": "Inboxes, domains, LinkedIn and phone seats cancelled in order.",
 "technical": [
@@ -6820,19 +7470,41 @@ const FLOW = {
 "name": "Stage 7 Say Goodbye bot",
 "label": "Stage 7 Say Goodbye bot"
 },
-"bot_summary": "Draft cancel order (mailboxes -> domains -> Prosp -> CloudTalk) with dates",
-"people_summary": "Theo executes cancellations and keeps receipts",
-"people_label": "Theo does",
+"bot_summary": "List client-tagged mailboxes/domains; draft cancel order; cancel after Joy OK",
+"people_summary": "Joy OKs cancel order; confirms InboxKit cancellations",
+"people_label": "Joy does",
 "bot_does": [
-"Draft the cancel order: mailboxes first, then domains, then Prosp seats, then CloudTalk seats.",
-"Log each planned cancellation with date for Theo."
+"List all InboxKit mailboxes and domains tagged to this client with renewal dates.",
+"Draft cancel order: mailboxes first, then domains after mailboxes are down (house order).",
+"After Joy written OK: execute cancels; log confirmation ids and effective dates."
 ],
 "people_do": [
-"Theo cancels mailboxes in InboxKit / Smartlead first.",
-"After mailboxes are gone, delete domains.",
-"Cancel Prosp LinkedIn seats and CloudTalk seats.",
-"Keep each cancellation receipt / ticket."
+"Joy reviews cancel order vs any shared/spare boxes that must stay.",
+"Joy writes OK; after bot runs, Joy confirms cancellations in InboxKit UI."
 ],
+"bot_decides": {
+"criteria": [
+"Only client-tagged assets",
+"Mailboxes before domains",
+"No cancel without Joy OK"
+],
+"inputs": [
+"InboxKit inventory",
+"client tags"
+],
+"scoring": [
+"Checklist"
+],
+"thresholds": [
+{
+"rule": "Wait days between mailbox cancel and domain cancel",
+"source": "practice/house",
+"to_confirm": true
+}
+],
+"tie_break": "None.",
+"escalate": "Escalate if a domain is shared across clients."
+},
 "bot_name": "Stage 7 Say Goodbye bot"
 },
 {
@@ -6901,14 +7573,12 @@ const FLOW = {
 "num": "53",
 "bots": [],
 "howto": [
-"Archive Smartlead / Prosp campaigns.",
-"Set Client Hub tenant inactive; never delete. Mark CSM stage churned.",
-"Draft the access-removal and Helper-retire checklist for Joy/Theo.",
-"Flag any open invoices for settlement.",
-"Remove client access to Drive, Slack / WhatsApp and tools.",
-"Retire the Helper bot.",
-"Confirm final invoices are settled.",
-"Sign off the checklist."
+"Mark Hub tenant status churned/inactive (never delete).",
+"Draft client sign-off note: what stopped, data handed over, cancel confirmations.",
+"List remaining access to revoke (Slack, Drive, CRM, LinkedIn) for Joy.",
+"Joy revokes remaining access items on the list.",
+"Callum sends the sign-off note to the client.",
+"Archive the Drive folder per retention practice; keep Hub data."
 ],
 "done": "Signed checklist complete; account marked churned.",
 "technical": [
@@ -6969,21 +7639,37 @@ const FLOW = {
 "name": "Stage 7 Say Goodbye bot",
 "label": "Stage 7 Say Goodbye bot"
 },
-"bot_summary": "Archive campaigns; set tenant inactive; draft access-removal and Helper-retire checklist",
-"people_summary": "Joy and Theo remove access, retire Helper, settle invoices, sign off",
-"people_label": "Joy and Theo do",
+"bot_summary": "Mark Hub tenant churned (never delete); draft sign-off note; checklist remaining access",
+"people_summary": "Joy closes access; Callum sends sign-off",
+"people_label": "Joy and Callum do",
 "bot_does": [
-"Archive Smartlead / Prosp campaigns.",
-"Set Client Hub tenant inactive; never delete. Mark CSM stage churned.",
-"Draft the access-removal and Helper-retire checklist for Joy/Theo.",
-"Flag any open invoices for settlement."
+"Mark Hub tenant status churned/inactive (never delete).",
+"Draft client sign-off note: what stopped, data handed over, cancel confirmations.",
+"List remaining access to revoke (Slack, Drive, CRM, LinkedIn) for Joy."
 ],
 "people_do": [
-"Remove client access to Drive, Slack / WhatsApp and tools.",
-"Retire the Helper bot.",
-"Confirm final invoices are settled.",
-"Sign off the checklist."
+"Joy revokes remaining access items on the list.",
+"Callum sends the sign-off note to the client.",
+"Archive the Drive folder per retention practice; keep Hub data."
 ],
+"bot_decides": {
+"criteria": [
+"Never delete tenant",
+"Sign-off lists stops + hand-over + cancels",
+"Access revoke list complete"
+],
+"inputs": [
+"Hub tenant",
+"Drive",
+"InboxKit cancel logs"
+],
+"scoring": [
+"Pass/fail"
+],
+"thresholds": [],
+"tie_break": "None.",
+"escalate": "Escalate if tenant delete is requested (refuse; mark churned)."
+},
 "bot_name": "Stage 7 Say Goodbye bot"
 },
 {
@@ -7002,12 +7688,14 @@ const FLOW = {
 "num": "0.1",
 "bots": [],
 "howto": [
-"Scan the Campaign ideas bank (ideas.json / Client Hub ops) plus recent replies and signals.",
-"Shortlist and score 3 to 5 ideas with ICP fit, channel and why-now notes.",
-"Draft Client Hub ops / plan entries for the shortlist (owners and due dates) for Joy to create.",
-"Review the bot shortlist together.",
-"Theo decides which idea(s) run now.",
-"Joy creates the Client Hub ops card from the bot draft."
+"Read every card in the Campaign ideas bank (ideas.json fields: name, signal, channel, status, result, fits_because, for, desc, sources) plus open Client Hub ops cards for Clayworks.",
+"Pull recent Clayworks Smartlead/Prosp reply and positive rates, and any live campaign names, so overlap can be scored.",
+"Score each idea 0 to 5 on each criterion below; drop client-only ideas (for field names a client, or status/tags that mark client-only).",
+"Rank remaining ideas by total score; present the top 3 to 5 with per-criterion scores and a one-line why.",
+"Draft Client Hub ops / plan entry text for each shortlisted idea (ICP notes, channel, owners Joy/Theo, proposed due date) for Joy to create. Never write the Hub plan yourself.",
+"Open the bot shortlist and read each idea's scores and why line.",
+"Theo picks which idea(s) run now (final call). Joy may advise but does not override Theo on cadence/pick.",
+"Joy creates the Client Hub ops card from the bot draft and fills any missing ICP fields Theo named."
 ],
 "done": "Chosen idea and angle are agreed.",
 "technical": [
@@ -7040,19 +7728,62 @@ const FLOW = {
 "name": "Stage 0 Find Clients bot",
 "label": "Stage 0 Find Clients bot"
 },
-"bot_summary": "Scan ideas bank, shortlist and score 3 to 5 ideas, draft Hub ops entries",
-"people_summary": "Review the shortlist; Theo decides which run",
+"bot_summary": "Score every ideas-bank idea; shortlist top 3 to 5 with scores; draft Hub ops entries",
+"people_summary": "Read the scored shortlist; Theo picks which idea(s) run",
 "people_label": "Joy and Theo do",
 "bot_does": [
-"Scan the Campaign ideas bank (ideas.json / Client Hub ops) plus recent replies and signals.",
-"Shortlist and score 3 to 5 ideas with ICP fit, channel and why-now notes.",
-"Draft Client Hub ops / plan entries for the shortlist (owners and due dates) for Joy to create."
+"Read every card in the Campaign ideas bank (ideas.json fields: name, signal, channel, status, result, fits_because, for, desc, sources) plus open Client Hub ops cards for Clayworks.",
+"Pull recent Clayworks Smartlead/Prosp reply and positive rates, and any live campaign names, so overlap can be scored.",
+"Score each idea 0 to 5 on each criterion below; drop client-only ideas (for field names a client, or status/tags that mark client-only).",
+"Rank remaining ideas by total score; present the top 3 to 5 with per-criterion scores and a one-line why.",
+"Draft Client Hub ops / plan entry text for each shortlisted idea (ICP notes, channel, owners Joy/Theo, proposed due date) for Joy to create. Never write the Hub plan yourself."
 ],
 "people_do": [
-"Review the bot shortlist together.",
-"Theo decides which idea(s) run now.",
-"Joy creates the Client Hub ops card from the bot draft."
+"Open the bot shortlist and read each idea's scores and why line.",
+"Theo picks which idea(s) run now (final call). Joy may advise but does not override Theo on cadence/pick.",
+"Joy creates the Client Hub ops card from the bot draft and fills any missing ICP fields Theo named."
 ],
+"bot_decides": {
+"criteria": [
+"Signal strength + freshness: is there a live, scrapable trigger (e.g. competitor or AI SDR page followers, regulation deadline, hiring/funding signal) with a dated source?",
+"List size reachable via Waterfall (Blitz -> Pronto -> LeadsForge) for the target region (US/EU preferred; Asia still open research).",
+"ICP fit to the current Clayworks offer (qualified meetings or money back; email + LinkedIn + phone).",
+"Past results of similar campaigns: reply / positive rate from Smartlead and Prosp when a prior run exists in result notes or Hub.",
+"Not overlapping a live Clayworks campaign name or Hub blacklist segment.",
+"Effort: follower-scrape path vs company-TAM path; credit estimate class (Blitz-only vs needs paid Pronto/LeadsForge).",
+"Drop ideas tagged for a specific client only (ideas.for / client-only status)."
+],
+"inputs": [
+"ideas.json (name, signal, channel, status, result, fits_because, for, desc, sources)",
+"Client Hub ops cards for Clayworks tenant",
+"Recent Smartlead/Prosp reply tags for Clayworks campaigns",
+"Live campaign names in Smartlead/Prosp DRAFT or live"
+],
+"scoring": [
+"Each criterion scored 0 (fail/missing), 3 (partial), or 5 (strong). Total = sum of the 6 keep-criteria (max 30).",
+"Present top 3 to 5 by total score. Include the per-criterion breakdown in the shortlist note.",
+"Numeric cut for 'strong enough to shortlist' is threshold to confirm; until set, keep any idea with signal score >= 3 and not dropped for client-only/overlap."
+],
+"thresholds": [
+{
+"rule": "Shortlist size 3 to 5 ideas",
+"source": "v2 stage-0 + Joy 0.1 example",
+"to_confirm": false
+},
+{
+"rule": "Minimum total score to enter shortlist",
+"source": "none written",
+"to_confirm": true
+},
+{
+"rule": "Minimum past reply/positive rate to boost score",
+"source": "none written for Clayworks outbound",
+"to_confirm": true
+}
+],
+"tie_break": "If totals tie, prefer (1) fresher dated signal, (2) Blitz-reachable US/EU list, (3) lower paid-credit need.",
+"escalate": "Escalate to Theo (via Chief of Staff) when fewer than 3 ideas clear the keep rules, when two ideas share the same live audience, or when Asia-only sourcing is required (Asia lead source still open research)."
+},
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7071,18 +7802,18 @@ const FLOW = {
 "num": "0.2",
 "bots": [],
 "howto": [
-"Confirm ICP, titles, geos and exclusions from the ops card.",
-"Choose path: domain/TAM Waterfall, or follower scrape then Waterfall.",
-"Follower angles: scrape named company followers with LeadsForge (never Claude scrape).",
-"Non-follower: company TAM with Blitz first, then people + email enrich.",
-"Waterfall: Blitz first, then Pronto, then LeadsForge. Estimate credits before paid Pronto/LeadsForge.",
-"Mobile top-up via Pronto into the mobile field.",
-"Blacklist + dedupe in Client Hub; run Claude blacklist double-check (mandatory).",
-"Load the clean list to Client Hub (Clayworks tenant).",
-"Log email and mobile hit rate per tool per region into the hit-rate log.",
-"Confirm ICP and angle on the ops card before the pull.",
-"Joy OKs paid Pronto / LeadsForge credit spend.",
-"Spot-check ~10 sample rows (title, email, LinkedIn) before copy starts."
+"Read ICP from the Clayworks Client Hub ops card fields: industries/vertical, headcount band, region/geo, target titles/seniority, exclusions (customers, competitors, do-not-contact), and campaign angle/signal. If any of those fields is blank, stop and escalate (do not guess).",
+"Choose path by rule: if the idea/angle is follower-based (ideas.channel or angle mentions followers / competitor page / AI SDR page), scrape the named LinkedIn company/page followers with LeadsForge, then run Waterfall on the people. Otherwise build company TAM with Blitz first, then people + email enrich via Waterfall.",
+"Waterfall order (fixed): Blitz first, then Pronto, then LeadsForge. Never Clay. After Blitz, compute email hit rate on the batch; if Blitz covered under ~65% of the target list (house baseline: Blitz handles about 65% of a list / ~70% hit rate US/EU), fall through to Pronto on the misses, then LeadsForge.",
+"Before any paid Pronto or LeadsForge run: count the miss rows, estimate credits (miss count x provider unit cost from the live Pronto/LeadsForge credit screen), and send the estimate + miss count + region to Joy via Chief of Staff. Do not run paid pulls until Joy's written OK.",
+"Mobile top-up: for rows missing mobile, run Pronto into the mobile field (phones auto-flow to CloudTalk via Client Hub).",
+"Blacklist + dedupe in Client Hub against: tenant blacklist, existing contacts, and other live Clayworks list membership. Match keys: email (lowercase), LinkedIn URL (normalized), and company domain. Log removal counts by reason.",
+"Run the mandatory Claude blacklist double-check on the surviving list; remove matches; log counts.",
+"Load the clean list to the Clayworks Client Hub list (create_list / add_contacts). Write the Hub list id onto the ops card.",
+"Log email and mobile hit rate per tool (Blitz, Pronto, LeadsForge) per region into the hit-rate log.",
+"Open the ops card and compare industries, headcount band, region, titles and exclusions to the agreed angle. Pass only when every field is filled and matches the shortlist why-line; if a field is wrong or blank, edit the card and send the bot back.",
+"Joy reads the bot's paid-credit estimate (miss count, provider, region, estimated credits) and replies OK or cut scope before Pronto/LeadsForge runs.",
+"Spot-check about 10 sample rows from the Hub list. Each row must pass: title in the target title list on the ops card; company industry/geo in ICP; email status deliverable or catch-all in Smartlead verify (not undeliverable); LinkedIn URL present and well-formed. If more than the fail threshold fail (threshold to confirm; until set, if 3 or more of 10 fail), send the list back to the bot with the fail reasons."
 ],
 "done": "Clean lead list is in Client Hub and ready for copy.",
 "technical": [
@@ -7185,25 +7916,69 @@ const FLOW = {
 "name": "Stage 0 Find Clients bot",
 "label": "Stage 0 Find Clients bot"
 },
-"bot_summary": "Run Waterfall (Blitz -> Pronto -> LeadsForge), blacklist, load Hub, log hit rates",
-"people_summary": "Confirm ICP; Joy OKs paid pulls; spot-check sample rows",
+"bot_summary": "Read ICP from ops card; choose path; Waterfall enrich; blacklist/dedupe; load Hub; log hit rates",
+"people_summary": "Joy/Theo pass ICP fields on the ops card; Joy OKs paid credits; spot-check ~10 rows",
 "people_label": "Joy and Theo do",
 "bot_does": [
-"Confirm ICP, titles, geos and exclusions from the ops card.",
-"Choose path: domain/TAM Waterfall, or follower scrape then Waterfall.",
-"Follower angles: scrape named company followers with LeadsForge (never Claude scrape).",
-"Non-follower: company TAM with Blitz first, then people + email enrich.",
-"Waterfall: Blitz first, then Pronto, then LeadsForge. Estimate credits before paid Pronto/LeadsForge.",
-"Mobile top-up via Pronto into the mobile field.",
-"Blacklist + dedupe in Client Hub; run Claude blacklist double-check (mandatory).",
-"Load the clean list to Client Hub (Clayworks tenant).",
-"Log email and mobile hit rate per tool per region into the hit-rate log."
+"Read ICP from the Clayworks Client Hub ops card fields: industries/vertical, headcount band, region/geo, target titles/seniority, exclusions (customers, competitors, do-not-contact), and campaign angle/signal. If any of those fields is blank, stop and escalate (do not guess).",
+"Choose path by rule: if the idea/angle is follower-based (ideas.channel or angle mentions followers / competitor page / AI SDR page), scrape the named LinkedIn company/page followers with LeadsForge, then run Waterfall on the people. Otherwise build company TAM with Blitz first, then people + email enrich via Waterfall.",
+"Waterfall order (fixed): Blitz first, then Pronto, then LeadsForge. Never Clay. After Blitz, compute email hit rate on the batch; if Blitz covered under ~65% of the target list (house baseline: Blitz handles about 65% of a list / ~70% hit rate US/EU), fall through to Pronto on the misses, then LeadsForge.",
+"Before any paid Pronto or LeadsForge run: count the miss rows, estimate credits (miss count x provider unit cost from the live Pronto/LeadsForge credit screen), and send the estimate + miss count + region to Joy via Chief of Staff. Do not run paid pulls until Joy's written OK.",
+"Mobile top-up: for rows missing mobile, run Pronto into the mobile field (phones auto-flow to CloudTalk via Client Hub).",
+"Blacklist + dedupe in Client Hub against: tenant blacklist, existing contacts, and other live Clayworks list membership. Match keys: email (lowercase), LinkedIn URL (normalized), and company domain. Log removal counts by reason.",
+"Run the mandatory Claude blacklist double-check on the surviving list; remove matches; log counts.",
+"Load the clean list to the Clayworks Client Hub list (create_list / add_contacts). Write the Hub list id onto the ops card.",
+"Log email and mobile hit rate per tool (Blitz, Pronto, LeadsForge) per region into the hit-rate log."
 ],
 "people_do": [
-"Confirm ICP and angle on the ops card before the pull.",
-"Joy OKs paid Pronto / LeadsForge credit spend.",
-"Spot-check ~10 sample rows (title, email, LinkedIn) before copy starts."
+"Open the ops card and compare industries, headcount band, region, titles and exclusions to the agreed angle. Pass only when every field is filled and matches the shortlist why-line; if a field is wrong or blank, edit the card and send the bot back.",
+"Joy reads the bot's paid-credit estimate (miss count, provider, region, estimated credits) and replies OK or cut scope before Pronto/LeadsForge runs.",
+"Spot-check about 10 sample rows from the Hub list. Each row must pass: title in the target title list on the ops card; company industry/geo in ICP; email status deliverable or catch-all in Smartlead verify (not undeliverable); LinkedIn URL present and well-formed. If more than the fail threshold fail (threshold to confirm; until set, if 3 or more of 10 fail), send the list back to the bot with the fail reasons."
 ],
+"bot_decides": {
+"criteria": [
+"Path: follower angle in the idea/ops card -> LeadsForge follower scrape of the named page, then Waterfall; else company TAM via Blitz then Waterfall.",
+"Enrichment order fixed: Blitz -> Pronto -> LeadsForge. Fall to Pronto when Blitz coverage is under the ~65% large-list baseline.",
+"Paid pull only after Joy OK on a written credit estimate.",
+"Row keep rules after enrich: has title, company, and (email deliverable or catch-all) or LinkedIn URL for Prosp; drop undeliverable emails.",
+"Blacklist/dedupe match on email, LinkedIn URL, company domain against Hub blacklist + contacts + live lists."
+],
+"inputs": [
+"Client Hub ops card ICP fields (industries, headcount, region, titles, exclusions, angle)",
+"ideas.json signal/channel for path choice",
+"Blitz / Pronto / LeadsForge live results and credit screens",
+"Client Hub list_blacklist, search_contacts, live lists",
+"Smartlead verification statuses"
+],
+"scoring": [
+"Blitz coverage % = Blitz email hits / target row count. If coverage < ~65%, queue Pronto on misses.",
+"No per-lead score beyond pass/fail on ICP + verify + blacklist."
+],
+"thresholds": [
+{
+"rule": "Blitz handles about 65% of a list / ~70% hit rate US/EU before Pronto fallback",
+"source": "house-rules/stage-5.md; stage-0 v2; FF 30 Sep",
+"to_confirm": false
+},
+{
+"rule": "Spot-check sample size ~10 rows",
+"source": "v2 stage-0 done-when sample 10",
+"to_confirm": false
+},
+{
+"rule": "Spot-check fail count that sends the list back",
+"source": "none written",
+"to_confirm": true
+},
+{
+"rule": "Pronto/LeadsForge unit credit cost for the estimate",
+"source": "live provider screen (do not hardcode)",
+"to_confirm": false
+}
+],
+"tie_break": "On path ambiguity (angle mentions both followers and TAM), prefer follower scrape when a named LinkedIn company/page URL is on the ops card; otherwise company TAM.",
+"escalate": "Escalate to Joy/Theo when any ICP field on the ops card is blank; when Blitz+Pronto+LeadsForge still leave email coverage below a usable level (usable % threshold to confirm); when credits needed exceed what Joy pre-approved; when Asia-only sourcing is required."
+},
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7222,13 +7997,13 @@ const FLOW = {
 "num": "0.3",
 "bots": [],
 "howto": [
-"Assemble brief: ICP, signal, offer, proof, sender identity.",
-"Coordinate with Gemini for the main draft; Claude second pass.",
-"Offer in every touch; different angle per touch; no em dashes; merge fields explicit.",
-"Draft Prosp LinkedIn sequence for the same angle (required).",
-"Self-QA / spam-word check; save under profiles/clayworks/.",
-"Joy edit pass on the draft.",
-"Theo gives final OK on copy (moving to Joy)."
+"Assemble brief from the ops card + Hub list sample: ICP, signal/angle, offer (qualified meetings or money back), proof points, sender identity, banned words (none client-specific for Clayworks.io, but still no em dashes).",
+"Send brief to Gemini for the main email sequence draft; run Claude second pass for clarity and rule compliance.",
+"Draft Prosp LinkedIn DM sequence for the same angle (required on every campaign).",
+"Run spam-word-checker / stage-8 phrase checks; fix violations; save under profiles/clayworks/ (copy.md, variants, linkedin-dms.md).",
+"Produce a diff note of any claim not backed by a source in the brief (do not invent proof).",
+"Joy edits the draft in profiles/clayworks/copy.md against house copy rules (offer every touch, no em dashes, merge fields explicit).",
+"Theo reads the final draft and writes OK on the ops card / Slack (copy lock: Now Theo, moving to Joy). Without Theo OK, do not load to Smartlead."
 ],
 "done": "Approved copy ready to load into Smartlead draft.",
 "technical": [
@@ -7284,20 +8059,51 @@ const FLOW = {
 "name": "Stage 0 Find Clients bot",
 "label": "Stage 0 Find Clients bot"
 },
-"bot_summary": "Assemble brief; coordinate Gemini draft + Claude second pass; draft Prosp DMs; spam QA",
-"people_summary": "Joy edits; Theo final OK on copy",
+"bot_summary": "Assemble brief from ops card; Gemini draft + Claude second pass; Prosp DMs; spam QA",
+"people_summary": "Joy edits against copy guide; Theo final OK on copy",
 "people_label": "Joy and Theo do",
 "bot_does": [
-"Assemble brief: ICP, signal, offer, proof, sender identity.",
-"Coordinate with Gemini for the main draft; Claude second pass.",
-"Offer in every touch; different angle per touch; no em dashes; merge fields explicit.",
-"Draft Prosp LinkedIn sequence for the same angle (required).",
-"Self-QA / spam-word check; save under profiles/clayworks/."
+"Assemble brief from the ops card + Hub list sample: ICP, signal/angle, offer (qualified meetings or money back), proof points, sender identity, banned words (none client-specific for Clayworks.io, but still no em dashes).",
+"Send brief to Gemini for the main email sequence draft; run Claude second pass for clarity and rule compliance.",
+"Draft Prosp LinkedIn DM sequence for the same angle (required on every campaign).",
+"Run spam-word-checker / stage-8 phrase checks; fix violations; save under profiles/clayworks/ (copy.md, variants, linkedin-dms.md).",
+"Produce a diff note of any claim not backed by a source in the brief (do not invent proof)."
 ],
 "people_do": [
-"Joy edit pass on the draft.",
-"Theo gives final OK on copy (moving to Joy)."
+"Joy edits the draft in profiles/clayworks/copy.md against house copy rules (offer every touch, no em dashes, merge fields explicit).",
+"Theo reads the final draft and writes OK on the ops card / Slack (copy lock: Now Theo, moving to Joy). Without Theo OK, do not load to Smartlead."
 ],
+"bot_decides": {
+"criteria": [
+"Every touch has the offer; each touch a different angle; merge fields explicit; no em dashes or en dashes.",
+"Claims must appear in the brief sources; otherwise flag, do not invent.",
+"Prosp LinkedIn sequence required (never email-only).",
+"Spam-word list and stage-8 phrase rules must pass before handoff."
+],
+"inputs": [
+"ops card brief fields",
+"profiles/clayworks/",
+"house-rules/stage-6.md + stage-8.md",
+"spam-word-checker"
+],
+"scoring": [
+"Pass/fail per touch on offer present, angle unique, merge fields, dash ban, spam words."
+],
+"thresholds": [
+{
+"rule": "Spam-word list = stage-8 / spam-word-checker file",
+"source": "house-rules/stage-8",
+"to_confirm": false
+},
+{
+"rule": "Minimum touches in sequence",
+"source": "none single number for Clayworks",
+"to_confirm": true
+}
+],
+"tie_break": "If Gemini and Claude disagree on a line, prefer the version that keeps the offer and removes banned phrases.",
+"escalate": "Escalate to Joy when proof is missing for a claim Theo/Joy asked to use, or when banned-word conflicts block a required offer line."
+},
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7316,12 +8122,13 @@ const FLOW = {
 "num": "0.4",
 "bots": [],
 "howto": [
-"Final blacklist + Claude double-check on the Hub list.",
-"Create Smartlead campaign as DRAFT only. Map merge fields. Attach healthy Clayworks inboxes. Stop-on-reply on. Daily limits set. Never Start.",
-"Create Prosp LinkedIn campaign as DRAFT; upload contacts with LinkedIn URLs; attach Clayworks senders.",
-"Write Hub list id onto the ops card.",
-"Joy confirms Smartlead and Prosp are still DRAFT and fields look right.",
-"Never press Start (Joy alone does that in step 0.7)."
+"Re-run Client Hub blacklist + Claude blacklist double-check on the Hub list; remove matches; log counts.",
+"Create Smartlead campaign as DRAFT only. Map merge fields from approved copy. Attach healthy Clayworks inboxes. Stop-on-reply ON. Daily limit 25 sends a day per mailbox default (house-rules/stage-3 KMC standard). Never press Start.",
+"Create Prosp LinkedIn campaign as DRAFT; upload contacts that have LinkedIn URLs; attach Clayworks senders; paste approved DMs.",
+"Write Smartlead campaign id, Prosp campaign id, and Hub list id onto the ops card.",
+"Joy opens the Smartlead DRAFT: confirms status is DRAFT (not active), merge fields render on a sample lead, stop-on-reply is on, daily limit is 25/mailbox, and inboxes listed are Clayworks-tagged.",
+"Joy opens the Prosp DRAFT: confirms contacts have LinkedIn URLs and senders are attached.",
+"Joy does not press Start (that is step 0.7 only)."
 ],
 "done": "Hub list, Smartlead DRAFT and Prosp DRAFT ready for check step.",
 "technical": [
@@ -7369,19 +8176,56 @@ const FLOW = {
 "name": "Stage 0 Find Clients bot",
 "label": "Stage 0 Find Clients bot"
 },
-"bot_summary": "Final blacklist; create Smartlead + Prosp DRAFTs; map fields; attach inboxes",
-"people_summary": "Confirm drafts look right; never press Start",
+"bot_summary": "Final blacklist; Smartlead+Prosp DRAFT only; map fields; attach inboxes; never Start",
+"people_summary": "Joy opens DRAFT campaigns and checks fields/inboxes; never presses Start here",
 "people_label": "Joy does",
 "bot_does": [
-"Final blacklist + Claude double-check on the Hub list.",
-"Create Smartlead campaign as DRAFT only. Map merge fields. Attach healthy Clayworks inboxes. Stop-on-reply on. Daily limits set. Never Start.",
-"Create Prosp LinkedIn campaign as DRAFT; upload contacts with LinkedIn URLs; attach Clayworks senders.",
-"Write Hub list id onto the ops card."
+"Re-run Client Hub blacklist + Claude blacklist double-check on the Hub list; remove matches; log counts.",
+"Create Smartlead campaign as DRAFT only. Map merge fields from approved copy. Attach healthy Clayworks inboxes. Stop-on-reply ON. Daily limit 25 sends a day per mailbox default (house-rules/stage-3 KMC standard). Never press Start.",
+"Create Prosp LinkedIn campaign as DRAFT; upload contacts that have LinkedIn URLs; attach Clayworks senders; paste approved DMs.",
+"Write Smartlead campaign id, Prosp campaign id, and Hub list id onto the ops card."
 ],
 "people_do": [
-"Joy confirms Smartlead and Prosp are still DRAFT and fields look right.",
-"Never press Start (Joy alone does that in step 0.7)."
+"Joy opens the Smartlead DRAFT: confirms status is DRAFT (not active), merge fields render on a sample lead, stop-on-reply is on, daily limit is 25/mailbox, and inboxes listed are Clayworks-tagged.",
+"Joy opens the Prosp DRAFT: confirms contacts have LinkedIn URLs and senders are attached.",
+"Joy does not press Start (that is step 0.7 only)."
 ],
+"bot_decides": {
+"criteria": [
+"Campaign status must remain DRAFT.",
+"Only healthy, Clayworks-tagged inboxes.",
+"Leads must have passed verify + blacklist gates.",
+"Prosp required alongside email."
+],
+"inputs": [
+"Hub list",
+"approved copy",
+"InboxKit/Smartlead inbox health",
+"Prosp senders"
+],
+"scoring": [
+"Pass/fail checklist before marking ops card ready-for-check."
+],
+"thresholds": [
+{
+"rule": "25 sends a day per mailbox default (house-rules/stage-3 KMC standard)",
+"source": "house-rules/stage-3",
+"to_confirm": false
+},
+{
+"rule": "Smartlead verify: keep deliverable and catch-all; drop undeliverable (_common.md)",
+"source": "_common.md",
+"to_confirm": false
+},
+{
+"rule": "Inbox 'healthy' definition (reputation/bounce)",
+"source": "stage-8 reputation rest examples; exact cut to confirm",
+"to_confirm": true
+}
+],
+"tie_break": "If an inbox is borderline, leave it out of the DRAFT and list it on the QA note for Theo/Joy.",
+"escalate": "Escalate to Joy if fewer inboxes than needed for the planned daily volume at 25/mailbox, or if Prosp senders are missing."
+},
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7407,12 +8251,13 @@ const FLOW = {
 "num": "0.5",
 "bots": [],
 "howto": [
-"Spam / phrase checks on every touch.",
-"Inbox health in Smartlead / InboxKit; flag burned Clayworks inboxes.",
-"Confirm warm-up >= 2 weeks.",
-"Draft a short QA note for Theo.",
-"Theo final OK on copy (moving to Joy).",
-"Joy/Theo decide rest or swap of any burned inboxes."
+"Run spam-word-checker and stage-8 phrase checks on every Smartlead touch and every Prosp DM; list failing lines with rule broken.",
+"Check merge fields on 3 sample leads in Smartlead preview (first_name, company, and any custom fields used).",
+"Pull inbox health from Smartlead/InboxKit: bounce rate, spam rejections, reputation if shown. Flag inboxes above the 2% bounce alert line or otherwise weak.",
+"Compute warm-up age per mailbox from purchase/warm-start date; flag any under 2 weeks (Warm-up at least 2 weeks before Joy presses Start (house-rules/stage-3; _common.md)).",
+"Write a short QA note on the ops card: copy pass/fail, inbox flags, warm-up flags.",
+"Theo reads the QA note + copy and writes final OK on the ops card (copy lock: Now Theo, moving to Joy).",
+"Joy/Theo decide which flagged inboxes to rest or swap; Joy approves any replacement buy."
 ],
 "done": "Approved draft with healthy inboxes.",
 "technical": [
@@ -7445,19 +8290,60 @@ const FLOW = {
 "name": "Stage 0 Find Clients bot",
 "label": "Stage 0 Find Clients bot"
 },
-"bot_summary": "Spam/phrase checks; inbox health; warm-up check; flag issues",
-"people_summary": "Theo final OK on copy; decide rest/swap of burned inboxes",
+"bot_summary": "Spam/phrase + merge-field QA; inbox health + warm-up age; draft QA note for Theo",
+"people_summary": "Theo final OK on copy; Joy/Theo decide rest/swap of burned inboxes",
 "people_label": "Theo and Joy do",
 "bot_does": [
-"Spam / phrase checks on every touch.",
-"Inbox health in Smartlead / InboxKit; flag burned Clayworks inboxes.",
-"Confirm warm-up >= 2 weeks.",
-"Draft a short QA note for Theo."
+"Run spam-word-checker and stage-8 phrase checks on every Smartlead touch and every Prosp DM; list failing lines with rule broken.",
+"Check merge fields on 3 sample leads in Smartlead preview (first_name, company, and any custom fields used).",
+"Pull inbox health from Smartlead/InboxKit: bounce rate, spam rejections, reputation if shown. Flag inboxes above the 2% bounce alert line or otherwise weak.",
+"Compute warm-up age per mailbox from purchase/warm-start date; flag any under 2 weeks (Warm-up at least 2 weeks before Joy presses Start (house-rules/stage-3; _common.md)).",
+"Write a short QA note on the ops card: copy pass/fail, inbox flags, warm-up flags."
 ],
 "people_do": [
-"Theo final OK on copy (moving to Joy).",
-"Joy/Theo decide rest or swap of any burned inboxes."
+"Theo reads the QA note + copy and writes final OK on the ops card (copy lock: Now Theo, moving to Joy).",
+"Joy/Theo decide which flagged inboxes to rest or swap; Joy approves any replacement buy."
 ],
+"bot_decides": {
+"criteria": [
+"Copy fails if any spam-word or dash violation remains.",
+"Inbox flagged if bounce >= 2% alert line or warm-up < 2 weeks.",
+"Merge-field fail if sample preview shows blank/wrong field."
+],
+"inputs": [
+"Smartlead DRAFT preview",
+"Prosp DRAFT",
+"InboxKit/Smartlead health",
+"mailbox warm-start dates"
+],
+"scoring": [
+"Pass/fail per check; campaign cannot move to launch while copy fail or warm-up fail remains."
+],
+"thresholds": [
+{
+"rule": "Bounce alert line 2% (house-rules/stage-8 Odd Latent plan, used as house alert)",
+"source": "house-rules/stage-8",
+"to_confirm": false
+},
+{
+"rule": "Warm-up at least 2 weeks before Joy presses Start (house-rules/stage-3; _common.md)",
+"source": "_common.md / stage-3",
+"to_confirm": false
+},
+{
+"rule": "Spam rate promise under 1% (house-rules/stage-8)",
+"source": "house-rules/stage-8",
+"to_confirm": false
+},
+{
+"rule": "Sample size for merge-field preview (using 3)",
+"source": "practice; not a written house number",
+"to_confirm": true
+}
+],
+"tie_break": "Copy fail blocks launch even if inboxes are healthy.",
+"escalate": "Escalate to Theo when copy OK is needed; to Joy when inbox replacement spend is needed."
+},
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7476,11 +8362,11 @@ const FLOW = {
 "num": "0.6",
 "bots": [],
 "howto": [
-"Write one-pager: angle, ICP, offer, script, pushbacks, call list, meeting rules (qualified definition + fixed meeting link), reply channels.",
-"Confirm call list is in Hub and meeting link works; note gaps for Joy.",
-"Joy posts the brief in Slack.",
-"Joy walks BDRs through it and does a short role play.",
-"BDRs confirm they have read it."
+"Draft a one-pager from the ops card + approved copy + Hub call list: angle, ICP (titles/geo), offer, email/LinkedIn/phone script lines, top pushbacks with answers, call list Hub link, meeting rules (3 qualified rules if set; else Clayworks default), fixed meeting link, reply channels (Smartlead/Slack).",
+"Check the Hub call list id exists and the fixed meeting link field is non-empty; list any gaps on the draft for Joy.",
+"Joy posts the one-pager in the Clayworks BDR Slack channel.",
+"Joy walks BDRs through it on a short call and runs a role play on the script + offer.",
+"BDRs reply in-thread that they have read it; Joy ticks the ops card when all active BDRs confirmed."
 ],
 "done": "One-page brief is in Slack and the team has walked through it.",
 "technical": [
@@ -7506,18 +8392,42 @@ const FLOW = {
 "name": "Stage 0 Find Clients bot",
 "label": "Stage 0 Find Clients bot"
 },
-"bot_summary": "Draft the one-pager brief (angle, ICP, offer, script, pushbacks, call list, meeting rules)",
+"bot_summary": "Draft one-pager from ops card + approved copy + Hub call list",
 "people_summary": "Joy posts in Slack, walks BDRs through it, runs role play",
 "people_label": "Joy does",
 "bot_does": [
-"Write one-pager: angle, ICP, offer, script, pushbacks, call list, meeting rules (qualified definition + fixed meeting link), reply channels.",
-"Confirm call list is in Hub and meeting link works; note gaps for Joy."
+"Draft a one-pager from the ops card + approved copy + Hub call list: angle, ICP (titles/geo), offer, email/LinkedIn/phone script lines, top pushbacks with answers, call list Hub link, meeting rules (3 qualified rules if set; else Clayworks default), fixed meeting link, reply channels (Smartlead/Slack).",
+"Check the Hub call list id exists and the fixed meeting link field is non-empty; list any gaps on the draft for Joy."
 ],
 "people_do": [
-"Joy posts the brief in Slack.",
-"Joy walks BDRs through it and does a short role play.",
-"BDRs confirm they have read it."
+"Joy posts the one-pager in the Clayworks BDR Slack channel.",
+"Joy walks BDRs through it on a short call and runs a role play on the script + offer.",
+"BDRs reply in-thread that they have read it; Joy ticks the ops card when all active BDRs confirmed."
 ],
+"bot_decides": {
+"criteria": [
+"One-pager must include angle, ICP, offer, script, pushbacks, call list link, meeting rules, reply channels.",
+"Fail draft if Hub call list id or meeting link is missing."
+],
+"inputs": [
+"ops card",
+"approved copy",
+"Hub call list",
+"BDR meeting links"
+],
+"scoring": [
+"Pass/fail section checklist before sending draft to Joy."
+],
+"thresholds": [
+{
+"rule": "All active BDRs must confirm read before launch",
+"source": "v2 stage-0 done-when",
+"to_confirm": false
+}
+],
+"tie_break": "If meeting link missing, still draft other sections but mark block in red for Joy.",
+"escalate": "Escalate to Joy when call list or meeting link is missing; do not invent a Calendly URL."
+},
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7542,10 +8452,11 @@ const FLOW = {
 "num": "0.7",
 "bots": [],
 "howto": [
-"Confirm Prosp DRAFT is ready, Theo's copy OK, inbox health, and warm-up >= 2 weeks.",
-"Joy presses Start in Smartlead and Prosp.",
-"Announce launch in Slack.",
-"Watch early bounces."
+"Confirm Prosp DRAFT status is ready and Smartlead status is still DRAFT on the ops card QA note.",
+"Confirm Theo's copy OK is logged on the ops card and inbox health has no open warm-up < 2 weeks flags.",
+"Joy presses Start in Smartlead, then Start in Prosp.",
+"Announce launch in Slack with campaign names and Hub list id.",
+"Watch bounce rate in Smartlead for the first hours; if bounce crosses the 2% alert line, pause and call Theo."
 ],
 "done": "Campaign is live.",
 "technical": [
@@ -7575,15 +8486,17 @@ const FLOW = {
 "manual_tag": null,
 "stage_bot": null,
 "bot_summary": "Nothing, human only",
-"people_summary": "Joy confirms checks and presses Start on Smartlead and Prosp",
+"people_summary": "Joy confirms QA gates then presses Start on Smartlead and Prosp",
 "people_label": "Joy does",
 "bot_does": [],
 "people_do": [
-"Confirm Prosp DRAFT is ready, Theo's copy OK, inbox health, and warm-up >= 2 weeks.",
-"Joy presses Start in Smartlead and Prosp.",
-"Announce launch in Slack.",
-"Watch early bounces."
+"Confirm Prosp DRAFT status is ready and Smartlead status is still DRAFT on the ops card QA note.",
+"Confirm Theo's copy OK is logged on the ops card and inbox health has no open warm-up < 2 weeks flags.",
+"Joy presses Start in Smartlead, then Start in Prosp.",
+"Announce launch in Slack with campaign names and Hub list id.",
+"Watch bounce rate in Smartlead for the first hours; if bounce crosses the 2% alert line, pause and call Theo."
 ],
+"bot_decides": null,
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7602,12 +8515,12 @@ const FLOW = {
 "num": "0.8",
 "bots": [],
 "howto": [
-"Triage Smartlead (and Prosp) replies daily. Tag interested.",
-"Draft reply text only (never send).",
-"Log booked meetings in Client Hub (feeds Phase 1).",
-"Push hot leads to BDRs with context and phone numbers.",
-"BDRs / Theo / Callum call hot leads via CloudTalk and book the first meeting.",
-"Joy or Callum sends any drafted replies."
+"Pull new Smartlead and Prosp replies daily. Tag each: positive / neutral / objection / OOO / unsubscribe using the reply text (unsubscribe keywords and stop language -> unsubscribe).",
+"Remove unsubscribes from sending lists and add to Hub blacklist when required; log counts.",
+"Draft reply text for positive/objection (never send). Push positive + phone-available leads to BDRs with Hub link, phone, and last message snippet.",
+"When a BDR reports a booked meeting, log it in Client Hub the same day with prospect, time, and owner.",
+"BDRs / Theo / Callum call hot leads via CloudTalk using the Hub phone list and book with the fixed meeting link.",
+"Joy or Callum sends any bot-drafted replies from Smartlead/Prosp (bots never send)."
 ],
 "done": "Booked first meeting that starts the sales flow.",
 "technical": [
@@ -7640,19 +8553,44 @@ const FLOW = {
 "name": "Stage 0 Find Clients bot",
 "label": "Stage 0 Find Clients bot"
 },
-"bot_summary": "Triage Smartlead/Prosp replies daily; tag interested; draft reply text; log meetings in Hub",
-"people_summary": "BDRs/Theo/Callum call hot leads and book; Joy or Callum sends replies",
+"bot_summary": "Triage replies; tag; draft text; push hot leads; log meetings when BDRs report",
+"people_summary": "BDRs/Theo/Callum call and book; Joy or Callum sends replies",
 "people_label": "BDRs, Theo and Callum do",
 "bot_does": [
-"Triage Smartlead (and Prosp) replies daily. Tag interested.",
-"Draft reply text only (never send).",
-"Log booked meetings in Client Hub (feeds Phase 1).",
-"Push hot leads to BDRs with context and phone numbers."
+"Pull new Smartlead and Prosp replies daily. Tag each: positive / neutral / objection / OOO / unsubscribe using the reply text (unsubscribe keywords and stop language -> unsubscribe).",
+"Remove unsubscribes from sending lists and add to Hub blacklist when required; log counts.",
+"Draft reply text for positive/objection (never send). Push positive + phone-available leads to BDRs with Hub link, phone, and last message snippet.",
+"When a BDR reports a booked meeting, log it in Client Hub the same day with prospect, time, and owner."
 ],
 "people_do": [
-"BDRs / Theo / Callum call hot leads via CloudTalk and book the first meeting.",
-"Joy or Callum sends any drafted replies."
+"BDRs / Theo / Callum call hot leads via CloudTalk using the Hub phone list and book with the fixed meeting link.",
+"Joy or Callum sends any bot-drafted replies from Smartlead/Prosp (bots never send)."
 ],
+"bot_decides": {
+"criteria": [
+"Unsubscribe/stop language -> unsubscribe tag + blacklist.",
+"Positive = explicit interest or meeting ask.",
+"Hot lead = positive + (phone present or LinkedIn available)."
+],
+"inputs": [
+"Smartlead replies",
+"Prosp replies",
+"Hub contacts phones",
+"BDR meeting reports"
+],
+"scoring": [
+"Tag taxonomy pass/fail; escalate ambiguous replies rather than guessing positive."
+],
+"thresholds": [
+{
+"rule": "Ambiguous reply handling",
+"source": "no written taxonomy scores",
+"to_confirm": true
+}
+],
+"tie_break": "If unsure between neutral and positive, tag neutral and escalate snippet to Callum.",
+"escalate": "Escalate ambiguous or VIP replies to Callum/Joy; never send mail/LinkedIn as the bot."
+},
 "bot_name": "Stage 0 Find Clients bot"
 },
 {
@@ -7677,9 +8615,9 @@ const FLOW = {
 "num": "0.9",
 "bots": [],
 "howto": [
-"Keep the proposal visible: monthly, pending Theo's decision.",
-"When Theo decides, update this step and the Campaign ideas bank rhythm.",
-"Until then, launch when Theo picks ideas (see 0.1)."
+"Keep the proposal visible on this step: monthly cadence, pending Theo's decision.",
+"When Theo decides, update this step text and the Campaign ideas bank rhythm note.",
+"Until then, launch only when Theo picks ideas in step 0.1."
 ],
 "done": "Cadence decision recorded (still open).",
 "technical": [
@@ -7706,10 +8644,11 @@ const FLOW = {
 "people_label": "Theo does",
 "bot_does": [],
 "people_do": [
-"Keep the proposal visible: monthly, pending Theo's decision.",
-"When Theo decides, update this step and the Campaign ideas bank rhythm.",
-"Until then, launch when Theo picks ideas (see 0.1)."
+"Keep the proposal visible on this step: monthly cadence, pending Theo's decision.",
+"When Theo decides, update this step text and the Campaign ideas bank rhythm note.",
+"Until then, launch only when Theo picks ideas in step 0.1."
 ],
+"bot_decides": null,
 "bot_name": "Stage 0 Find Clients bot"
 }
 ],
@@ -8125,7 +9064,7 @@ const FLOW = {
 "7": "Stage 7 Say Goodbye bot"
 }
 },
-"build": "flow-v17"
+"build": "flow-v18"
 };
 </script>
 <style>
@@ -8224,6 +9163,15 @@ table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}td,th{b
 .howto-bot ol,.howto-peo ol{margin:6px 0 0;padding-left:1.25rem}
 .howto-bot li,.howto-peo li{margin:4px 0}
 .howto-bot .empty,.howto-peo .empty{color:var(--mut);font-size:14px;margin:4px 0 0}
+
+.howto-decides{margin-top:10px;background:#eef2ff;border:1px solid #c7d7fb;border-radius:8px;padding:10px 12px}
+.howto-decides h5{margin:0 0 6px;color:#3730a3;font-size:14px}
+.howto-decides .dsec{margin:8px 0 0}
+.howto-decides .dsec b{display:block;color:#4338ca;font-size:12px;margin-bottom:2px}
+.howto-decides ul{margin:4px 0 0;padding-left:1.25rem}
+.howto-decides li{margin:3px 0}
+.howto-decides .tpill{display:inline-block;font-size:11px;font-weight:600;background:#fef3c7;color:#92400e;border:1px solid #fde68a;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.howto-decides .src{color:var(--mut);font-size:12px}
 .whotag{display:inline-block;font-size:11px;font-weight:600;border-radius:999px;padding:0 7px;margin-right:6px;vertical-align:middle}
 .whotag.bot{background:#eef2ff;color:#3730a3}
 .whotag.peo{background:#fef3c7;color:#92400e}
@@ -8273,7 +9221,7 @@ function getMod(k){const m=mods[k]||{};return {needed:!!m.needed,note:m.note||''
 function setMod(k,m){if(!m.needed && !(m.note||'').trim()) delete mods[k]; else mods[k]={needed:!!m.needed,note:m.note||''};localStorage.setItem('cwflow_mods',JSON.stringify(mods))}
 function hasMod(k){const m=getMod(k);return m.needed || !!(m.note||'').trim()}
 function stepClass(k){return 'step'+(done[k]?' reviewed':'')+(hasMod(k)?' needs-mod':'')}
-document.getElementById('bmark').textContent=FLOW.build||'flow-v17';
+document.getElementById('bmark').textContent=FLOW.build||'flow-v18';
 function esc(x){return String(x||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 
 const ROBOT_SVG='<svg class="botico" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="5" width="10" height="8" rx="2" fill="currentColor" opacity=".15" stroke="currentColor" stroke-width="1.2"/><rect x="6.2" y="1.5" width="3.6" height="3" rx="1" fill="currentColor"/><circle cx="6.2" cy="8.2" r="1.1" fill="currentColor"/><circle cx="9.8" cy="8.2" r="1.1" fill="currentColor"/><path d="M5.5 11.2h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>';
@@ -8322,6 +9270,31 @@ function decisionHtml(s){
   const open=s.decision_open?`<p class="note">${esc(s.decision_open)}</p>`:'';
   return `<div class="note"><b>Which tool to use</b><table class="dectable"><thead><tr><th>If you need...</th><th>Use this</th><th>If it fails</th></tr></thead><tbody>${rows}</tbody></table>${note}${open}</div>`;
 }
+function pillify(text){
+  const s=String(text||'');
+  if(/threshold to confirm|to confirm/i.test(s)){
+    return esc(s)+` <span class="tpill">to confirm</span>`;
+  }
+  return esc(s);
+}
+function botDecidesHtml(s){
+  const d=s.bot_decides;
+  if(!d) return '';
+  const ul=arr=>`<ul>${(arr||[]).map(x=>`<li>${pillify(x)}</li>`).join('')}</ul>`;
+  const th=(d.thresholds||[]).map(r=>{
+    const pill=r.to_confirm?` <span class="tpill">to confirm</span>`:'';
+    const src=r.source?` <span class="src">(${esc(r.source)})</span>`:'';
+    return `<li>${esc(r.rule||'')}${pill}${src}</li>`;
+  }).join('');
+  return `<div class="howto-decides"><h5>How the bot decides</h5>
+    <div class="dsec"><b>Criteria</b>${ul(d.criteria)}</div>
+    <div class="dsec"><b>Inputs</b>${ul(d.inputs)}</div>
+    <div class="dsec"><b>Scoring / pass-fail</b>${ul(d.scoring)}</div>
+    <div class="dsec"><b>Thresholds</b><ul>${th||'<li>None written</li>'}</ul></div>
+    <div class="dsec"><b>Tie-break</b><p style="margin:4px 0 0">${pillify(d.tie_break||'None')}</p></div>
+    <div class="dsec"><b>Escalate when</b><p style="margin:4px 0 0">${pillify(d.escalate||'None')}</p></div>
+  </div>`;
+}
 function howtoHtml(s){
   const bot=(s.bot_does&&s.bot_does.length)?s.bot_does:[];
   const peo=(s.people_do&&s.people_do.length)?s.people_do:[];
@@ -8333,10 +9306,10 @@ function howtoHtml(s){
     if(h.length>5) return `<details class="howto"><summary>How to do this (${h.length} steps)</summary>${ol}</details>`;
     return `<div class="howto"><b>How to do this</b>${ol}</div>`;
   }
-  const botOl=bot.length?`<ol>${bot.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:`<p class="empty">Nothing, human only.</p>`;
-  const peoOl=peo.length?`<ol>${peo.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:`<p class="empty">Nothing on this step.</p>`;
+  const botOl=bot.length?`<ol>${bot.map(x=>`<li>${pillify(x)}</li>`).join('')}</ol>`:`<p class="empty">Nothing, human only.</p>`;
+  const peoOl=peo.length?`<ol>${peo.map(x=>`<li>${pillify(x)}</li>`).join('')}</ol>`:`<p class="empty">Nothing on this step.</p>`;
   const botName=(s.stage_bot&&(s.stage_bot.label||s.stage_bot.name))||(s.bot_name)||'Stage bot';
-  return `<div class="howto-split"><div class="howto-bot"><b>🤖 Bot does</b><small style="color:#4338ca">${esc(botName)}</small>${botOl}</div><div class="howto-peo"><b>👤 ${esc(pl)}</b>${peoOl}</div></div>`;
+  return `<div class="howto-split"><div class="howto-bot"><b>🤖 Bot does</b><small style="color:#4338ca">${esc(botName)}</small>${botOl}${botDecidesHtml(s)}</div><div class="howto-peo"><b>👤 ${esc(pl)}</b>${peoOl}</div></div>`;
 }
 function blk(b){const sm=b.summary||{};const f=[['Purpose','What it is for'],['Inputs','What it reads'],['Steps','Steps in short'],['Tools','Tools'],['Outputs','What it saves and where'],['Handoff','Hands to next'],['Gates and rules','Waits for approval / rules'],['Standing step','Standing step']].filter(x=>sm[x[0]]);
  return `<div class="botbox ${b.bot?'':'proc'}"><h4>${b.bot?'What the bot does: '+esc(b.bot):'Miro step detail: '+esc(b.frame)}</h4>${b.bot?`<small>From Miro frame: ${esc(b.frame)}</small>`:''}
@@ -8406,7 +9379,7 @@ document.getElementById('copyMod').onclick=async()=>{
   const btn=document.getElementById('copyMod');btn.classList.add('copied');btn.textContent='Copied';setTimeout(()=>{btn.classList.remove('copied');btn.textContent='Copy modifications'},1200);
 };
 document.getElementById('expData').onclick=()=>{
-  const payload={reviewed:done,modifications:mods,exported_at:new Date().toISOString(),build:FLOW.build||'flow-v17'};
+  const payload={reviewed:done,modifications:mods,exported_at:new Date().toISOString(),build:FLOW.build||'flow-v18'};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='clayworks-flow-notes.json';a.click();URL.revokeObjectURL(a.href);
 };

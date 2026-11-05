@@ -1,0 +1,28 @@
+{
+ "status": "Onboarding",
+ "tone": "grey",
+ "health": "Not set",
+ "dates": [
+  [
+   "Signed",
+   ""
+  ],
+  [
+   "First send",
+   ""
+  ],
+  [
+   "Pilot ends",
+   ""
+  ]
+ ],
+ "blacklist": {
+  "loaded": "unclear",
+  "checked": "unclear",
+  "gate": "unclear",
+  "entries": "",
+  "issues": []
+ },
+ "urgent": [],
+ "security": ""
+}

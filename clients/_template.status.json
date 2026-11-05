@@ -1,0 +1,513 @@
+{
+ "client": {
+  "name": "New client",
+  "tenant": "",
+  "state": "",
+  "raw_date": ""
+ },
+ "status_values": "done | not_done | unclear | n_a",
+ "source_default": "clients/raw/<slug>.md",
+ "steps": {
+  "step0": {
+   "title": "Log the first meeting",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step1": {
+   "title": "Intro call",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step2": {
+   "title": "Free sample: 25 accounts with signals",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step3": {
+   "title": "GTM strategy call",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step4": {
+   "title": "ROI call and calculator",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step5": {
+   "title": "Proposal page",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step6": {
+   "title": "Proposal deep dive",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step7": {
+   "title": "Set price and meeting promise",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step8": {
+   "title": "Agree 3 rules for a 'qualified' meeting",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step9": {
+   "title": "Consulting first (if needed)",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step10": {
+   "title": "Contract review and signing",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step11": {
+   "title": "Create the client's Hub space",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step12": {
+   "title": "Fill in the onboarding form",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step13": {
+   "title": "Group chat and shared folder",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step14": {
+   "title": "Record every call and make a context file",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step15": {
+   "title": "Connect the tools",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step16": {
+   "title": "Easy to forget setup items",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step17": {
+   "title": "Order sending inboxes early",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step18": {
+   "title": "Kickoff call",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step19": {
+   "title": "Book weekly catch-ups",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step20": {
+   "title": "Turn on signal tracking",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step21": {
+   "title": "Client profile and campaign plan",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step22": {
+   "title": "Find the right companies",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step23": {
+   "title": "Find the right people",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step24": {
+   "title": "Map who to contact at signal accounts",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step25": {
+   "title": "Check the list",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step26": {
+   "title": "Write the messages",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step27": {
+   "title": "Check the messages",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step28": {
+   "title": "Client approves the messages",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step29": {
+   "title": "Build the campaign as a draft",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step30": {
+   "title": "Final check before launch",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step31": {
+   "title": "Joy launches",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step32": {
+   "title": "Move the plan to live",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step33": {
+   "title": "Phone list for the callers",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step34": {
+   "title": "Callers get ready",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step35": {
+   "title": "Slack alerts for replies and meetings",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step36": {
+   "title": "Sort replies every day",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step37": {
+   "title": "Book and check meetings",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step38": {
+   "title": "Keep inboxes healthy",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step39": {
+   "title": "Weekly client catch-up",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step40": {
+   "title": "New campaign ideas",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step41": {
+   "title": "Close out finished campaigns",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step42": {
+   "title": "Monthly review and invoice",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step43": {
+   "title": "Health score and at-risk flag",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step44": {
+   "title": "Meetings vs promise",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step45": {
+   "title": "Save plan",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step46": {
+   "title": "Extend if the target is missed",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step47": {
+   "title": "Renewal check",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step48": {
+   "title": "Notice and owner",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step49": {
+   "title": "Hand over data",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step50": {
+   "title": "Stop sending",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step51": {
+   "title": "Cancel inboxes, then domains",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "step52": {
+   "title": "Close accounts and sign off",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  }
+ },
+ "checklist": {
+  "c1": {
+   "title": "Hub tenant and CSM account created",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c2": {
+   "title": "Owners set in Hub",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c3": {
+   "title": "Onboarding form sent",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c4": {
+   "title": "Form complete (all 8 sections)",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c5": {
+   "title": "3 qualified meeting rules written",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c6": {
+   "title": "Blacklist collected and loaded",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c7": {
+   "title": "Blacklist sanity check",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c8": {
+   "title": "Group chat created",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c9": {
+   "title": "Drive folder shared",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c10": {
+   "title": "Fireflies on client calls",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c11": {
+   "title": "Client folder, context file, Helper bot",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c12": {
+   "title": "Warm inboxes checked, purchase approved",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c13": {
+   "title": "Domains and inboxes bought, DNS passes, warm-up on",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c14": {
+   "title": "InboxKit forwarding address checked",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c15": {
+   "title": "Smartlead connected and tagged",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c16": {
+   "title": "Prosp connected and LinkedIn profiles live",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c17": {
+   "title": "Prosp webhook set",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c18": {
+   "title": "CloudTalk numbers and CRM sync",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c19": {
+   "title": "Calendar and fixed meeting link per caller",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c20": {
+   "title": "Slack alert channels on",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c21": {
+   "title": "White Whale signals on",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c22": {
+   "title": "Kickoff call held, data asks listed",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c23": {
+   "title": "Weekly catch-ups booked",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c24": {
+   "title": "Profile and campaign plan",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c25": {
+   "title": "Blacklist gate passed on first lists",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c26": {
+   "title": "Copy approved",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c27": {
+   "title": "Draft built, pre-launch QA passed",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c28": {
+   "title": "BDRs onboarded",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c29": {
+   "title": "Launch and plan stage live",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  },
+  "c30": {
+   "title": "Time to first send recorded",
+   "status": "unclear",
+   "evidence": "",
+   "source": ""
+  }
+ },
+ "spot_checks": []
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>/*TITLE*/ checklist | Clayworks</title>
+<script>
+/* All page data lives here: client status (from <slug>.status.json) plus the shared journey steps. */
+const PAGE = /*DATA*/;
+</script>
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#1f2328;--mut:#667;--line:#e3e3df;--acc:#2f6fed;--warn:#b45309;--warnbg:#fff7ed;--ok:#16a34a;--okbg:#dcfce7;--no:#dc2626;--nobg:#fee2e2;--un:#d97706;--unbg:#fef3c7;--na:#6b7280;--nabg:#f3f4f6}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:20px 16px 8px;max-width:min(1800px,95vw);margin:auto}h1{margin:0 0 4px;font-size:26px}header p{margin:0;color:var(--mut)}
+a{color:var(--acc)}.crumb{font-size:14px;margin-bottom:6px}
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+.navin{max-width:min(1800px,95vw);margin:auto;display:flex;gap:6px;overflow-x:auto;padding:10px 16px}
+.navin button{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font-size:14px}
+main{max-width:min(1800px,95vw);margin:auto;padding:16px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tools input[type=text]{flex:1;min-width:180px;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
+.tools button,.tools label{font-size:14px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;cursor:pointer}
+section h2{margin:24px 0 2px;font-size:20px}section>p{margin:0 0 10px;color:var(--mut)}
+.step{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;margin:8px 0;overflow:hidden}
+.step.s-done{border-left-color:var(--ok)}.step.s-not_done{border-left-color:var(--no)}.step.s-unclear{border-left-color:var(--un)}.step.s-n_a{border-left-color:var(--na)}
+.head{display:flex;gap:10px;align-items:center;padding:12px 14px;cursor:pointer}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:#eef2fd;color:var(--acc);display:grid;place-items:center;font-weight:600;font-size:14px}
+.t{flex:1;min-width:0}.t b{display:block}.t small{color:var(--mut)}
+.st{font-size:13px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.st.done{background:var(--okbg);color:#166534}.st.not_done{background:var(--nobg);color:#991b1b}.st.unclear{background:var(--unbg);color:#92400e}.st.n_a{background:var(--nabg);color:#374151}
+.flag{font-size:12px;background:var(--warnbg);color:var(--warn);border:1px solid #fed7aa;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.body{display:none;padding:0 14px 14px 56px}.step.open .body{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.cell{background:var(--bg);border-radius:8px;padding:8px 10px}.cell span{display:block;font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
+.flowrow{display:flex;align-items:stretch;gap:0;margin:0}
+.flowrow .cell{flex:1 1 0;min-width:0}
+.flowarr{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 4px;color:var(--mut);font-size:18px;line-height:1;user-select:none}
+.flowarr .arr-v{display:none}
+.metarow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.metarow .cell{font-size:14px}
+@media(max-width:800px){
+  .flowrow{flex-direction:column}
+  .flowarr{padding:2px 0}
+  .flowarr .arr-h{display:none}
+  .flowarr .arr-v{display:inline}
+  .metarow{grid-template-columns:1fr}
+}
+.ev{margin:0 0 10px;background:#f5f8ff;border-left:3px solid var(--acc);padding:8px 10px;border-radius:6px}
+.gate{margin-top:10px;background:#fef3c7;border-left:3px solid #d97706;padding:8px 10px;border-radius:6px}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}.bb{font-size:12px;background:#eef2fd;color:var(--acc);border-radius:999px;padding:1px 8px;display:inline-flex;align-items:center;gap:4px}.bb svg{width:12px;height:12px}.pb{font-size:12px;background:#f5f3ff;color:#5b21b6;border-radius:999px;padding:1px 8px;display:inline-flex;align-items:center;gap:4px}.pb.proposed{background:#fdf4ff;border:1px dashed #c084fc}.gb{font-size:12px;background:#fef3c7;color:#92400e;border-radius:999px;padding:1px 8px}
+.src{font-size:13px;color:var(--mut)}
+.top{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}.panel h3{margin:0 0 8px;font-size:16px}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600}.green{background:var(--okbg);color:#166534}.red{background:var(--nobg);color:#991b1b}.amber{background:var(--unbg);color:#92400e}.grey{background:var(--nabg);color:#374151}
+.kv{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding:4px 0;font-size:14px}.kv:first-of-type{border-top:0}
+.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden;display:flex}.pb i{display:block;height:10px}
+.pr{font-size:13px;margin:6px 0}.pr b{display:flex;justify-content:space-between;font-weight:500}
+.miss li{margin:4px 0;font-size:14px}.u{font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;margin-right:6px}.u.High{background:var(--nobg);color:#991b1b}.u.Medium{background:var(--unbg);color:#92400e}.u.Low{background:var(--nabg);color:#374151}
+.sec{background:var(--nobg);border:1px solid #fca5a5;border-radius:10px;padding:8px 12px;margin-top:12px;font-size:14px}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:13px;margin-top:8px}
+.tabs{max-width:min(1800px,95vw);margin:auto;padding:4px 16px 10px;display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 12px;cursor:pointer;font-weight:600}.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media(max-width:600px){.body{padding-left:14px}h1{font-size:22px}.head{flex-wrap:wrap}}
+
+.sticky{position:sticky;top:0;z-index:6;background:var(--bg);border-bottom:1px solid var(--line)}
+.sin{max-width:min(1800px,95vw);margin:auto;padding:8px 16px}
+.big{display:flex;justify-content:space-between;font-weight:600;font-size:15px;margin-bottom:4px}
+.phbars{display:flex;gap:4px;margin-top:6px;overflow-x:auto}.phb{flex:1 0 70px;font-size:11px;color:var(--mut);cursor:pointer}.phb .pb{height:6px}
+.fl{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.fl button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer}.fl button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.item{background:#fff;border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;margin:6px 0}
+.item.s-done{border-left-color:var(--ok)}.item.s-not_done{border-left-color:var(--no)}.item.s-unclear{border-left-color:var(--un)}.item.s-n_a{border-left-color:var(--na)}
+.ir{display:flex;gap:12px;align-items:center;padding:10px 12px;cursor:pointer}
+.ir input[type=checkbox]{width:28px;height:28px;flex:0 0 28px;accent-color:var(--ok);cursor:pointer}
+.item.ticked .tt{text-decoration:line-through;text-decoration-color:#9ca3af}
+.no{flex:0 0 30px;font-weight:700;color:var(--mut);font-size:14px}
+.tt{flex:1;min-width:0}.tt b{display:block}.tt small{color:var(--mut)}
+.how{font-size:12px;border-radius:4px;padding:1px 6px;margin-left:4px}.how.me{background:#ede9fe;color:#5b21b6}.how.ev{background:var(--okbg);color:#166534}
+.ck{font-size:11px;background:#e0f2fe;color:#075985;border-radius:999px;padding:1px 8px}
+.ib{display:none;padding:0 14px 12px 82px}.item.open .ib{display:block}
+.ib textarea{width:100%;min-height:48px;border:1px solid var(--line);border-radius:8px;padding:6px;font:inherit;font-size:14px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.acts button,.acts label{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 12px;font-size:14px;cursor:pointer}
+.hint{font-size:13px;color:var(--mut)}
+@media(max-width:600px){.ib{padding-left:14px}.no{flex-basis:24px}}
+</style></head><body>
+<header><div class="crumb"><a href="index.html">&larr; All clients</a> &middot; <a href="../client_flow.html">Client journey</a></div><h1 id="h1"></h1><p id="sub"></p></header>
+<div class="sticky"><div class="sin"><div class="big"><span id="ptxt"></span><span id="ppct"></span></div><div class="pb" id="pbar"></div><div class="phbars" id="phbars"></div>
+<div class="fl" id="fl"><button data-f="all" class="on">All</button><button data-f="not_done">Not done</button><button data-f="unclear">Unclear</button><button data-f="me">Ticked by you</button><button data-f="open">Not ticked</button></div></div></div>
+<div class="tabs" id="tabs" style="margin-top:8px"><button data-v="list" class="on">Checklist</button><button data-v="over">Missing and blacklist</button><button data-v="spot">Spot checks</button></div>
+<main id="v-list">
+<p class="hint">Phase 0 (Find clients, Clayworks outbound) is N/A here. It is about Clayworks' own campaigns, not this client. See <a href="../client_flow.html">the client journey</a>.</p>
+<p class="hint">Tick a box when a step is complete. Green ticks marked "from proof" were pre-ticked from the evidence. Your ticks, unticks and notes <b>save in this browser only</b>. Use Export to share them, Import to load someone else's.</p>
+<div class="acts"><button id="exp">Open all</button><button id="col">Close all</button><button id="ex">Export</button><label>Import<input type="file" id="im" accept="application/json" hidden></label><button id="cp">Copy summary</button><button id="rs">Reset my changes</button></div>
+<div id="list"></div></main>
+<main id="v-over" hidden><div class="top"><div class="panel" id="hdr"></div><div class="panel" id="bl"></div><div class="panel" id="miss" style="grid-column:1/-1"><h3>What's missing (most urgent first)</h3></div></div><div id="secnote"></div></main>
+<main id="v-spot" hidden></main>
+<p class="src" style="max-width:min(1800px,95vw);margin:auto;padding:0 16px 24px" id="foot"></p>
+<script>
+const SI={done:'&#10004; Done',not_done:'&#10008; Not done',unclear:'? Unclear',n_a:'&ndash; N/A'};
+const C=PAGE.client,F=PAGE.flow,M=PAGE.meta,KEY='cwck:'+PAGE.slug;
+const $=id=>document.getElementById(id);const ROBOT_SVG='<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="3" y="5" width="10" height="8" rx="2" fill="currentColor" opacity=".15" stroke="currentColor" stroke-width="1.2"/><rect x="6.2" y="1.5" width="3.6" height="3" rx="1" fill="currentColor"/><circle cx="6.2" cy="8.2" r="1.1" fill="currentColor"/><circle cx="9.8" cy="8.2" r="1.1" fill="currentColor"/><path d="M5.5 11.2h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>';
+const TOOL_SVG='<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M10.5 2.5l3 3-1.2 1.2-3-3L10.5 2.5z" fill="currentColor"/><path d="M9.2 4.8L3.5 10.5 2 14l3.5-1.5 5.7-5.7-1.99-1.99z" fill="currentColor" opacity=".85"/><circle cx="12.5" cy="3.5" r="1.2" fill="currentColor"/></svg>';
+function esc(x){return String(x??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+let S=JSON.parse(localStorage.getItem(KEY)||'{}');const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
+const AFTER=PAGE.after;const items=[];
+F.steps.forEach((s,i)=>{const e=C.steps['step'+i]||{status:'unclear'};items.push({id:'s'+i,kind:'Journey step '+(i+1),phase:s.phase,title:s.title,owner:s.owner,timing:s.timing,bots:s.bots,gates:s.gates,proposed_bots:s.proposed_bots||[],...e});
+ Object.entries(AFTER).filter(([c,a])=>a===i).forEach(([c])=>{const v=C.checklist[c];items.push({id:c,kind:'Onboarding checklist '+c.slice(1),phase:s.phase,title:v.title,owner:PAGE.ckowner[c]||s.owner,bots:[],gates:c==='c25'?[{name:'Blacklist gate',who:'Joy',rule:'No list sends until every lead is checked against the full blacklist.'}]:[],...v})})});
+items.forEach((x,i)=>x.n=i+1);
+const ticked=x=>S[x.id]&&'t' in S[x.id]?S[x.id].t:x.status==='done';const mine=x=>S[x.id]&&'t' in S[x.id];
+$('h1').textContent=(C.client.name||'New client')+' checklist';$('sub').textContent=items.length+' items in journey order: all 53 journey steps plus the 30 onboarding checklist items, placed where they happen. Tap a row for proof.';
+function bar(d,t){return `<div class="pb"><i style="width:${t?100*d/t:0}%;background:var(--ok)"></i></div>`}
+let filt='all';
+function prog(){const ap=items.filter(x=>x.status!=='n_a'||ticked(x)),d=ap.filter(ticked).length;$('ptxt').textContent=`${d} of ${ap.length} done`;$('ppct').textContent=Math.round(100*d/ap.length)+'%';$('pbar').outerHTML=`<div class="pb" id="pbar"><i style="width:${100*d/ap.length}%;background:var(--ok)"></i></div>`;
+ $('phbars').innerHTML=F.phases.map(p=>{const a=ap.filter(x=>x.phase===p.id),dd=a.filter(ticked).length;return `<div class="phb" data-p="${p.id}">${esc(p.name.replace(/^\d+\. /,''))} ${dd}/${a.length}${bar(dd,a.length)}</div>`}).join('');
+ document.querySelectorAll('.phb').forEach(b=>b.onclick=()=>$('ph-'+b.dataset.p)?.scrollIntoView({behavior:'smooth'}))}
+function show(x){return filt==='all'||(filt==='me'?mine(x):filt==='open'?!ticked(x):x.status===filt)}
+function render(){const L=$('list');L.innerHTML='';F.phases.forEach(p=>{const its=items.filter(x=>x.phase===p.id&&show(x));if(!its.length)return;
+ const sec=document.createElement('section');sec.id='ph-'+p.id;sec.innerHTML=`<h2>${esc(p.name)}</h2><p>${esc(p.blurb)}</p>`;
+ its.forEach(x=>{const st=S[x.id]||{},tk=ticked(x),d=document.createElement('div');d.className='item s-'+x.status+(tk?' ticked':'');d.dataset.id=x.id;
+  d.innerHTML=`<div class="ir"><span class="no">${x.n}</span><input type="checkbox" aria-label="Mark ${esc(x.title)} complete" ${tk?'checked':''}><div class="tt"><b>${esc(x.title)}</b><small>${esc(x.owner||'')}${x.kind.startsWith('Onb')?' &middot; <span class="ck">'+x.kind+'</span>':''}${mine(x)?`<span class="how me">${st.t?'ticked':'unticked'} by you ${esc(st.d)}</span>`:tk?'<span class="how ev">from proof</span>':''}${st.n?' &middot; &#128221; note':''}</small><div class="badges">${(x.bots||[]).map(b=>`<span class="bb">${ROBOT_SVG} Bot: ${esc(b)}</span>`).join('')}${(x.proposed_bots||[]).map(pb=>{const cl=pb.kind==='claude_joy'||pb.kind==='claude_theo';const ico=cl?TOOL_SVG:ROBOT_SVG;const lab=cl?(pb.display||(pb.kind==='claude_theo'?"Theo's (Claude)":'Claude (Joy)')):('Stage '+pb.proposed+' '+pb.name+(pb.proposed_only?' · proposed':''));return `<span class="pb${pb.proposed_only?' proposed':''}${cl?' claude':''}">${ico} ${esc(lab)}</span>`}).join('')}${(x.gates||[]).map(g=>`<span class="gb">&#128274; ${esc(g.name.replace(/^\d+\. /,''))}</span>`).join('')}</div></div><span class="st ${x.status}">${SI[x.status]}</span></div>
+  <div class="ib"><div class="ev"><b>Proof:</b> ${esc(x.evidence||'None found')}${x.timing?' <span class="src">'+esc(x.timing)+'</span>':''}</div>
+  ${(x.gates||[]).map(g=>`<div class="gate"><b>&#128274; Approval: ${esc(g.name)}</b><br>Who says yes: ${esc(g.who)}. ${esc(g.rule)}</div>`).join('')}
+  <p style="margin:10px 0 4px;font-size:14px"><b>Your note</b></p><textarea placeholder="Optional short note">${esc(st.n||'')}</textarea></div>`;
+  const cb=d.querySelector('input');cb.onclick=e=>e.stopPropagation();cb.onchange=()=>{S[x.id]={...(S[x.id]||{}),t:cb.checked,d:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})};if(cb.checked===(x.status==='done')&&!S[x.id].n){delete S[x.id]}save();render();prog()};
+  d.querySelector('.ir').onclick=()=>d.classList.toggle('open');
+  d.querySelector('textarea').onchange=e=>{const v=e.target.value.trim();S[x.id]={...(S[x.id]||{}),n:v};if(!v)delete S[x.id].n;if(!Object.keys(S[x.id]).length)delete S[x.id];save()};
+  sec.appendChild(d)});L.appendChild(sec)});if(!L.innerHTML)L.innerHTML='<p>Nothing matches this filter.</p>'}
+document.querySelectorAll('#fl button').forEach(b=>b.onclick=()=>{filt=b.dataset.f;document.querySelectorAll('#fl button').forEach(x=>x.classList.toggle('on',x===b));render()});
+$('exp').onclick=()=>document.querySelectorAll('.item').forEach(s=>s.classList.add('open'));$('col').onclick=()=>document.querySelectorAll('.item').forEach(s=>s.classList.remove('open'));
+$('ex').onclick=()=>{const b=new Blob([JSON.stringify({client:PAGE.slug,exported:new Date().toISOString(),state:S},null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=PAGE.slug+'-checklist.json';a.click()};
+$('im').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const j=JSON.parse(t);if(j.client&&j.client!==PAGE.slug&&!confirm('This file is for '+j.client+'. Load anyway?'))return;S=j.state||{};save();render();prog();alert('Loaded.')}catch(_){alert('That file could not be read.')}})};
+$('cp').onclick=()=>{const ap=items.filter(x=>x.status!=='n_a'||ticked(x));const txt=[C.client.name+' checklist: '+ap.filter(ticked).length+' of '+ap.length+' done',...F.phases.map(p=>{const a=ap.filter(x=>x.phase===p.id);return p.name+': '+a.filter(ticked).length+'/'+a.length}),'Not ticked:',...ap.filter(x=>!ticked(x)).map(x=>'- '+x.n+'. '+x.title+(S[x.id]?.n?' ('+S[x.id].n+')':'')),'Changed by you:',...items.filter(mine).map(x=>'- '+x.n+'. '+x.title+': '+(S[x.id].t?'ticked':'unticked')+' '+S[x.id].d)].join('\n');
+ navigator.clipboard?.writeText(txt).then(()=>alert('Summary copied.'),()=>prompt('Copy this:',txt))};
+$('rs').onclick=()=>{if(confirm('Clear your ticks and notes for this client in this browser?')){S={};save();render();prog()}};
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));['list','over','spot'].forEach(v=>$('v-'+v).hidden=v!==b.dataset.v)});
+/* overview tab */
+const tone=M.tone||'grey';
+$('hdr').innerHTML=`<h3>Client</h3><div class="kv"><span>Status</span><span class="pill ${tone}">${esc(M.status)}</span></div><div class="kv"><span>Health</span><span>${esc(M.health)}</span></div>${(M.dates||[]).map(d=>`<div class="kv"><span>${esc(d[0])}</span><b>${esc(d[1])}</b></div>`).join('')}<div class="kv"><span>Hub tenant</span><span>${esc(String(C.client.tenant||'').slice(0,8))}</span></div>`;
+const B=M.blacklist||{};const bs=s=>`<span class="st ${s||'unclear'}">${SI[s||'unclear']}</span>`;
+$('bl').innerHTML=`<h3>Blacklist</h3><div class="kv"><span>Loaded</span>${bs(B.loaded)}</div><div class="kv"><span>Checked</span>${bs(B.checked)}</div><div class="kv"><span>First-list gate</span>${bs(B.gate)}</div><div class="kv"><span>Entries</span><span style="text-align:right">${esc(B.entries)}</span></div>${(B.issues||[]).length?'<b style="font-size:14px">Known issues</b><ul class="miss">'+B.issues.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>':''}`;
+const miss=[...(M.urgent||[]).map(t=>({u:'High',t})),...items.filter(x=>x.status==='not_done').map(x=>({u:'High',t:x.n+'. '+x.title})),...items.filter(x=>x.status==='unclear').map(x=>({u:x.kind.startsWith('Onb')?'Medium':'Low',t:x.n+'. '+x.title+' (confirm)'}))].sort((a,b)=>['High','Medium','Low'].indexOf(a.u)-['High','Medium','Low'].indexOf(b.u));
+$('miss').insertAdjacentHTML('beforeend',`<ul class="miss" style="padding-left:18px">${miss.map(m=>`<li><span class="u ${m.u}">${m.u}</span>${esc(m.t)}</li>`).join('')||'<li>Nothing yet</li>'}</ul>`);
+if(M.security)$('secnote').innerHTML=`<div class="sec"><b>Security note:</b> ${esc(M.security)}</div>`;
+$('v-spot').innerHTML='<section><h2>Spot checks</h2><p>Read-only checks in live tools. Nothing was changed.</p>'+((C.spot_checks||[]).map(s=>`<div class="panel" style="margin:8px 0"><b>${esc(s.check)}</b><br>${esc(s.result)}</div>`).join('')||'<p>None yet.</p>')+'</section>';
+$('foot').textContent='Build ck-v2. Data: '+C.source_default+' plus read-only spot checks. No passwords or keys are stored on this page.';
+render();prog();if(location.hash.includes('open'))$('exp').click();
+</script></body></html>

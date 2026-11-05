@@ -1,0 +1,541 @@
+{
+ "client": {
+ "name": "ServiceFirst",
+ "tenant": "3789ae3b-477f-4c1d-941d-c6fa1157cf66 (Service First, active)",
+ "state": "active pilot, ends about 3 Dec 2026",
+ "raw_date": "prepared 3 Nov 2026",
+ "note": "Source file is a next-campaign research plan, not a full client history, so most onboarding items are unclear."
+ },
+ "status_values": "done | not_done | unclear | n_a",
+ "source_default": "clients/raw/servicefirst.md",
+ "steps": {
+ "step0": {
+ "title": "Log the first meeting",
+ "status": "unclear",
+ "evidence": "File is a campaign plan; no sales history",
+ "source": "md"
+ },
+ "step1": {
+ "title": "Intro call",
+ "status": "unclear",
+ "evidence": "File is a campaign plan; no sales history",
+ "source": "md"
+ },
+ "step2": {
+ "title": "Free sample: 25 accounts with signals",
+ "status": "unclear",
+ "evidence": "File is a campaign plan; no sales history",
+ "source": "md"
+ },
+ "step3": {
+ "title": "GTM strategy call",
+ "status": "unclear",
+ "evidence": "File is a campaign plan; no sales history",
+ "source": "md"
+ },
+ "step4": {
+ "title": "ROI call and calculator",
+ "status": "unclear",
+ "evidence": "File is a campaign plan; no sales history",
+ "source": "md"
+ },
+ "step5": {
+ "title": "Proposal page",
+ "status": "unclear",
+ "evidence": "File is a campaign plan; no sales history",
+ "source": "md"
+ },
+ "step6": {
+ "title": "Proposal deep dive",
+ "status": "unclear",
+ "evidence": "File is a campaign plan; no sales history",
+ "source": "md"
+ },
+ "step7": {
+ "title": "Set price and meeting promise",
+ "status": "unclear",
+ "evidence": "No price or guarantee in md; \"pilot ends about 3 Dec\"",
+ "source": "md"
+ },
+ "step8": {
+ "title": "Agree 3 rules for a 'qualified' meeting",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step9": {
+ "title": "Consulting first (if needed)",
+ "status": "n_a",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step10": {
+ "title": "Contract review and signing",
+ "status": "unclear",
+ "evidence": "Not in md; a \"pilot\" exists",
+ "source": "md"
+ },
+ "step11": {
+ "title": "Create the client's Hub space",
+ "status": "done",
+ "evidence": "Tenant 3789ae3b",
+ "source": "Client Hub list_tenants, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ "step12": {
+ "title": "Fill in the onboarding form",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step13": {
+ "title": "Group chat and shared folder",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step14": {
+ "title": "Record every call and make a context file",
+ "status": "done",
+ "evidence": "Fireflies client calls 27 Aug to 23 Oct; SERVICEFIRST_CONTEXT_DO_NOT_DELETE.md",
+ "source": "md"
+ },
+ "step15": {
+ "title": "Connect the tools",
+ "status": "done",
+ "evidence": "SmartLead, CloudTalk, White Whale, Client Hub in use",
+ "source": "md"
+ },
+ "step16": {
+ "title": "Easy to forget setup items",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step17": {
+ "title": "Order sending inboxes early",
+ "status": "unclear",
+ "evidence": "Mailbox domains exist; order date not in md",
+ "source": "md"
+ },
+ "step18": {
+ "title": "Kickoff call",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step19": {
+ "title": "Book weekly catch-ups",
+ "status": "done",
+ "evidence": "Client calls 27 Aug, 10 Sep, 1 Oct, 16 Oct, 23 Oct",
+ "source": "md"
+ },
+ "step20": {
+ "title": "Turn on signal tracking",
+ "status": "done",
+ "evidence": "White Whale signals audited 23 Oct (most were noise)",
+ "source": "md"
+ },
+ "step21": {
+ "title": "Client profile and campaign plan",
+ "status": "done",
+ "evidence": "\"campaign plan, diagnosis and overhaul PDFs\"; context file",
+ "source": "md"
+ },
+ "step22": {
+ "title": "Find the right companies",
+ "status": "done",
+ "evidence": "B1 to B7 lists",
+ "source": "md"
+ },
+ "step23": {
+ "title": "Find the right people",
+ "status": "done",
+ "evidence": "Blitz/Pronto/LeadsForge data",
+ "source": "md"
+ },
+ "step24": {
+ "title": "Map who to contact at signal accounts",
+ "status": "unclear",
+ "evidence": "B2 \"Open signals\"; White Whale",
+ "source": "md"
+ },
+ "step25": {
+ "title": "Check the list",
+ "status": "not_done",
+ "evidence": "\"22 of the 40 non-OOO replies say the person left\"; only B7 validated",
+ "source": "md"
+ },
+ "step26": {
+ "title": "Write the messages",
+ "status": "done",
+ "evidence": "Copy \"rewritten three times\"",
+ "source": "md"
+ },
+ "step27": {
+ "title": "Check the messages",
+ "status": "not_done",
+ "evidence": "B6/B7 break house rules; B6 step 3 blank subject",
+ "source": "md"
+ },
+ "step28": {
+ "title": "Client approves the messages",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step29": {
+ "title": "Build the campaign as a draft",
+ "status": "done",
+ "evidence": "B1 to B7 built",
+ "source": "md"
+ },
+ "step30": {
+ "title": "Final check before launch",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step31": {
+ "title": "Joy launches",
+ "status": "done",
+ "evidence": "B1 to B7 live",
+ "source": "md"
+ },
+ "step32": {
+ "title": "Move the plan to live",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step33": {
+ "title": "Phone list for the callers",
+ "status": "done",
+ "evidence": "1,396 call activities",
+ "source": "md"
+ },
+ "step34": {
+ "title": "Callers get ready",
+ "status": "unclear",
+ "evidence": "\"None has a note or disposition logged\"",
+ "source": "md"
+ },
+ "step35": {
+ "title": "Slack alerts for replies and meetings",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step36": {
+ "title": "Sort replies every day",
+ "status": "not_done",
+ "evidence": "SmartLead \"interested\" flag stale",
+ "source": "md"
+ },
+ "step37": {
+ "title": "Book and check meetings",
+ "status": "done",
+ "evidence": "\"one meeting ever\" (General Assembly, not qualified)",
+ "source": "md"
+ },
+ "step38": {
+ "title": "Keep inboxes healthy",
+ "status": "not_done",
+ "evidence": "Reputation 41 to 63% late Sept, \"one Gmail domain was blacklisted\"",
+ "source": "md"
+ },
+ "step39": {
+ "title": "Weekly client catch-up",
+ "status": "done",
+ "evidence": "Client calls every 2 to 3 weeks",
+ "source": "md"
+ },
+ "step40": {
+ "title": "New campaign ideas",
+ "status": "done",
+ "evidence": "Three new concepts proposed",
+ "source": "md"
+ },
+ "step41": {
+ "title": "Close out finished campaigns",
+ "status": "done",
+ "evidence": "B3 ABM (archived) (paraphrased)",
+ "source": "md"
+ },
+ "step42": {
+ "title": "Monthly review and invoice",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step43": {
+ "title": "Health score and at-risk flag",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step44": {
+ "title": "Meetings vs promise",
+ "status": "unclear",
+ "evidence": "1 meeting in 2 months; promise not in md",
+ "source": "md"
+ },
+ "step45": {
+ "title": "Save plan",
+ "status": "unclear",
+ "evidence": "Concept 1 tied to renewal (question)",
+ "source": "md"
+ },
+ "step46": {
+ "title": "Extend if the target is missed",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "step47": {
+ "title": "Renewal check",
+ "status": "not_done",
+ "evidence": "\"The pilot ends about 3 Dec and ServiceFirst raised an early-ending concern\"",
+ "source": "md"
+ },
+ "step48": {
+ "title": "Notice and owner",
+ "status": "n_a",
+ "evidence": "Active client",
+ "source": "md"
+ },
+ "step49": {
+ "title": "Hand over data",
+ "status": "n_a",
+ "evidence": "Active client",
+ "source": "md"
+ },
+ "step50": {
+ "title": "Stop sending",
+ "status": "n_a",
+ "evidence": "Active client",
+ "source": "md"
+ },
+ "step51": {
+ "title": "Cancel inboxes, then domains",
+ "status": "n_a",
+ "evidence": "Active client",
+ "source": "md"
+ },
+ "step52": {
+ "title": "Close accounts and sign off",
+ "status": "n_a",
+ "evidence": "Active client",
+ "source": "md"
+ }
+ },
+ "checklist": {
+ "c1": {
+ "title": "Hub tenant and CSM account created",
+ "status": "done",
+ "evidence": "Tenant 3789ae3b 'Service First', active",
+ "source": "Client Hub list_tenants, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ "c2": {
+ "title": "Owners set in Hub",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c3": {
+ "title": "Onboarding form sent",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c4": {
+ "title": "Form complete (all 8 sections)",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c5": {
+ "title": "3 qualified meeting rules written",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c6": {
+ "title": "Blacklist collected and loaded",
+ "status": "done",
+ "evidence": "Hub blacklist has 44 entries (42 'Existing client / warm lead', 2 do_not_contact). SHEIN present (added 3 Sep). Reprise Financial not found by name",
+ "source": "Client Hub list_blacklist, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ "c7": {
+ "title": "Blacklist sanity check",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c8": {
+ "title": "Group chat created",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c9": {
+ "title": "Drive folder shared",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c10": {
+ "title": "Fireflies on client calls",
+ "status": "done",
+ "evidence": "Client calls recorded from 27 Aug",
+ "source": "md"
+ },
+ "c11": {
+ "title": "Client folder, context file, Helper bot",
+ "status": "done",
+ "evidence": "SERVICEFIRST_CONTEXT_DO_NOT_DELETE.md (Helper not mentioned)",
+ "source": "md"
+ },
+ "c12": {
+ "title": "Warm inboxes checked, purchase approved",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c13": {
+ "title": "Domains and inboxes bought, DNS passes, warm-up on",
+ "status": "unclear",
+ "evidence": "Domains exist; DNS/warm-up not in md",
+ "source": "md"
+ },
+ "c14": {
+ "title": "InboxKit forwarding address checked",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c15": {
+ "title": "Smartlead connected and tagged",
+ "status": "done",
+ "evidence": "Campaigns B1 to B7 in SmartLead (tagging not in md)",
+ "source": "md"
+ },
+ "c16": {
+ "title": "Prosp connected and LinkedIn profiles live",
+ "status": "unclear",
+ "evidence": "Senders Marvielyn and Charrisse proposed; live status not in md",
+ "source": "md"
+ },
+ "c17": {
+ "title": "Prosp webhook set",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c18": {
+ "title": "CloudTalk numbers and CRM sync",
+ "status": "not_done",
+ "evidence": "CloudTalk used; \"None has a note or disposition logged\"",
+ "source": "md"
+ },
+ "c19": {
+ "title": "Calendar and fixed meeting link per caller",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c20": {
+ "title": "Slack alert channels on",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c21": {
+ "title": "White Whale signals on",
+ "status": "done",
+ "evidence": "White Whale signals audited; plan says turn most off",
+ "source": "md"
+ },
+ "c22": {
+ "title": "Kickoff call held, data asks listed",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c23": {
+ "title": "Weekly catch-ups booked",
+ "status": "done",
+ "evidence": "Regular client calls",
+ "source": "md"
+ },
+ "c24": {
+ "title": "Profile and campaign plan",
+ "status": "done",
+ "evidence": "Plan PDFs and context file",
+ "source": "md"
+ },
+ "c25": {
+ "title": "Blacklist gate passed on first lists",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c26": {
+ "title": "Copy approved",
+ "status": "unclear",
+ "evidence": "Copy rewritten 3 times; approvals not in md",
+ "source": "md"
+ },
+ "c27": {
+ "title": "Draft built, pre-launch QA passed",
+ "status": "unclear",
+ "evidence": "Not in md",
+ "source": "md"
+ },
+ "c28": {
+ "title": "BDRs onboarded",
+ "status": "done",
+ "evidence": "BDRs calling (\"BDRs say the competitor list is the best to call\")",
+ "source": "md"
+ },
+ "c29": {
+ "title": "Launch and plan stage live",
+ "status": "done",
+ "evidence": "B1 to B7 live",
+ "source": "md"
+ },
+ "c30": {
+ "title": "Time to first send recorded",
+ "status": "unclear",
+ "evidence": "Start date not in md",
+ "source": "md"
+ }
+ },
+ "steps_counts": {
+ "unclear": 26,
+ "n_a": 6,
+ "done": 16,
+ "not_done": 5
+ },
+ "checklist_counts": {
+ "done": 10,
+ "unclear": 19,
+ "not_done": 1
+ },
+ "spot_checks": [
+ {
+ "check": "Tenant id",
+ "result": "3789ae3b-477f-4c1d-941d-c6fa1157cf66, active. Not KMC",
+ "source": "Client Hub list_tenants, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ {
+ "check": "Blacklist count",
+ "result": "44 (42 existing client/warm lead, 2 do_not_contact). SHEIN yes, Reprise no",
+ "source": "Client Hub list_blacklist, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ {
+ "check": "Campaigns",
+ "result": "B1, B2, B4, B5, B6, B7 ACTIVE; B3 ARCHIVED; new 4301187 'Bucket 4 Close-out Nov 2026' COMPLETED",
+ "source": "SmartLead API, spot check 4 Nov 2026 ~19:30 UTC+8"
+ }
+ ]
+}

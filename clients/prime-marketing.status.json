@@ -1,0 +1,550 @@
+{
+ "client": {
+ "name": "Prime Marketing",
+ "tenant": "4895873f-9a4b-485c-b29a-72e96370b99e",
+ "state": "churned 31 Oct 2026",
+ "raw_date": "compiled 4 Nov 2026"
+ },
+ "status_values": "done | not_done | unclear | n_a",
+ "source_default": "clients/raw/prime-marketing.md",
+ "steps": {
+ "step0": {
+ "title": "Log the first meeting",
+ "status": "unclear",
+ "evidence": "No record of first meeting",
+ "source": "md"
+ },
+ "step1": {
+ "title": "Intro call",
+ "status": "unclear",
+ "evidence": "No intro call record; Fireflies only from 24 Jun",
+ "source": "md"
+ },
+ "step2": {
+ "title": "Free sample: 25 accounts with signals",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step3": {
+ "title": "GTM strategy call",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step4": {
+ "title": "ROI call and calculator",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step5": {
+ "title": "Proposal page",
+ "status": "done",
+ "evidence": "Lovable proposal, 'Prime Marketing Growth Engine' (project b1d325c8...) (paraphrased)",
+ "source": "md"
+ },
+ "step6": {
+ "title": "Proposal deep dive",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step7": {
+ "title": "Set price and meeting promise",
+ "status": "done",
+ "evidence": "About EUR 2,500/month... promised 5 meetings a month (paraphrased)",
+ "source": "md"
+ },
+ "step8": {
+ "title": "Agree 3 rules for a 'qualified' meeting",
+ "status": "unclear",
+ "evidence": "No written definition found; 'qualified' used on meetings only",
+ "source": "md"
+ },
+ "step9": {
+ "title": "Consulting first (if needed)",
+ "status": "n_a",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step10": {
+ "title": "Contract review and signing",
+ "status": "done",
+ "evidence": "\"22 Apr: contract signed through Agree.com\" (contract/SOW never found)",
+ "source": "md"
+ },
+ "step11": {
+ "title": "Create the client's Hub space",
+ "status": "done",
+ "evidence": "22 Apr... Client Hub tenant created 4895873f (paraphrased)",
+ "source": "md"
+ },
+ "step12": {
+ "title": "Fill in the onboarding form",
+ "status": "done",
+ "evidence": "\"23 Apr: onboarding form completed\" (answers never found)",
+ "source": "md"
+ },
+ "step13": {
+ "title": "Group chat and shared folder",
+ "status": "done",
+ "evidence": "\"Shared channel #prime-marketing C0AU28JRZBR\"; Drive folder 1GGIgNE0...",
+ "source": "md"
+ },
+ "step14": {
+ "title": "Record every call and make a context file",
+ "status": "not_done",
+ "evidence": "\"Fireflies only goes back to 24 Jun, so there's no recording\" of kickoff; no context file named",
+ "source": "md"
+ },
+ "step15": {
+ "title": "Connect the tools",
+ "status": "done",
+ "evidence": "InboxKit, SmartLead, Prosp (1 to 11 May), CloudTalk all used",
+ "source": "md"
+ },
+ "step16": {
+ "title": "Easy to forget setup items",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step17": {
+ "title": "Order sending inboxes early",
+ "status": "done",
+ "evidence": "\"9 domains and 18 mailboxes bought in InboxKit the same day\" (23 Apr)",
+ "source": "md"
+ },
+ "step18": {
+ "title": "Kickoff call",
+ "status": "done",
+ "evidence": "\"30 Apr: kickoff call\" (not recorded, notes never found)",
+ "source": "md"
+ },
+ "step19": {
+ "title": "Book weekly catch-ups",
+ "status": "done",
+ "evidence": "\"26 Jun weekly call\", \"21 Sep weekly\"",
+ "source": "md"
+ },
+ "step20": {
+ "title": "Turn on signal tracking",
+ "status": "unclear",
+ "evidence": "Hiring signals used in campaigns; no signal tool named",
+ "source": "md"
+ },
+ "step21": {
+ "title": "Client profile and campaign plan",
+ "status": "not_done",
+ "evidence": "\"There was never a formal ICP document\"",
+ "source": "md"
+ },
+ "step22": {
+ "title": "Find the right companies",
+ "status": "done",
+ "evidence": "Blitz/Pronto/LeadsForge lists, competitor-agency followers",
+ "source": "md"
+ },
+ "step23": {
+ "title": "Find the right people",
+ "status": "done",
+ "evidence": "Enriched decision makers (Blitz/Pronto/LeadsForge)",
+ "source": "md"
+ },
+ "step24": {
+ "title": "Map who to contact at signal accounts",
+ "status": "unclear",
+ "evidence": "Hiring-signal campaigns in May; no account mapping described",
+ "source": "md"
+ },
+ "step25": {
+ "title": "Check the list",
+ "status": "done",
+ "evidence": "11 to 13 Oct... 576 companies (621 contacts) were usable after a full QA (Oct only) (paraphrased)",
+ "source": "md"
+ },
+ "step26": {
+ "title": "Write the messages",
+ "status": "done",
+ "evidence": "Scripts v1 to v7, gap report offer",
+ "source": "md"
+ },
+ "step27": {
+ "title": "Check the messages",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step28": {
+ "title": "Client approves the messages",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step29": {
+ "title": "Build the campaign as a draft",
+ "status": "done",
+ "evidence": "SmartLead and Prosp campaigns built",
+ "source": "md"
+ },
+ "step30": {
+ "title": "Final check before launch",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step31": {
+ "title": "Joy launches",
+ "status": "done",
+ "evidence": "\"6 May: campaigns went live\" (who launched not stated)",
+ "source": "md"
+ },
+ "step32": {
+ "title": "Move the plan to live",
+ "status": "unclear",
+ "evidence": "Plan 490558c0 for SmartLead 4124101 only",
+ "source": "md"
+ },
+ "step33": {
+ "title": "Phone list for the callers",
+ "status": "done",
+ "evidence": "\"Agnes made about 240 calls to Dutch numbers\"",
+ "source": "md"
+ },
+ "step34": {
+ "title": "Callers get ready",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step35": {
+ "title": "Slack alerts for replies and meetings",
+ "status": "done",
+ "evidence": "\"Prosp reply bot posts to #prosp-linkedin C09BNN7EMHU\"",
+ "source": "md"
+ },
+ "step36": {
+ "title": "Sort replies every day",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "step37": {
+ "title": "Book and check meetings",
+ "status": "done",
+ "evidence": "About 10 meetings booked, 4 of 9 did not happen",
+ "source": "md"
+ },
+ "step38": {
+ "title": "Keep inboxes healthy",
+ "status": "unclear",
+ "evidence": "\"primeadresults.com hit a SURBL blocklist\"; 8.3% bounce on one mailbox; no routine named",
+ "source": "md"
+ },
+ "step39": {
+ "title": "Weekly client catch-up",
+ "status": "done",
+ "evidence": "Weekly calls 26 Jun, 21 Sep; renewal sync 23 Jul",
+ "source": "md"
+ },
+ "step40": {
+ "title": "New campaign ideas",
+ "status": "done",
+ "evidence": "V2 Paid Audit Hook, gap report, competitor followers",
+ "source": "md"
+ },
+ "step41": {
+ "title": "Close out finished campaigns",
+ "status": "done",
+ "evidence": "\"Theo closed out the September campaign (card 1e295c0e)\"",
+ "source": "md"
+ },
+ "step42": {
+ "title": "Monthly review and invoice",
+ "status": "unclear",
+ "evidence": "\"asked for a monthly check-in\"; tracker \"filled for May only\"",
+ "source": "md"
+ },
+ "step43": {
+ "title": "Health score and at-risk flag",
+ "status": "unclear",
+ "evidence": "No health score in md",
+ "source": "md"
+ },
+ "step44": {
+ "title": "Meetings vs promise",
+ "status": "done",
+ "evidence": "\"Only 2 meetings against 5 a month promised; 13 meetings were owed\"",
+ "source": "md"
+ },
+ "step45": {
+ "title": "Save plan",
+ "status": "done",
+ "evidence": "\"contract moved to 30-day rolling\"; \"keep going for two months\"",
+ "source": "md"
+ },
+ "step46": {
+ "title": "Extend if the target is missed",
+ "status": "done",
+ "evidence": "\"13 meetings were owed and rolled over\"",
+ "source": "md"
+ },
+ "step47": {
+ "title": "Renewal check",
+ "status": "done",
+ "evidence": "\"23 Jul renewal sync\"",
+ "source": "md"
+ },
+ "step48": {
+ "title": "Notice and owner",
+ "status": "done",
+ "evidence": "14 Oct... offboarding at end of October was treated as settled; notice terms disputed 23 Oct (paraphrased)",
+ "source": "md"
+ },
+ "step49": {
+ "title": "Hand over data",
+ "status": "unclear",
+ "evidence": "\"export data only if the client asks\"; no ask recorded",
+ "source": "md"
+ },
+ "step50": {
+ "title": "Stop sending",
+ "status": "done",
+ "evidence": "No Prime campaign active in SmartLead: 4124101 PAUSED, 3279808 STOPPED, rest COMPLETED",
+ "source": "SmartLead API, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ "step51": {
+ "title": "Cancel inboxes, then domains",
+ "status": "unclear",
+ "evidence": "Ops card 5424251f 'Delete Prime Marketing domains' marked done 22 Oct, BUT all 9 Prime domains still resolve with live MX records (Google/Outlook) on 4 Nov",
+ "source": "Client Hub list_ops_tasks + public DNS (dns.google), spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ "step52": {
+ "title": "Close accounts and sign off",
+ "status": "not_done",
+ "evidence": "Hub tenant now INACTIVE (md said active). Ops card bc8643d1 is 'New campaign for prime marketing', status done (14 Oct), not an offboarding card. 18 Prime mailboxes still listed in SmartLead (warm-up inactive). Prosp cancel not checkable (no connector)",
+ "source": "Client Hub list_tenants, list_ops_tasks; SmartLead API, spot check 4 Nov 2026 ~19:30 UTC+8"
+ }
+ },
+ "checklist": {
+ "c1": {
+ "title": "Hub tenant and CSM account created",
+ "status": "done",
+ "evidence": "Tenant 4895873f created 22 Apr",
+ "source": "md"
+ },
+ "c2": {
+ "title": "Owners set in Hub",
+ "status": "done",
+ "evidence": "Theo owner, Joy from 6 Oct",
+ "source": "md"
+ },
+ "c3": {
+ "title": "Onboarding form sent",
+ "status": "done",
+ "evidence": "Implied by form completed 23 Apr",
+ "source": "md"
+ },
+ "c4": {
+ "title": "Form complete (all 8 sections)",
+ "status": "unclear",
+ "evidence": "\"onboarding form completed\" but answers \"never found anywhere\"",
+ "source": "md"
+ },
+ "c5": {
+ "title": "3 qualified meeting rules written",
+ "status": "unclear",
+ "evidence": "No written rules found",
+ "source": "md"
+ },
+ "c6": {
+ "title": "Blacklist collected and loaded",
+ "status": "not_done",
+ "evidence": "\"Prime's promised exclusion CSV\" never found; only Econocom, Skalar named plus 18 opt-outs on Hub blacklist",
+ "source": "md"
+ },
+ "c7": {
+ "title": "Blacklist sanity check",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "c8": {
+ "title": "Group chat created",
+ "status": "done",
+ "evidence": "#prime-marketing",
+ "source": "md"
+ },
+ "c9": {
+ "title": "Drive folder shared",
+ "status": "done",
+ "evidence": "Drive folder 1GGIgNE0mxPWBoSRgfwSkxDbb-J3e2ZQA",
+ "source": "md"
+ },
+ "c10": {
+ "title": "Fireflies on client calls",
+ "status": "unclear",
+ "evidence": "Fireflies from 24 Jun only; later calls recorded",
+ "source": "md"
+ },
+ "c11": {
+ "title": "Client folder, context file, Helper bot",
+ "status": "unclear",
+ "evidence": "Handover brief 6 Oct only; no context file or Helper named",
+ "source": "md"
+ },
+ "c12": {
+ "title": "Warm inboxes checked, purchase approved",
+ "status": "done",
+ "evidence": "Bought 23 Apr",
+ "source": "md"
+ },
+ "c13": {
+ "title": "Domains and inboxes bought, DNS passes, warm-up on",
+ "status": "done",
+ "evidence": "\"first payment covered 2 weeks of warm-up\"",
+ "source": "md"
+ },
+ "c14": {
+ "title": "InboxKit forwarding address checked",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "c15": {
+ "title": "Smartlead connected and tagged",
+ "status": "unclear",
+ "evidence": "InboxKit tag 6f3fa685; SmartLead tagging not mentioned",
+ "source": "md"
+ },
+ "c16": {
+ "title": "Prosp connected and LinkedIn profiles live",
+ "status": "done",
+ "evidence": "1 to 11 May: Prosp set up, voice clone (paraphrased)",
+ "source": "md"
+ },
+ "c17": {
+ "title": "Prosp webhook set",
+ "status": "done",
+ "evidence": "Reply bot posts to #prosp-linkedin",
+ "source": "md"
+ },
+ "c18": {
+ "title": "CloudTalk numbers and CRM sync",
+ "status": "unclear",
+ "evidence": "\"untagged in CloudTalk\"; no CRM sync",
+ "source": "md"
+ },
+ "c19": {
+ "title": "Calendar and fixed meeting link per caller",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "c20": {
+ "title": "Slack alert channels on",
+ "status": "done",
+ "evidence": "#prosp-linkedin reply bot (LinkedIn only)",
+ "source": "md"
+ },
+ "c21": {
+ "title": "White Whale signals on",
+ "status": "unclear",
+ "evidence": "Not mentioned",
+ "source": "md"
+ },
+ "c22": {
+ "title": "Kickoff call held, data asks listed",
+ "status": "done",
+ "evidence": "\"30 Apr: kickoff call\" (no notes)",
+ "source": "md"
+ },
+ "c23": {
+ "title": "Weekly catch-ups booked",
+ "status": "done",
+ "evidence": "Weekly calls",
+ "source": "md"
+ },
+ "c24": {
+ "title": "Profile and campaign plan",
+ "status": "not_done",
+ "evidence": "\"never a formal ICP document\"",
+ "source": "md"
+ },
+ "c25": {
+ "title": "Blacklist gate passed on first lists",
+ "status": "unclear",
+ "evidence": "UK Competitor Campaign/ ... dedupe script and blacklist exists for Oct; nothing for May lists (paraphrased)",
+ "source": "md"
+ },
+ "c26": {
+ "title": "Copy approved",
+ "status": "unclear",
+ "evidence": "Not mentioned; guarantee wording drifted",
+ "source": "md"
+ },
+ "c27": {
+ "title": "Draft built, pre-launch QA passed",
+ "status": "unclear",
+ "evidence": "Oct list QA only",
+ "source": "md"
+ },
+ "c28": {
+ "title": "BDRs onboarded",
+ "status": "done",
+ "evidence": "Callum Moon and Agnes Sacher booked and called",
+ "source": "md"
+ },
+ "c29": {
+ "title": "Launch and plan stage live",
+ "status": "done",
+ "evidence": "Live 6 May",
+ "source": "md"
+ },
+ "c30": {
+ "title": "Time to first send recorded",
+ "status": "done",
+ "evidence": "Signed 22 Apr, live 6 May = 14 days (computed from md dates)",
+ "source": "md"
+ }
+ },
+ "steps_counts": {
+ "unclear": 21,
+ "done": 28,
+ "n_a": 1,
+ "not_done": 3
+ },
+ "checklist_counts": {
+ "done": 15,
+ "unclear": 13,
+ "not_done": 2
+ },
+ "spot_checks": [
+ {
+ "check": "Tenant status",
+ "result": "inactive",
+ "source": "Client Hub list_tenants, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ {
+ "check": "Ops card bc8643d1",
+ "result": "'New campaign for prime marketing', done 14 Oct. All 6 Prime ops cards are done, incl. 4cf23847 cancel mailboxes (16 Oct) and 5424251f delete domains (22 Oct)",
+ "source": "Client Hub list_ops_tasks, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ {
+ "check": "Campaigns",
+ "result": "0 active. 4124101 PAUSED, 3279808 STOPPED, 5 COMPLETED",
+ "source": "SmartLead API, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ {
+ "check": "Mailboxes",
+ "result": "18 Prime mailboxes still in SmartLead, warm-up INACTIVE, 8 still pass SMTP check (the 4 Outlook domains)",
+ "source": "SmartLead API email-accounts, spot check 4 Nov 2026 ~19:30 UTC+8"
+ },
+ {
+ "check": "Domains",
+ "result": "All 9 (prime1marketing, primeadresults, primeadsagency, primeleadfactory, primemarketinghq, primemarketingteam, primepaidads, primepaidmedia, scalewithprime) still have live MX",
+ "source": "public DNS dns.google, spot check 4 Nov 2026 ~19:30 UTC+8"
+ }
+ ]
+}

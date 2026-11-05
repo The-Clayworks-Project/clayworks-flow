@@ -1,0 +1,540 @@
+{
+ "client": {
+  "name": "Variolytics",
+  "tenant": "009782d9-ce56-40ed-bd66-b7035ced02f7",
+  "state": "active, health 43 red At Risk",
+  "raw_date": "compiled 4 Nov 2026"
+ },
+ "status_values": "done | not_done | unclear | n_a",
+ "source_default": "clients/raw/variolytics.md",
+ "steps": {
+  "step0": {
+   "title": "Log the first meeting",
+   "status": "unclear",
+   "evidence": "Sales call recording missing; \"Fireflies starts 25 Jun\"",
+   "source": "md"
+  },
+  "step1": {
+   "title": "Intro call",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step2": {
+   "title": "Free sample: 25 accounts with signals",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step3": {
+   "title": "GTM strategy call",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step4": {
+   "title": "ROI call and calculator",
+   "status": "unclear",
+   "evidence": "Hub has ACV 40k and close rate 0.4 \"for ROI maths\"; no ROI call found",
+   "source": "md"
+  },
+  "step5": {
+   "title": "Proposal page",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step6": {
+   "title": "Proposal deep dive",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step7": {
+   "title": "Set price and meeting promise",
+   "status": "done",
+   "evidence": "\"15 meetings a month\" guarantee; fee unclear (one GBP 4,500 data point)",
+   "source": "md"
+  },
+  "step8": {
+   "title": "Agree 3 rules for a 'qualified' meeting",
+   "status": "unclear",
+   "evidence": "Unknowns to chase: The qualified-meeting definition (paraphrased)",
+   "source": "md"
+  },
+  "step9": {
+   "title": "Consulting first (if needed)",
+   "status": "n_a",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step10": {
+   "title": "Contract review and signing",
+   "status": "done",
+   "evidence": "Outbound contract start 25 Feb 2026 (signed copy missing) (paraphrased)",
+   "source": "md"
+  },
+  "step11": {
+   "title": "Create the client's Hub space",
+   "status": "done",
+   "evidence": "\"Hub tenant created 11 Mar\"",
+   "source": "md"
+  },
+  "step12": {
+   "title": "Fill in the onboarding form",
+   "status": "done",
+   "evidence": "Onboarding doc \"Plan of Action\" (a doc, not the form)",
+   "source": "md"
+  },
+  "step13": {
+   "title": "Group chat and shared folder",
+   "status": "unclear",
+   "evidence": "Drive folder 6 Mar; \"Slack: no client channel\"",
+   "source": "md"
+  },
+  "step14": {
+   "title": "Record every call and make a context file",
+   "status": "unclear",
+   "evidence": "Fireflies from 25 Jun; no context file named; Joy's handoff docs 27 Oct",
+   "source": "md"
+  },
+  "step15": {
+   "title": "Connect the tools",
+   "status": "done",
+   "evidence": "InboxKit, SmartLead, Prosp, CloudTalk; Pipedrive integration overdue",
+   "source": "md"
+  },
+  "step16": {
+   "title": "Easy to forget setup items",
+   "status": "unclear",
+   "evidence": "Plaintext passwords in tracker sheet",
+   "source": "md"
+  },
+  "step17": {
+   "title": "Order sending inboxes early",
+   "status": "done",
+   "evidence": "\"Infrastructure, set up 1 Mar\": 9 domains, 18 mailboxes",
+   "source": "md"
+  },
+  "step18": {
+   "title": "Kickoff call",
+   "status": "unclear",
+   "evidence": "No kickoff in md",
+   "source": "md"
+  },
+  "step19": {
+   "title": "Book weekly catch-ups",
+   "status": "done",
+   "evidence": "\"catch-up every 14 days\"; Week 32 check-in",
+   "source": "md"
+  },
+  "step20": {
+   "title": "Turn on signal tracking",
+   "status": "unclear",
+   "evidence": "Norway \"high-intent signals\" campaign; no tracking tool named",
+   "source": "md"
+  },
+  "step21": {
+   "title": "Client profile and campaign plan",
+   "status": "done",
+   "evidence": "\"Plan of Action\": Nordic WWTPs, personas, >10,000 PE plus BNR",
+   "source": "md"
+  },
+  "step22": {
+   "title": "Find the right companies",
+   "status": "done",
+   "evidence": "BNR filter from EU E-PRTR register",
+   "source": "md"
+  },
+  "step23": {
+   "title": "Find the right people",
+   "status": "done",
+   "evidence": "Blitz, Pronto, website scrapes",
+   "source": "md"
+  },
+  "step24": {
+   "title": "Map who to contact at signal accounts",
+   "status": "done",
+   "evidence": "\"Build accounts first, then people\"",
+   "source": "md"
+  },
+  "step25": {
+   "title": "Check the list",
+   "status": "done",
+   "evidence": "BNR filter; 4 Nov: Blacklist check of all live SmartLead campaigns: clean apart from InfraServ (paraphrased)",
+   "source": "md"
+  },
+  "step26": {
+   "title": "Write the messages",
+   "status": "done",
+   "evidence": "Germany v2/v4, municipal v1",
+   "source": "md"
+  },
+  "step27": {
+   "title": "Check the messages",
+   "status": "done",
+   "evidence": "\"Theo's copy review\" 27 to 28 Oct",
+   "source": "md"
+  },
+  "step28": {
+   "title": "Client approves the messages",
+   "status": "unclear",
+   "evidence": "No client copy approval in md",
+   "source": "md"
+  },
+  "step29": {
+   "title": "Build the campaign as a draft",
+   "status": "done",
+   "evidence": "\"Germany drafts built\" 27 to 28 Oct",
+   "source": "md"
+  },
+  "step30": {
+   "title": "Final check before launch",
+   "status": "done",
+   "evidence": "4 Nov blacklist check of live campaigns",
+   "source": "md"
+  },
+  "step31": {
+   "title": "Joy launches",
+   "status": "done",
+   "evidence": "Joy owns builds from week of 26 Oct; Europe built",
+   "source": "md"
+  },
+  "step32": {
+   "title": "Move the plan to live",
+   "status": "done",
+   "evidence": "4 Nov: Hub plans set live (paraphrased)",
+   "source": "md"
+  },
+  "step33": {
+   "title": "Phone list for the callers",
+   "status": "done",
+   "evidence": "Phones from websites go on Hub cards; Agnes calls",
+   "source": "md"
+  },
+  "step34": {
+   "title": "Callers get ready",
+   "status": "done",
+   "evidence": "Agnes books by phone from June",
+   "source": "md"
+  },
+  "step35": {
+   "title": "Slack alerts for replies and meetings",
+   "status": "unclear",
+   "evidence": "\"bookings go to #all-clayworks\"; no client channel; no reply alert named",
+   "source": "md"
+  },
+  "step36": {
+   "title": "Sort replies every day",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step37": {
+   "title": "Book and check meetings",
+   "status": "done",
+   "evidence": "77 meeting records; 16 rescheduled with no outcome",
+   "source": "md"
+  },
+  "step38": {
+   "title": "Keep inboxes healthy",
+   "status": "not_done",
+   "evidence": "\"2 to 3 Nov, mailboxes RED\": 6.0% bounce, 3 rested, 0 spares",
+   "source": "md"
+  },
+  "step39": {
+   "title": "Weekly client catch-up",
+   "status": "done",
+   "evidence": "Check-ins every 14 days; next 12 Nov",
+   "source": "md"
+  },
+  "step40": {
+   "title": "New campaign ideas",
+   "status": "done",
+   "evidence": "Germany split, Europe campaign, BNR filter",
+   "source": "md"
+  },
+  "step41": {
+   "title": "Close out finished campaigns",
+   "status": "done",
+   "evidence": "\"Denmark closed out\" 4 Nov",
+   "source": "md"
+  },
+  "step42": {
+   "title": "Monthly review and invoice",
+   "status": "done",
+   "evidence": "Invoicing moved to a 14-day cycle (paraphrased)",
+   "source": "md"
+  },
+  "step43": {
+   "title": "Health score and at-risk flag",
+   "status": "done",
+   "evidence": "Account health is 43, red, At Risk since 27 Oct (paraphrased)",
+   "source": "md"
+  },
+  "step44": {
+   "title": "Meetings vs promise",
+   "status": "done",
+   "evidence": "About 12-13 meetings a month; guarantee is 15 (paraphrased)",
+   "source": "md"
+  },
+  "step45": {
+   "title": "Save plan",
+   "status": "unclear",
+   "evidence": "No save plan in md; \"pump the numbers\" push",
+   "source": "md"
+  },
+  "step46": {
+   "title": "Extend if the target is missed",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step47": {
+   "title": "Renewal check",
+   "status": "not_done",
+   "evidence": "Outbound renews 31 Dec; ads pilot renews or ends 30 Nov; \"exact ads review date\" unknown",
+   "source": "md"
+  },
+  "step48": {
+   "title": "Notice and owner",
+   "status": "n_a",
+   "evidence": "Active client",
+   "source": "md"
+  },
+  "step49": {
+   "title": "Hand over data",
+   "status": "n_a",
+   "evidence": "Active client",
+   "source": "md"
+  },
+  "step50": {
+   "title": "Stop sending",
+   "status": "n_a",
+   "evidence": "Active client",
+   "source": "md"
+  },
+  "step51": {
+   "title": "Cancel inboxes, then domains",
+   "status": "n_a",
+   "evidence": "Active client",
+   "source": "md"
+  },
+  "step52": {
+   "title": "Close accounts and sign off",
+   "status": "n_a",
+   "evidence": "Active client",
+   "source": "md"
+  }
+ },
+ "checklist": {
+  "c1": {
+   "title": "Hub tenant and CSM account created",
+   "status": "done",
+   "evidence": "Tenant 009782d9 created 11 Mar",
+   "source": "md"
+  },
+  "c2": {
+   "title": "Owners set in Hub",
+   "status": "done",
+   "evidence": "\"Callum and Theo are the primary owners on the Hub\"",
+   "source": "md"
+  },
+  "c3": {
+   "title": "Onboarding form sent",
+   "status": "unclear",
+   "evidence": "Onboarding doc exists; form not mentioned",
+   "source": "md"
+  },
+  "c4": {
+   "title": "Form complete (all 8 sections)",
+   "status": "done",
+   "evidence": "\"Plan of Action\" doc (form not mentioned)",
+   "source": "md"
+  },
+  "c5": {
+   "title": "3 qualified meeting rules written",
+   "status": "unclear",
+   "evidence": "\"qualified-meeting definition\" listed as unknown",
+   "source": "md"
+  },
+  "c6": {
+   "title": "Blacklist collected and loaded",
+   "status": "done",
+   "evidence": "\"132 entries uploaded. It now has 167: 123 existing customers, 24 do-not-contact, 20 opt-outs\"",
+   "source": "md"
+  },
+  "c7": {
+   "title": "Blacklist sanity check",
+   "status": "done",
+   "evidence": "Hub blacklist 167 (123 existing_customer, 24 do_not_contact, 20 opt_out). Waterschap Limburg IS on it (waterschaplimburg.nl, existing_customer, onboarding upload 12 Mar) yet a meeting is booked 25 Nov. Of the 4 flagged people: Palsgaard and Daniatech only in COMPLETED Denmark campaign 3953030; Campus by Nordrest x2 in ACTIVE Sweden 3953029 but status BLOCKED and COMPLETED, so no more sends. Prosp not checkable",
+   "source": "Client Hub list_blacklist, list_meetings; SmartLead API, spot check 4 Nov 2026 ~19:30 UTC+8"
+  },
+  "c8": {
+   "title": "Group chat created",
+   "status": "not_done",
+   "evidence": "\"Slack: no client channel\"",
+   "source": "md"
+  },
+  "c9": {
+   "title": "Drive folder shared",
+   "status": "done",
+   "evidence": "\"Drive folder created 6 Mar\"",
+   "source": "md"
+  },
+  "c10": {
+   "title": "Fireflies on client calls",
+   "status": "unclear",
+   "evidence": "\"Fireflies starts 25 Jun\"",
+   "source": "md"
+  },
+  "c11": {
+   "title": "Client folder, context file, Helper bot",
+   "status": "unclear",
+   "evidence": "14-page Account Handover Handbook missing; no Helper named (paraphrased)",
+   "source": "md"
+  },
+  "c12": {
+   "title": "Warm inboxes checked, purchase approved",
+   "status": "done",
+   "evidence": "18 mailboxes from InboxKit",
+   "source": "md"
+  },
+  "c13": {
+   "title": "Domains and inboxes bought, DNS passes, warm-up on",
+   "status": "done",
+   "evidence": "Cloudflare domains set up 1 Mar",
+   "source": "md"
+  },
+  "c14": {
+   "title": "InboxKit forwarding address checked",
+   "status": "done",
+   "evidence": "\"forwarding to variolytics.com\"",
+   "source": "md"
+  },
+  "c15": {
+   "title": "Smartlead connected and tagged",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c16": {
+   "title": "Prosp connected and LinkedIn profiles live",
+   "status": "done",
+   "evidence": "\"2 Prosp LinkedIn licences\"; Nick disconnected 28 and 30 Oct",
+   "source": "md"
+  },
+  "c17": {
+   "title": "Prosp webhook set",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c18": {
+   "title": "CloudTalk numbers and CRM sync",
+   "status": "not_done",
+   "evidence": "2 CloudTalk numbers, but \"No call metrics are logged\" and Pipedrive integration overdue since 19 Oct",
+   "source": "md"
+  },
+  "c19": {
+   "title": "Calendar and fixed meeting link per caller",
+   "status": "done",
+   "evidence": "\"Pipedrive scheduler on MS Teams\"; booking pages broke 6 Oct and 30 Oct",
+   "source": "md"
+  },
+  "c20": {
+   "title": "Slack alert channels on",
+   "status": "unclear",
+   "evidence": "Bookings to #all-clayworks",
+   "source": "md"
+  },
+  "c21": {
+   "title": "White Whale signals on",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c22": {
+   "title": "Kickoff call held, data asks listed",
+   "status": "unclear",
+   "evidence": "No kickoff in md",
+   "source": "md"
+  },
+  "c23": {
+   "title": "Weekly catch-ups booked",
+   "status": "done",
+   "evidence": "Every 14 days",
+   "source": "md"
+  },
+  "c24": {
+   "title": "Profile and campaign plan",
+   "status": "done",
+   "evidence": "Plan of Action",
+   "source": "md"
+  },
+  "c25": {
+   "title": "Blacklist gate passed on first lists",
+   "status": "unclear",
+   "evidence": "No gate record for March lists; 4 Nov check on live campaigns only",
+   "source": "md"
+  },
+  "c26": {
+   "title": "Copy approved",
+   "status": "unclear",
+   "evidence": "Theo internal review only",
+   "source": "md"
+  },
+  "c27": {
+   "title": "Draft built, pre-launch QA passed",
+   "status": "done",
+   "evidence": "Germany drafts plus Theo review",
+   "source": "md"
+  },
+  "c28": {
+   "title": "BDRs onboarded",
+   "status": "done",
+   "evidence": "Callum Mar to May, Agnes from June",
+   "source": "md"
+  },
+  "c29": {
+   "title": "Launch and plan stage live",
+   "status": "done",
+   "evidence": "First campaign 15 Mar; Hub plans live 4 Nov",
+   "source": "md"
+  },
+  "c30": {
+   "title": "Time to first send recorded",
+   "status": "done",
+   "evidence": "Contract 25 Feb, first send 15 Mar = 18 days (computed from md dates)",
+   "source": "md"
+  }
+ },
+ "steps_counts": {
+  "unclear": 18,
+  "done": 27,
+  "n_a": 6,
+  "not_done": 2
+ },
+ "checklist_counts": {
+  "done": 17,
+  "unclear": 11,
+  "not_done": 2
+ },
+ "spot_checks": [
+  {
+   "check": "4 blacklisted people",
+   "result": "Not sending. Palsgaard (cm@) and Daniatech (rbj@): Denmark 3953030 COMPLETED. Campus by Nordrest: sebastien.lamberdiere@hors.se BLOCKED, richard.andersson@hors.se COMPLETED in ACTIVE Sweden 3953029. Only 3 blacklist entries exist for them (Richard Andersson is not on the blacklist). Prosp: no connector, not checked",
+   "source": "SmartLead API, Client Hub list_blacklist, spot check 4 Nov 2026 ~19:30 UTC+8"
+  },
+  {
+   "check": "Waterschap Limburg",
+   "result": "Blacklist entry: domain waterschaplimburg.nl, reason existing_customer, source onboarding_upload, added 12 Mar. Meeting fa797187: Saskia Hanneman (Innovatie Technoloog), 25 Nov 09:00 UTC (17:00 Manila), scheduled, source email, BDR Agnes, pipeline 40,000, created 30 Oct. Her email is not found as a SmartLead lead",
+   "source": "Client Hub list_blacklist, list_meetings; SmartLead API, spot check 4 Nov 2026 ~19:30 UTC+8"
+  },
+  {
+   "check": "InfraServ",
+   "result": "InfraServ Hoechst (alexander.wagner@infraserv.com) and InfraServ Gendorf both STARTED in ACTIVE 4249417. Hub blacklist has 'ISW Infraserve Wiesbaden' (gasag.de) only, so the 4 Nov flag is a likely-customer guess, not a blacklist hit",
+   "source": "SmartLead API, Client Hub, spot check 4 Nov 2026 ~19:30 UTC+8"
+  }
+ ]
+}

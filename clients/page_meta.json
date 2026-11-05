@@ -1,0 +1,18 @@
+{
+"prime-marketing":{"status":"Churned","tone":"grey","health":"Churned (Hub tenant inactive)","dates":[["Signed","22 Apr"],["First send","6 May (14 days)"],["Ended","31 Oct"]],
+ "blacklist":{"loaded":"not_done","checked":"unclear","gate":"unclear","entries":"Only Econocom and Skalar named; promised exclusion file never found","issues":["Client exclusion file never received","9 domains still have live mail records although the delete card is done","18 mailboxes still listed in SmartLead"]},
+ "urgent":["Domains still live in DNS though card 5424251f is done","18 Prime mailboxes still in SmartLead","Prosp cancel not confirmed"]},
+"variolytics":{"status":"Active, at risk","tone":"red","health":"43, red (At Risk since 27 Oct)","dates":[["Contract start","25 Feb"],["First send","15 Mar (18 days)"],["Ads pilot decision","30 Nov"],["Renews","31 Dec"]],
+ "blacklist":{"loaded":"done","checked":"done","gate":"unclear","entries":"167 in Hub (123 customers, 24 do not contact, 20 opt out)","issues":["Waterschap Limburg is blacklisted but a meeting is booked 25 Nov","Richard Andersson (Campus by Nordrest) not on blacklist","InfraServ Hoechst and Gendorf live in 4249417 (not blacklisted; check if customers)"]},
+ "urgent":["Waterschap Limburg meeting vs blacklist","About 13 meetings a month vs 15 promised","Rotate keys and remove plain-text passwords from the tracker"],
+ "security":"Plain-text passwords exist in the tracker sheet. Values are not shown here."},
+"servicefirst":{"status":"Active pilot, ending soon","tone":"amber","health":"Not in file","dates":[["Calls from","27 Aug"],["Pilot ends","about 3 Dec"]],
+ "blacklist":{"loaded":"done","checked":"unclear","gate":"unclear","entries":"44 in Hub (42 existing client or warm lead, 2 do not contact)","issues":["Reprise Financial not on the blacklist","No record of a sanity check or first-list gate"]},
+ "urgent":["Add Reprise Financial to the blacklist (needs approval)","1 meeting ever, not qualified, pilot ends about 3 Dec"]},
+"odd-latent":{"status":"Active pilot","tone":"green","health":"77, green","dates":[["Signed","26 Aug"],["First send","24 Sep (29 days)"],["Invoice 3 due","14 Nov"],["Pilot ends","9 Dec"]],
+ "blacklist":{"loaded":"done","checked":"done","gate":"unclear","entries":"10 in Hub (5 customers, 5 do not contact) plus Playables.ai","issues":["First sweep 27 Sep came after launch 24 to 25 Sep"]},
+ "urgent":["Mailbox overlap B5/B2 and B5b/B1 before launch","Pocket Gamer login never received","Hyper Canny no follow-up since 23 Oct","6 meetings stuck on scheduled"]},
+"kmc":{"status":"Churned (unpaid win-back in Nov)","tone":"red","health":"Lost; mailboxes RED 3 Nov","dates":[["Form in","20 Jul"],["First send","14 Aug"],["Notice","about 1 Oct"],["Win-back ends","about 30 Nov"]],
+ "blacklist":{"loaded":"not_done","checked":"not_done","gate":"not_done","entries":"743 of 1,668 companies loaded 9 Sep; 849 missing. Hub tool shows only 500 rows","issues":["Import stopped at John Wood Group (K to Z missing)","KMC clients, partners and a gambling firm were emailed","J.P. Morgan found 4 Nov, 28 leads paused","Rules in kmc.yaml were never checked in code"]},
+ "urgent":["Load the 849 missing exclusion companies","Log outcomes for 3 meetings; Hecttor has no meeting row","Fix thread replies in B2 and B7","Rest or replace RED mailboxes"]}
+}

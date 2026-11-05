@@ -1,0 +1,540 @@
+{
+ "client": {
+  "name": "KMC Solutions",
+  "tenant": "00662eb0-98a0-4156-a894-8a3bb3be6afe",
+  "state": "churned as paying client (notice about 1 Oct); unpaid win-back in November",
+  "raw_date": "4 Nov 2026"
+ },
+ "status_values": "done | not_done | unclear | n_a",
+ "source_default": "clients/raw/kmc.md",
+ "steps": {
+  "step0": {
+   "title": "Log the first meeting",
+   "status": "done",
+   "evidence": "4 May: sales meeting with Bianca Osorio logged (Slack bot, Pipeline $17K)",
+   "source": "md"
+  },
+  "step1": {
+   "title": "Intro call",
+   "status": "unclear",
+   "evidence": "First contact 4 May; no intro call notes in md",
+   "source": "md"
+  },
+  "step2": {
+   "title": "Free sample: 25 accounts with signals",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step3": {
+   "title": "GTM strategy call",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step4": {
+   "title": "ROI call and calculator",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step5": {
+   "title": "Proposal page",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step6": {
+   "title": "Proposal deep dive",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step7": {
+   "title": "Set price and meeting promise",
+   "status": "done",
+   "evidence": "About $9,600 a month (Hub targets_json; Theo: 10k), 8 qualified meetings a month guarantee",
+   "source": "md"
+  },
+  "step8": {
+   "title": "Agree 3 rules for a 'qualified' meeting",
+   "status": "unclear",
+   "evidence": "Qualification on form: decision maker, budget, EOR need with timeline; no 3 written rules",
+   "source": "md"
+  },
+  "step9": {
+   "title": "Consulting first (if needed)",
+   "status": "n_a",
+   "evidence": "Not used",
+   "source": "md"
+  },
+  "step10": {
+   "title": "Contract review and signing",
+   "status": "unclear",
+   "evidence": "3-month trial confirmed on 9 Sep call, but signed contract and start date not found",
+   "source": "md"
+  },
+  "step11": {
+   "title": "Create the client's Hub space",
+   "status": "done",
+   "evidence": "Tenant created 30 Jun",
+   "source": "md"
+  },
+  "step12": {
+   "title": "Fill in the onboarding form",
+   "status": "done",
+   "evidence": "Form submitted 20 Jul by Marjorie, 77% complete, approved",
+   "source": "md"
+  },
+  "step13": {
+   "title": "Group chat and shared folder",
+   "status": "done",
+   "evidence": "WhatsApp group agreed 24 Aug; Drive KMC folder",
+   "source": "md"
+  },
+  "step14": {
+   "title": "Record every call and make a context file",
+   "status": "done",
+   "evidence": "Every KMC call in Fireflies 22 Jul to 4 Nov; working file kmc_DO_NOT_DELETE.md",
+   "source": "md"
+  },
+  "step15": {
+   "title": "Connect the tools",
+   "status": "unclear",
+   "evidence": "SmartLead live; LinkedIn took 1.5 months (sender trust); HubSpot one-way sync in scope, not confirmed",
+   "source": "md"
+  },
+  "step16": {
+   "title": "Easy to forget setup items",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step17": {
+   "title": "Order sending inboxes early",
+   "status": "unclear",
+   "evidence": "10 domains, 20 mailboxes in scope; month 1 only about 1,000 emails (infrastructure block)",
+   "source": "md"
+  },
+  "step18": {
+   "title": "Kickoff call",
+   "status": "done",
+   "evidence": "30 Jul onboarding call, 79 min, full KMC team",
+   "source": "md"
+  },
+  "step19": {
+   "title": "Book weekly catch-ups",
+   "status": "done",
+   "evidence": "Weekly calls agreed 24 Aug",
+   "source": "md"
+  },
+  "step20": {
+   "title": "Turn on signal tracking",
+   "status": "done",
+   "evidence": "White Whale set up 19 to 21 Oct (late)",
+   "source": "md"
+  },
+  "step21": {
+   "title": "Client profile and campaign plan",
+   "status": "done",
+   "evidence": "Launch Plan v3 sent 11 to 12 Aug",
+   "source": "md"
+  },
+  "step22": {
+   "title": "Find the right companies",
+   "status": "done",
+   "evidence": "Lists built; later 754 wrong-role contacts disqualified (26 Oct)",
+   "source": "md"
+  },
+  "step23": {
+   "title": "Find the right people",
+   "status": "unclear",
+   "evidence": "788 of 3,969 contacts outside buyer roles (26 Oct audit); 810 of 1,504 B5 emails failed verification",
+   "source": "md"
+  },
+  "step24": {
+   "title": "Map who to contact at signal accounts",
+   "status": "done",
+   "evidence": "Monitoring accounts filled 28 Oct (17 left empty)",
+   "source": "md"
+  },
+  "step25": {
+   "title": "Check the list",
+   "status": "not_done",
+   "evidence": "Exclusions in kmc.yaml were never checked in code; blacklist import stopped at John Wood Group; KMC clients, partners and FanDuel emailed",
+   "source": "md"
+  },
+  "step26": {
+   "title": "Write the messages",
+   "status": "done",
+   "evidence": "Copy written per bucket",
+   "source": "md"
+  },
+  "step27": {
+   "title": "Check the messages",
+   "status": "unclear",
+   "evidence": "Old copy broke house rules (no what-KMC-does, competitor in subject, scraped text)",
+   "source": "md"
+  },
+  "step28": {
+   "title": "Client approves the messages",
+   "status": "unclear",
+   "evidence": "Client approval of proof points never arrived",
+   "source": "md"
+  },
+  "step29": {
+   "title": "Build the campaign as a draft",
+   "status": "done",
+   "evidence": "Buckets 1 to 7 created in SmartLead 11 to 12 Aug",
+   "source": "md"
+  },
+  "step30": {
+   "title": "Final check before launch",
+   "status": "not_done",
+   "evidence": "Thread replies and scraped text went live; blacklist not enforced",
+   "source": "md"
+  },
+  "step31": {
+   "title": "Joy launches",
+   "status": "done",
+   "evidence": "First email 14 Aug (Bucket 1)",
+   "source": "md"
+  },
+  "step32": {
+   "title": "Move the plan to live",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step33": {
+   "title": "Phone list for the callers",
+   "status": "done",
+   "evidence": "Mobiles for top 500 leads loaded 15 to 17 Sep; 748 B8 leads with mobiles",
+   "source": "md"
+  },
+  "step34": {
+   "title": "Callers get ready",
+   "status": "done",
+   "evidence": "Iya from 13 Aug, Josh from 18 Sep",
+   "source": "md"
+  },
+  "step35": {
+   "title": "Slack alerts for replies and meetings",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "step36": {
+   "title": "Sort replies every day",
+   "status": "not_done",
+   "evidence": "Warm replies left for days: Lucas Shade 8 days, Robert Yeager, Sid Bhutani; Hub replies mostly bounces",
+   "source": "md"
+  },
+  "step37": {
+   "title": "Book and check meetings",
+   "status": "not_done",
+   "evidence": "3 meetings in Hub vs 24 promised; no outcomes logged; Hecttor marked booked with no meeting row",
+   "source": "md"
+  },
+  "step38": {
+   "title": "Keep inboxes healthy",
+   "status": "not_done",
+   "evidence": "RED on 3 Nov (4.4% bounce, Mimecast); B5 bounced 5 to 7%; Office 365 blocked 40 sends",
+   "source": "md"
+  },
+  "step39": {
+   "title": "Weekly client catch-up",
+   "status": "done",
+   "evidence": "Weekly client calls, KMC Weekly internal from 20 Oct",
+   "source": "md"
+  },
+  "step40": {
+   "title": "New campaign ideas",
+   "status": "done",
+   "evidence": "B4 Introducers, B8 Volume, B9 Australia",
+   "source": "md"
+  },
+  "step41": {
+   "title": "Close out finished campaigns",
+   "status": "done",
+   "evidence": "B1 finished 12 Oct; B7 paused and cleaned",
+   "source": "md"
+  },
+  "step42": {
+   "title": "Monthly review and invoice",
+   "status": "unclear",
+   "evidence": "PO and wire through treasury; invoices not found",
+   "source": "md"
+  },
+  "step43": {
+   "title": "Health score and at-risk flag",
+   "status": "done",
+   "evidence": "Health tracked; at risk; RED mailbox report",
+   "source": "md"
+  },
+  "step44": {
+   "title": "Meetings vs promise",
+   "status": "not_done",
+   "evidence": "3 meetings vs 24 promised; Theo: we owe them 22",
+   "source": "md"
+  },
+  "step45": {
+   "title": "Save plan",
+   "status": "done",
+   "evidence": "Recovery meeting 16 Oct; Oct target raised to 10; overhaul plan 2 Oct",
+   "source": "md"
+  },
+  "step46": {
+   "title": "Extend if the target is missed",
+   "status": "unclear",
+   "evidence": "Comped month floated 1 Oct; no extension agreed",
+   "source": "md"
+  },
+  "step47": {
+   "title": "Renewal check",
+   "status": "not_done",
+   "evidence": "Notice served about 1 Oct; 3 Nov: lost; 20 Oct note says renewal possible if meetings by mid-Nov (CONFLICT)",
+   "source": "md"
+  },
+  "step48": {
+   "title": "Notice and owner",
+   "status": "done",
+   "evidence": "Notice about 1 Oct from Bianca; Joy owns delivery",
+   "source": "md"
+  },
+  "step49": {
+   "title": "Hand over data",
+   "status": "unclear",
+   "evidence": "Unpaid win-back in Nov; no handover yet",
+   "source": "md"
+  },
+  "step50": {
+   "title": "Stop sending",
+   "status": "not_done",
+   "evidence": "Still sending: 6 email buckets live, unpaid win-back through about end of Nov",
+   "source": "md"
+  },
+  "step51": {
+   "title": "Cancel inboxes, then domains",
+   "status": "not_done",
+   "evidence": "Mailboxes kept for November",
+   "source": "md"
+  },
+  "step52": {
+   "title": "Close accounts and sign off",
+   "status": "not_done",
+   "evidence": "Tenant still in use; win-back running",
+   "source": "md"
+  }
+ },
+ "checklist": {
+  "c1": {
+   "title": "Hub tenant and CSM account created",
+   "status": "done",
+   "evidence": "Tenant 00662eb0, created 30 Jun",
+   "source": "md"
+  },
+  "c2": {
+   "title": "Owners set in Hub",
+   "status": "unclear",
+   "evidence": "md: Theo lead, Joy delivery, Callum CSM; Hub owners not checked",
+   "source": "md"
+  },
+  "c3": {
+   "title": "Onboarding form sent",
+   "status": "done",
+   "evidence": "Form sent",
+   "source": "md"
+  },
+  "c4": {
+   "title": "Form complete (all 8 sections)",
+   "status": "unclear",
+   "evidence": "Submitted 20 Jul, 77% complete",
+   "source": "md"
+  },
+  "c5": {
+   "title": "3 qualified meeting rules written",
+   "status": "unclear",
+   "evidence": "Qualification on form (3 points) but not as 3 written rules",
+   "source": "md"
+  },
+  "c6": {
+   "title": "Blacklist collected and loaded",
+   "status": "not_done",
+   "evidence": "Imported 9 Sep but only 743 of 1,668 companies loaded; 849 still missing (open item 1)",
+   "source": "md"
+  },
+  "c7": {
+   "title": "Blacklist sanity check",
+   "status": "not_done",
+   "evidence": "No count check after import; J.P. Morgan emailed, found 4 Nov; 28 leads paused. Hub meetings and blacklist spot checked",
+   "source": "md"
+  },
+  "c8": {
+   "title": "Group chat created",
+   "status": "done",
+   "evidence": "WhatsApp group",
+   "source": "md"
+  },
+  "c9": {
+   "title": "Drive folder shared",
+   "status": "done",
+   "evidence": "KMC Drive folder",
+   "source": "md"
+  },
+  "c10": {
+   "title": "Fireflies on client calls",
+   "status": "done",
+   "evidence": "All calls 22 Jul to 4 Nov",
+   "source": "md"
+  },
+  "c11": {
+   "title": "Client folder, context file, Helper bot",
+   "status": "done",
+   "evidence": "kmc_DO_NOT_DELETE.md, kmc.yaml",
+   "source": "md"
+  },
+  "c12": {
+   "title": "Warm inboxes checked, purchase approved",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c13": {
+   "title": "Domains and inboxes bought, DNS passes, warm-up on",
+   "status": "unclear",
+   "evidence": "16 new Nestia mailboxes 26 Oct; RED health 3 Nov",
+   "source": "md"
+  },
+  "c14": {
+   "title": "InboxKit forwarding address checked",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c15": {
+   "title": "Smartlead connected and tagged",
+   "status": "done",
+   "evidence": "SmartLead buckets live",
+   "source": "md"
+  },
+  "c16": {
+   "title": "Prosp connected and LinkedIn profiles live",
+   "status": "unclear",
+   "evidence": "LinkedIn live only after about 1.5 months; Lionel keeps disconnecting; Tom never gave profile",
+   "source": "md"
+  },
+  "c17": {
+   "title": "Prosp webhook set",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c18": {
+   "title": "CloudTalk numbers and CRM sync",
+   "status": "unclear",
+   "evidence": "CloudTalk calling yes; HubSpot sync in scope, not confirmed; call metrics do not reach dashboard",
+   "source": "md"
+  },
+  "c19": {
+   "title": "Calendar and fixed meeting link per caller",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c20": {
+   "title": "Slack alert channels on",
+   "status": "unclear",
+   "evidence": "Not in md",
+   "source": "md"
+  },
+  "c21": {
+   "title": "White Whale signals on",
+   "status": "done",
+   "evidence": "White Whale 19 to 21 Oct (late)",
+   "source": "md"
+  },
+  "c22": {
+   "title": "Kickoff call held, data asks listed",
+   "status": "done",
+   "evidence": "30 Jul onboarding; data asks: events, proof points, profiles (many never arrived)",
+   "source": "md"
+  },
+  "c23": {
+   "title": "Weekly catch-ups booked",
+   "status": "done",
+   "evidence": "Weekly calls",
+   "source": "md"
+  },
+  "c24": {
+   "title": "Profile and campaign plan",
+   "status": "done",
+   "evidence": "Launch Plan v3",
+   "source": "md"
+  },
+  "c25": {
+   "title": "Blacklist gate passed on first lists",
+   "status": "not_done",
+   "evidence": "First lists sent before blacklist was complete and checked",
+   "source": "md"
+  },
+  "c26": {
+   "title": "Copy approved",
+   "status": "unclear",
+   "evidence": "Proof points never approved by KMC",
+   "source": "md"
+  },
+  "c27": {
+   "title": "Draft built, pre-launch QA passed",
+   "status": "not_done",
+   "evidence": "QA missed thread replies, scraped text, competitor in subject",
+   "source": "md"
+  },
+  "c28": {
+   "title": "BDRs onboarded",
+   "status": "done",
+   "evidence": "Iya 13 Aug, Josh 18 Sep",
+   "source": "md"
+  },
+  "c29": {
+   "title": "Launch and plan stage live",
+   "status": "done",
+   "evidence": "First send 14 Aug",
+   "source": "md"
+  },
+  "c30": {
+   "title": "Time to first send recorded",
+   "status": "unclear",
+   "evidence": "Signing date not found; tenant 30 Jun, first send 14 Aug",
+   "source": "md"
+  }
+ },
+ "steps_counts": {
+  "done": 23,
+  "unclear": 19,
+  "n_a": 1,
+  "not_done": 10
+ },
+ "checklist_counts": {
+  "done": 13,
+  "unclear": 13,
+  "not_done": 4
+ },
+ "spot_checks": [
+  {
+   "check": "SmartLead campaign status",
+   "result": "B1 3789207 COMPLETED; B2, B5, B7, B4, B8, B9 ACTIVE; B3 Events 4007176 DRAFTED. Matches md (6 live)",
+   "source": "SmartLead API, spot check 4 Nov 2026 ~19:50 UTC+8"
+  },
+  {
+   "check": "Hub meetings",
+   "result": "3 meetings, all status 'scheduled', no outcome: Morris (23 Sep), Virtuall VA (1 Oct, stage Completed), GeorgiaTEK (moved to 28 Oct). No Hecttor meeting row. Confirms open item 3",
+   "source": "Client Hub list_meetings, spot check 4 Nov 2026 ~19:50 UTC+8"
+  },
+  {
+   "check": "Hub blacklist",
+   "result": "API returned 500 rows (its limit), 496 do_not_contact, 4 opt_out, 495 created 9 Sep. John Wood Group plc present; no J.P. Morgan, Zoom, CBRE, JLL, FanDuel in those rows. Full count not readable this way, so 743 vs 1,668 not re-verified",
+   "source": "Client Hub list_blacklist, spot check 4 Nov 2026 ~19:50 UTC+8"
+  }
+ ]
+}

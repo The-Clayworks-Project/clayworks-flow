@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Client checklists | Clayworks</title>
+<script>const INDEX=[{"slug": "kmc", "name": "KMC Solutions", "status": "Churned (unpaid win-back in Nov)", "tone": "red", "health": "Lost; mailboxes RED 3 Nov", "steps": {"done": 23, "unclear": 19, "n_a": 1, "not_done": 10}, "check": {"done": 13, "unclear": 13, "not_done": 4}, "cnt": {"done": 36, "not_done": 14, "unclear": 32, "n_a": 1}, "missing": 50, "bl": {"loaded": "not_done", "checked": "not_done", "gate": "not_done", "entries": "743 of 1,668 companies loaded 9 Sep; 849 missing. Hub tool shows only 500 rows", "issues": ["Import stopped at John Wood Group (K to Z missing)", "KMC clients, partners and a gambling firm were emailed", "J.P. Morgan found 4 Nov, 28 leads paused", "Rules in kmc.yaml were never checked in code"]}}, {"slug": "prime-marketing", "name": "Prime Marketing", "status": "Churned", "tone": "grey", "health": "Churned (Hub tenant inactive)", "steps": {"unclear": 21, "done": 28, "n_a": 1, "not_done": 3}, "check": {"done": 15, "unclear": 13, "not_done": 2}, "cnt": {"done": 43, "not_done": 5, "unclear": 34, "n_a": 1}, "missing": 42, "bl": {"loaded": "not_done", "checked": "unclear", "gate": "unclear", "entries": "Only Econocom and Skalar named; promised exclusion file never found", "issues": ["Client exclusion file never received", "9 domains still have live mail records although the delete card is done", "18 mailboxes still listed in SmartLead"]}}, {"slug": "variolytics", "name": "Variolytics", "status": "Active, at risk", "tone": "red", "health": "43, red (At Risk since 27 Oct)", "steps": {"unclear": 18, "done": 27, "n_a": 6, "not_done": 2}, "check": {"done": 17, "unclear": 11, "not_done": 2}, "cnt": {"done": 44, "not_done": 4, "unclear": 29, "n_a": 6}, "missing": 36, "bl": {"loaded": "done", "checked": "done", "gate": "unclear", "entries": "167 in Hub (123 customers, 24 do not contact, 20 opt out)", "issues": ["Waterschap Limburg is blacklisted but a meeting is booked 25 Nov", "Richard Andersson (Campus by Nordrest) not on blacklist", "InfraServ Hoechst and Gendorf live in 4249417 (not blacklisted; check if customers)"]}}, {"slug": "servicefirst", "name": "ServiceFirst", "status": "Active pilot, ending soon", "tone": "amber", "health": "Not in file", "steps": {"unclear": 26, "n_a": 6, "done": 16, "not_done": 5}, "check": {"done": 10, "unclear": 19, "not_done": 1}, "cnt": {"done": 26, "not_done": 6, "unclear": 45, "n_a": 6}, "missing": 53, "bl": {"loaded": "done", "checked": "unclear", "gate": "unclear", "entries": "44 in Hub (42 existing client or warm lead, 2 do not contact)", "issues": ["Reprise Financial not on the blacklist", "No record of a sanity check or first-list gate"]}}, {"slug": "odd-latent", "name": "Odd Latent", "status": "Active pilot", "tone": "green", "health": "77, green", "steps": {"unclear": 16, "done": 29, "n_a": 8}, "check": {"done": 20, "unclear": 10}, "cnt": {"done": 49, "not_done": 0, "unclear": 26, "n_a": 8}, "missing": 30, "bl": {"loaded": "done", "checked": "done", "gate": "unclear", "entries": "10 in Hub (5 customers, 5 do not contact) plus Playables.ai", "issues": ["First sweep 27 Sep came after launch 24 to 25 Sep"]}}];</script><style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#1f2328;--mut:#667;--line:#e3e3df;--acc:#2f6fed;--warn:#b45309;--warnbg:#fff7ed;--ok:#16a34a;--okbg:#dcfce7;--no:#dc2626;--nobg:#fee2e2;--un:#d97706;--unbg:#fef3c7;--na:#6b7280;--nabg:#f3f4f6}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:20px 16px 8px;max-width:min(1800px,95vw);margin:auto}h1{margin:0 0 4px;font-size:26px}header p{margin:0;color:var(--mut)}
+a{color:var(--acc)}.crumb{font-size:14px;margin-bottom:6px}
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+.navin{max-width:min(1800px,95vw);margin:auto;display:flex;gap:6px;overflow-x:auto;padding:10px 16px}
+.navin button{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font-size:14px}
+main{max-width:min(1800px,95vw);margin:auto;padding:16px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tools input[type=text]{flex:1;min-width:180px;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
+.tools button,.tools label{font-size:14px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;cursor:pointer}
+section h2{margin:24px 0 2px;font-size:20px}section>p{margin:0 0 10px;color:var(--mut)}
+.step{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;margin:8px 0;overflow:hidden}
+.step.s-done{border-left-color:var(--ok)}.step.s-not_done{border-left-color:var(--no)}.step.s-unclear{border-left-color:var(--un)}.step.s-n_a{border-left-color:var(--na)}
+.head{display:flex;gap:10px;align-items:center;padding:12px 14px;cursor:pointer}
+.num{flex:0 0 32px;height:32px;border-radius:50%;background:#eef2fd;color:var(--acc);display:grid;place-items:center;font-weight:600;font-size:14px}
+.t{flex:1;min-width:0}.t b{display:block}.t small{color:var(--mut)}
+.st{font-size:13px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.st.done{background:var(--okbg);color:#166534}.st.not_done{background:var(--nobg);color:#991b1b}.st.unclear{background:var(--unbg);color:#92400e}.st.n_a{background:var(--nabg);color:#374151}
+.flag{font-size:12px;background:var(--warnbg);color:var(--warn);border:1px solid #fed7aa;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.body{display:none;padding:0 14px 14px 56px}.step.open .body{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.cell{background:var(--bg);border-radius:8px;padding:8px 10px}.cell span{display:block;font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
+.flowrow{display:flex;align-items:stretch;gap:0;margin:0}
+.flowrow .cell{flex:1 1 0;min-width:0}
+.flowarr{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 4px;color:var(--mut);font-size:18px;line-height:1;user-select:none}
+.flowarr .arr-v{display:none}
+.metarow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.metarow .cell{font-size:14px}
+@media(max-width:800px){
+  .flowrow{flex-direction:column}
+  .flowarr{padding:2px 0}
+  .flowarr .arr-h{display:none}
+  .flowarr .arr-v{display:inline}
+  .metarow{grid-template-columns:1fr}
+}
+.ev{margin:0 0 10px;background:#f5f8ff;border-left:3px solid var(--acc);padding:8px 10px;border-radius:6px}
+.gate{margin-top:10px;background:#fef3c7;border-left:3px solid #d97706;padding:8px 10px;border-radius:6px}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}.bb{font-size:12px;background:#eef2fd;color:var(--acc);border-radius:999px;padding:1px 8px;display:inline-flex;align-items:center;gap:4px}.bb svg{width:12px;height:12px}.pb{font-size:12px;background:#f5f3ff;color:#5b21b6;border-radius:999px;padding:1px 8px;display:inline-flex;align-items:center;gap:4px}.pb.proposed{background:#fdf4ff;border:1px dashed #c084fc}.gb{font-size:12px;background:#fef3c7;color:#92400e;border-radius:999px;padding:1px 8px}
+.src{font-size:13px;color:var(--mut)}
+.top{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}.panel h3{margin:0 0 8px;font-size:16px}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600}.green{background:var(--okbg);color:#166534}.red{background:var(--nobg);color:#991b1b}.amber{background:var(--unbg);color:#92400e}.grey{background:var(--nabg);color:#374151}
+.kv{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding:4px 0;font-size:14px}.kv:first-of-type{border-top:0}
+.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden;display:flex}.pb i{display:block;height:10px}
+.pr{font-size:13px;margin:6px 0}.pr b{display:flex;justify-content:space-between;font-weight:500}
+.miss li{margin:4px 0;font-size:14px}.u{font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;margin-right:6px}.u.High{background:var(--nobg);color:#991b1b}.u.Medium{background:var(--unbg);color:#92400e}.u.Low{background:var(--nabg);color:#374151}
+.sec{background:var(--nobg);border:1px solid #fca5a5;border-radius:10px;padding:8px 12px;margin-top:12px;font-size:14px}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:13px;margin-top:8px}
+.tabs{max-width:min(1800px,95vw);margin:auto;padding:4px 16px 10px;display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 12px;cursor:pointer;font-weight:600}.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media(max-width:600px){.body{padding-left:14px}h1{font-size:22px}.head{flex-wrap:wrap}}
+
+.sticky{position:sticky;top:0;z-index:6;background:var(--bg);border-bottom:1px solid var(--line)}
+.sin{max-width:min(1800px,95vw);margin:auto;padding:8px 16px}
+.big{display:flex;justify-content:space-between;font-weight:600;font-size:15px;margin-bottom:4px}
+.phbars{display:flex;gap:4px;margin-top:6px;overflow-x:auto}.phb{flex:1 0 70px;font-size:11px;color:var(--mut);cursor:pointer}.phb .pb{height:6px}
+.fl{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.fl button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer}.fl button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.item{background:#fff;border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;margin:6px 0}
+.item.s-done{border-left-color:var(--ok)}.item.s-not_done{border-left-color:var(--no)}.item.s-unclear{border-left-color:var(--un)}.item.s-n_a{border-left-color:var(--na)}
+.ir{display:flex;gap:12px;align-items:center;padding:10px 12px;cursor:pointer}
+.ir input[type=checkbox]{width:28px;height:28px;flex:0 0 28px;accent-color:var(--ok);cursor:pointer}
+.item.ticked .tt{text-decoration:line-through;text-decoration-color:#9ca3af}
+.no{flex:0 0 30px;font-weight:700;color:var(--mut);font-size:14px}
+.tt{flex:1;min-width:0}.tt b{display:block}.tt small{color:var(--mut)}
+.how{font-size:12px;border-radius:4px;padding:1px 6px;margin-left:4px}.how.me{background:#ede9fe;color:#5b21b6}.how.ev{background:var(--okbg);color:#166534}
+.ck{font-size:11px;background:#e0f2fe;color:#075985;border-radius:999px;padding:1px 8px}
+.ib{display:none;padding:0 14px 12px 82px}.item.open .ib{display:block}
+.ib textarea{width:100%;min-height:48px;border:1px solid var(--line);border-radius:8px;padding:6px;font:inherit;font-size:14px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.acts button,.acts label{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 12px;font-size:14px;cursor:pointer}
+.hint{font-size:13px;color:var(--mut)}
+@media(max-width:600px){.ib{padding-left:14px}.no{flex-basis:24px}}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}.cc{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;color:inherit;text-decoration:none}.cc:hover{border-color:var(--acc)}
+.cc h2{margin:0;font-size:19px}.row{display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;margin:6px 0;font-size:14px}.bl .st{font-size:12px}</style></head><body>
+<header><div class="crumb"><a href="../client_flow.html">&larr; Client journey</a> &middot; <a href="_template.html">Blank template</a></div><h1>Client checklists</h1><p>One page per client. Each shows every journey step and the 30-item onboarding checklist, with proof for each. Green = done, red = not done, amber = unclear, grey = N/A.</p></header>
+<main><div class="cards"><a class="cc" href="kmc.html"><div class="row"><h2>KMC Solutions</h2><span class="pill red">Churned (unpaid win-back in Nov)</span></div>
+<small>Health: Lost; mailboxes RED 3 Nov</small>
+<div class="pr"><b><span>Full checklist (from proof)</span><span>36 of 82 done</span></b><div class="pb"><i style="width:43.9%;background:var(--ok)"></i><i style="width:0.0%;background:var(--no)"></i><i style="width:0.0%;background:var(--un)"></i><i style="width:0.0%;background:#cbd5e1"></i></div></div><small>83 items: 53 journey steps + 30 onboarding items. 14 not done, 32 unclear, 1 N/A.</small>
+<div class="row"><span><b>50</b> items missing or to confirm</span></div>
+<div class="row bl"><span>Blacklist:</span><span class="st not_done">Loaded &#10008; Not done</span><span class="st not_done">Checked &#10008; Not done</span><span class="st not_done">Gate &#10008; Not done</span></div></a><a class="cc" href="prime-marketing.html"><div class="row"><h2>Prime Marketing</h2><span class="pill grey">Churned</span></div>
+<small>Health: Churned (Hub tenant inactive)</small>
+<div class="pr"><b><span>Full checklist (from proof)</span><span>43 of 82 done</span></b><div class="pb"><i style="width:52.4%;background:var(--ok)"></i><i style="width:0.0%;background:var(--no)"></i><i style="width:0.0%;background:var(--un)"></i><i style="width:0.0%;background:#cbd5e1"></i></div></div><small>83 items: 53 journey steps + 30 onboarding items. 5 not done, 34 unclear, 1 N/A.</small>
+<div class="row"><span><b>42</b> items missing or to confirm</span></div>
+<div class="row bl"><span>Blacklist:</span><span class="st not_done">Loaded &#10008; Not done</span><span class="st unclear">Checked ? Unclear</span><span class="st unclear">Gate ? Unclear</span></div></a><a class="cc" href="variolytics.html"><div class="row"><h2>Variolytics</h2><span class="pill red">Active, at risk</span></div>
+<small>Health: 43, red (At Risk since 27 Oct)</small>
+<div class="pr"><b><span>Full checklist (from proof)</span><span>44 of 77 done</span></b><div class="pb"><i style="width:57.1%;background:var(--ok)"></i><i style="width:0.0%;background:var(--no)"></i><i style="width:0.0%;background:var(--un)"></i><i style="width:0.0%;background:#cbd5e1"></i></div></div><small>83 items: 53 journey steps + 30 onboarding items. 4 not done, 29 unclear, 6 N/A.</small>
+<div class="row"><span><b>36</b> items missing or to confirm</span></div>
+<div class="row bl"><span>Blacklist:</span><span class="st done">Loaded &#10004; Done</span><span class="st done">Checked &#10004; Done</span><span class="st unclear">Gate ? Unclear</span></div></a><a class="cc" href="servicefirst.html"><div class="row"><h2>ServiceFirst</h2><span class="pill amber">Active pilot, ending soon</span></div>
+<small>Health: Not in file</small>
+<div class="pr"><b><span>Full checklist (from proof)</span><span>26 of 77 done</span></b><div class="pb"><i style="width:33.8%;background:var(--ok)"></i><i style="width:0.0%;background:var(--no)"></i><i style="width:0.0%;background:var(--un)"></i><i style="width:0.0%;background:#cbd5e1"></i></div></div><small>83 items: 53 journey steps + 30 onboarding items. 6 not done, 45 unclear, 6 N/A.</small>
+<div class="row"><span><b>53</b> items missing or to confirm</span></div>
+<div class="row bl"><span>Blacklist:</span><span class="st done">Loaded &#10004; Done</span><span class="st unclear">Checked ? Unclear</span><span class="st unclear">Gate ? Unclear</span></div></a><a class="cc" href="odd-latent.html"><div class="row"><h2>Odd Latent</h2><span class="pill green">Active pilot</span></div>
+<small>Health: 77, green</small>
+<div class="pr"><b><span>Full checklist (from proof)</span><span>49 of 75 done</span></b><div class="pb"><i style="width:65.3%;background:var(--ok)"></i><i style="width:0.0%;background:var(--no)"></i><i style="width:0.0%;background:var(--un)"></i><i style="width:0.0%;background:#cbd5e1"></i></div></div><small>83 items: 53 journey steps + 30 onboarding items. 0 not done, 26 unclear, 8 N/A.</small>
+<div class="row"><span><b>30</b> items missing or to confirm</span></div>
+<div class="row bl"><span>Blacklist:</span><span class="st done">Loaded &#10004; Done</span><span class="st done">Checked &#10004; Done</span><span class="st unclear">Gate ? Unclear</span></div></a></div>
+<p class="src">Built 4 Nov 2026 from the client files plus read-only checks in Client Hub and SmartLead. Not published. One client tracker holds plain-text passwords; values are never shown here.</p></main></body></html>

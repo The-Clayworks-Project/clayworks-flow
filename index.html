@@ -9814,8 +9814,6 @@ table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}td,th{b
 <label>Your name <select id="whoName"><option value="">Choose...</option><option>Joy</option><option>Theo</option><option>Callum</option><option value="__other">Other...</option></select></label>
 <input id="whoOther" type="text" placeholder="Type your name" hidden style="min-width:140px">
 <span class="syncstat" id="syncStat">Shared sync: checking...</span>
-<label id="syncUrlWrap" hidden>Sync URL <input id="syncUrlIn" type="text" placeholder="Paste Apps Script /exec URL" style="min-width:260px"></label>
-<button type="button" id="syncUrlSave" hidden>Connect</button>
 </div>
 <div class="tools"><input id="q" placeholder="Search steps, tools or people"><label><input type="checkbox" id="onlyBot"> Bots only</label><label><input type="checkbox" id="onlyMod"> Modifications only</label><button id="exp">Open all</button><button id="col">Close all</button><button id="copyMod" type="button">Copy modifications</button><button id="expData" type="button">Export</button><button id="impData" type="button">Import</button><button id="syncNow" type="button">Sync now</button><input type="file" id="impFile" accept="application/json,.json" hidden></div>
 <div id="list"></div>
@@ -10037,28 +10035,11 @@ async function migrateAndSync(){
     setSyncStat('Could not reach shared store (using local): '+err.message,'err');
   }
 }
-function wireSyncUrlUI(){
-  const wrap=document.getElementById('syncUrlWrap');
-  const inp=document.getElementById('syncUrlIn');
-  const btn=document.getElementById('syncUrlSave');
-  if(!wrap) return;
-  const show=!syncUrl();
-  wrap.hidden=!show; if(btn) btn.hidden=!show;
-  if(btn) btn.onclick=async()=>{
-    const v=(inp.value||'').trim();
-    if(!v || v.indexOf('http')!==0){ alert('Paste the full Apps Script web app URL'); return; }
-    localStorage.setItem(LS_SYNC,v);
-    wrap.hidden=true; btn.hidden=true;
-    await promptNameIfNeeded();
-    await migrateAndSync();
-  };
-}
 async function bootSync(){
   wireNameUI();
-  wireSyncUrlUI();
   const url=syncUrl();
   if(!url){
-    setSyncStat('Shared sync waiting for Apps Script URL (paste it above; local marks still work)','');
+    setSyncStat('Shared sync not configured (local marks still work)','');
     return;
   }
   /* Name first if unset, then migrate localStorage up */
